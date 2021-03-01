@@ -1,1 +1,1 @@
-"# spiral-core" 
+# spiral-core
