@@ -1,0 +1,90 @@
+<svg width="100%" height="100%" viewBox="0 0 831.6 831.6" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <desc></desc>
+
+  <defs>
+    <radialGradient id="rg1" cx="0.85" cy="0.261" r="50%">
+      <stop offset="5%" style="stop-color:violet;" />
+      <stop offset="15%" style="stop-color:indigo;" />
+      <stop offset="30%" style="stop-color:blue;" />
+      <stop offset="40%" style="stop-color:lime;" />
+      <stop offset="75%" style="stop-color:yellow;" />
+      <stop offset="90%" style="stop-color:orange;" />
+      <stop offset="100%" style="stop-color:red;" />
+    </radialGradient>
+    <radialGradient id="rg2" cx="0.15" cy="0.261" r="50%">
+      <stop offset="5%" style="stop-color:violet;" />
+      <stop offset="15%" style="stop-color:indigo;" />
+      <stop offset="30%" style="stop-color:blue;" />
+      <stop offset="40%" style="stop-color:lime;" />
+      <stop offset="75%" style="stop-color:yellow;" />
+      <stop offset="90%" style="stop-color:orange;" />
+      <stop offset="100%" style="stop-color:red;" />
+    </radialGradient>
+    <radialGradient id="rg3" cx="0.85" cy="0.739" r="50%">
+      <stop offset="5%" style="stop-color:violet;" />
+      <stop offset="15%" style="stop-color:indigo;" />
+      <stop offset="30%" style="stop-color:blue;" />
+      <stop offset="40%" style="stop-color:lime;" />
+      <stop offset="75%" style="stop-color:yellow;" />
+      <stop offset="90%" style="stop-color:orange;" />
+      <stop offset="100%" style="stop-color:red;" />
+    </radialGradient>
+    <radialGradient id="rg4" cx="0.15" cy="0.739" r="50%">
+      <stop offset="5%" style="stop-color:violet;" />
+      <stop offset="15%" style="stop-color:indigo;" />
+      <stop offset="30%" style="stop-color:blue;" />
+      <stop offset="40%" style="stop-color:lime;" />
+      <stop offset="75%" style="stop-color:yellow;" />
+      <stop offset="90%" style="stop-color:orange;" />
+      <stop offset="100%" style="stop-color:red;" />
+    </radialGradient>
+  </defs>
+  <g>
+    <g id="spirals" transform="translate(415.8,415.8) rotate(0)" style="fill:none;stroke-width:2px;stroke-linecap:round;">
+      <path id="spiral1" style="stroke:url(#rg1);" d="M0,0C22.14,0.37,43.56,-18.57,46.67,-46.67C50.4,-74.36,34.96,-109.99,0,-132C-34.23,-154.28,-87.55,-161.47,-140.01,-140.01C-192.3,-119.4,-242.11,-69.54,-264,0C-286.44,68.85,-279.38,156.51,-233.35,233.35C-188.34,310.17,-104.19,374.29,0,396" />
+      <path id="spiral2" style="stroke:url(#rg2);" d="M0,0C-22.14,0.37,-43.56,-18.57,-46.67,-46.67C-50.4,-74.36,-34.96,-109.99,0,-132C34.23,-154.28,87.56,-161.47,140.01,-140.01C192.3,-119.4,242.11,-69.54,264,0C286.44,68.85,279.38,156.51,233.35,233.35C188.34,310.17,104.19,374.29,0,396" />
+      <path id="spiral3" style="stroke:url(#rg3);" d="M0,0C22.14,-0.37,43.56,18.57,46.67,46.67C50.4,74.36,34.96,109.99,0,132C-34.23,154.28,-87.55,161.47,-140.01,140.01C-192.3,119.4,-242.11,69.54,-264,0C-286.44,-68.85,-279.38,-156.51,-233.35,-233.35C-188.34,-310.17,-104.19,-374.29,0,-396" />
+      <path id="spiral4" style="stroke:url(#rg4);" d="M0,0C-22.14,-0.37,-43.56,18.57,-46.67,46.67C-50.4,74.36,-34.96,109.99,0,132C34.23,154.28,87.56,161.47,140.01,140.01C192.3,119.4,242.11,69.54,264,0C286.44,-68.85,279.38,-156.51,233.35,-233.35C188.34,-310.17,104.19,-374.29,0,-396" />
+
+      <g id="spirals1">
+        <use xlink:href="#spiral1" transform="rotate(45)" />
+        <use xlink:href="#spiral1" transform="rotate(90)" />
+        <use xlink:href="#spiral1" transform="rotate(135)" />
+        <use xlink:href="#spiral1" transform="rotate(180)" />
+        <use xlink:href="#spiral1" transform="rotate(225)" />
+        <use xlink:href="#spiral1" transform="rotate(270)" />
+        <use xlink:href="#spiral1" transform="rotate(315)" />
+      </g>
+      <g id="spirals2">
+        <use xlink:href="#spiral2" transform="rotate(45)" />
+        <use xlink:href="#spiral2" transform="rotate(90)" />
+        <use xlink:href="#spiral2" transform="rotate(135)" />
+        <use xlink:href="#spiral2" transform="rotate(180)" />
+        <use xlink:href="#spiral2" transform="rotate(225)" />
+        <use xlink:href="#spiral2" transform="rotate(270)" />
+        <use xlink:href="#spiral2" transform="rotate(315)" />
+      </g>
+      <g id="spirals3">
+        <use xlink:href="#spiral3" transform="rotate(45)" />
+        <use xlink:href="#spiral3" transform="rotate(90)" />
+        <use xlink:href="#spiral3" transform="rotate(135)" />
+        <use xlink:href="#spiral3" transform="rotate(180)" />
+        <use xlink:href="#spiral3" transform="rotate(225)" />
+        <use xlink:href="#spiral3" transform="rotate(270)" />
+        <use xlink:href="#spiral3" transform="rotate(315)" />
+      </g>
+      <g id="spirals4">
+        <use xlink:href="#spiral4" transform="rotate(45)" />
+        <use xlink:href="#spiral4" transform="rotate(90)" />
+        <use xlink:href="#spiral4" transform="rotate(135)" />
+        <use xlink:href="#spiral4" transform="rotate(180)" />
+        <use xlink:href="#spiral4" transform="rotate(225)" />
+        <use xlink:href="#spiral4" transform="rotate(270)" />
+        <use xlink:href="#spiral4" transform="rotate(315)" />
+      </g>
+    </g>
+    <animateTransform attributeName="transform" type="rotate" from="0,415.8,415.8" to="360,415.8,415.8" dur="20s" repeatCount="indefinite" />
+  </g>
+
+</svg>

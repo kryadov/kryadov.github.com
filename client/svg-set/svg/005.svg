@@ -1,0 +1,50 @@
+<svg width="100%" height="100%" viewBox="0 0 4.4 4.4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <desc></desc>
+
+  <defs>
+    <radialGradient id="rg1" cx="0.667" cy="1" r="50%">
+      <stop offset="5%" style="stop-color:violet;" />
+      <stop offset="15%" style="stop-color:indigo;" />
+      <stop offset="30%" style="stop-color:blue;" />
+      <stop offset="40%" style="stop-color:lime;" />
+      <stop offset="75%" style="stop-color:yellow;" />
+      <stop offset="90%" style="stop-color:orange;" />
+      <stop offset="100%" style="stop-color:red;" />
+    </radialGradient>
+  </defs>
+  <g>
+    <g id="spirals" transform="translate(2.2,2.2) rotate(0)" style="stroke-width:0.011px">
+      <g style="fill:none;stroke-linecap:round;">
+        <path id="spiral1" style="stroke:url(#rg1);" d="M0,0a1,1,0,0,0,1,-1a1,1,0,0,0,-1,-1a2,2,0,0,0,-2,2" />
+
+        <g id="spirals1">
+          <use xlink:href="#spiral1" transform="rotate(15)" />
+          <use xlink:href="#spiral1" transform="rotate(30)" />
+          <use xlink:href="#spiral1" transform="rotate(45)" />
+          <use xlink:href="#spiral1" transform="rotate(60)" />
+          <use xlink:href="#spiral1" transform="rotate(75)" />
+          <use xlink:href="#spiral1" transform="rotate(90)" />
+          <use xlink:href="#spiral1" transform="rotate(105)" />
+          <use xlink:href="#spiral1" transform="rotate(120)" />
+          <use xlink:href="#spiral1" transform="rotate(135)" />
+          <use xlink:href="#spiral1" transform="rotate(150)" />
+          <use xlink:href="#spiral1" transform="rotate(165)" />
+          <use xlink:href="#spiral1" transform="rotate(180)" />
+          <use xlink:href="#spiral1" transform="rotate(195)" />
+          <use xlink:href="#spiral1" transform="rotate(210)" />
+          <use xlink:href="#spiral1" transform="rotate(225)" />
+          <use xlink:href="#spiral1" transform="rotate(240)" />
+          <use xlink:href="#spiral1" transform="rotate(255)" />
+          <use xlink:href="#spiral1" transform="rotate(270)" />
+          <use xlink:href="#spiral1" transform="rotate(285)" />
+          <use xlink:href="#spiral1" transform="rotate(300)" />
+          <use xlink:href="#spiral1" transform="rotate(315)" />
+          <use xlink:href="#spiral1" transform="rotate(330)" />
+          <use xlink:href="#spiral1" transform="rotate(345)" />
+        </g>
+      </g>
+    </g>
+    <animateTransform attributeName="transform" type="rotate" from="0,2.2,2.2" to="360,2.2,2.2" dur="10s" repeatCount="indefinite" />
+  </g>
+</svg>

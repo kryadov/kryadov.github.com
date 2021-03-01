@@ -1,0 +1,36 @@
+<svg width="100%" height="100%" viewBox="0 0 520 520"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <style type="text/css"><![CDATA[
+    .sw {fill:none;stroke:black;stroke-width:3px;}
+    .fo {fill-opacity:0.2;}
+    .color1 {fill:red;}
+    .color2 {fill:lime;}
+    .color3 {fill:blue;}
+  ]]>
+  </style>
+
+  <g transform="translate(10,10)">
+    <g class="sw">
+      <g id="orb" transform="rotate(0,250,250)">
+        <circle cx="250" cy="250" r="250" />
+
+        <g class="fo color1">
+          <g id="circles">
+            <circle cx="250" cy="125" r="125" />
+            <circle cx="250" cy="375" r="125" />
+          </g>
+        </g>
+        <use xlink:href="#circles" transform="rotate(60,250,250)" class="fo color2" />
+        <use xlink:href="#circles" transform="rotate(120,250,250)" class="fo color3" />
+
+      </g>
+      <use xlink:href="#orb" transform="rotate(15,250,250)" class="fo color2" />
+      <use xlink:href="#orb" transform="rotate(30,250,250)" class="fo color2" />
+      <use xlink:href="#orb" transform="rotate(45,250,250)" class="fo color2" />
+
+      <animateTransform attributeName="transform" type="rotate"  from="0,250,250" to="360,250,250" dur="10s" repeatCount="indefinite" />
+    </g>
+  </g>
+</svg>

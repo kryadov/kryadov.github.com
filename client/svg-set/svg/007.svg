@@ -1,0 +1,67 @@
+<svg width="100%" height="100%" viewBox="0 0 610 610" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <desc></desc>
+
+  <style type="text/css">
+    <![CDATA[
+    .c0 {stroke:#ff0000;}
+    .c1 {stroke:#ff7f00;}
+    .c2 {stroke:#ffff00;}
+    .c3 {stroke:#00ff00;}
+    .c4 {stroke:#0000ff;}
+    .c5 {stroke:#4b0082;}
+    .c6 {stroke:#9400d3;}
+
+    .black {stroke:#000;}
+    .hl {stroke:#000;stroke-width:8px;}
+  ]]>
+  </style>
+
+  <defs>
+    <symbol id="w1" viewBox="0 0 1000 1000">
+      <path id="wave" d="M0,500q31.25,-80,62.5,0t62.5,0t62.5,0t62.5,0t62.5,0t62.5,0t62.5,0t62.5,0t62.5,0t62.5,0t62.5,0t62.5,0t62.5,0t62.5,0t62.5,0t62.5,0t62.5,0" style="fill:none;" />
+    </symbol>
+  </defs>
+  <g>
+    <g id="waves" transform="translate(5,5)" style="stroke:#000;stroke-width:5px;">
+      <circle cx="300" cy="300" r="300" style="fill:#ffe;stroke:none;" />
+      <use width="600" height="600" xlink:href="#w1" class="c0" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(11.25,300,300)" class="c1" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(22.5,300,300)" class="c2" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(33.75,300,300)" class="c3" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(45,300,300)" class="c4" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(56.25,300,300)" class="c5" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(67.5,300,300)" class="c6" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(78.75,300,300)" class="c0" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(90,300,300)" class="c1" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(101.25,300,300)" class="c2" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(112.5,300,300)" class="c3" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(123.75,300,300)" class="c4" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(135,300,300)" class="c5" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(146.25,300,300)" class="c6" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(157.5,300,300)" class="c0" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(168.75,300,300)" class="c1" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(5.63,300,300)" class="black" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(16.88,300,300)" class="black" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(28.13,300,300)" class="black" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(39.38,300,300)" class="black" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(50.63,300,300)" class="black" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(61.88,300,300)" class="black" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(73.13,300,300)" class="black" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(84.38,300,300)" class="black" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(95.63,300,300)" class="black" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(106.88,300,300)" class="black" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(118.13,300,300)" class="black" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(129.38,300,300)" class="black" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(140.63,300,300)" class="black" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(151.88,300,300)" class="black" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(163.13,300,300)" class="black" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(174.38,300,300)" class="black" />
+      <use width="600" height="600" xlink:href="#w1" transform="rotate(185.63,300,300)" class="black" />
+
+      <circle cx="300" cy="300" r="300" style="fill:none;stroke-width:3px;" />
+    </g>
+    <animateTransform attributeName="transform" type="rotate" from="0,305,305" to="360,305,305" dur="10s" repeatCount="indefinite" />
+  </g>
+
+</svg>

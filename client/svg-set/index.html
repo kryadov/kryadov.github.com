@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spirals!</title>
+</head>
+
+<body>
+    <div id="root">
+        <script type="text/javascript">
+            for (let s = 1; s < 10; s++) {
+                var svg = document.createElement("img");
+                svg.alt = `00${s}`;
+                svg.src = `svg/00${s}.svg`;
+                document.getElementById("root").appendChild(svg);
+            }
+        </script>
+    </div>
+    <!-- <div>
+        <div id="sequence">
+            <div>
+                <ul id="root">
+                    <script type="text/javascript">
+                        for (let s = 1; s < 10; s++) {
+                            var li = document.createElement("li");
+                            var div = document.createElement("div");
+                            li.appendChild(div);
+                            var svg = document.createElement("img");
+                            div.append(svg);
+                            svg.alt = `00${s}`;
+                            svg.src = `svg/00${s}.svg`;
+                            document.getElementById("root").appendChild(li);
+                        }
+                    </script>
+                </ul>
+            </div>
+        </div>
+    </div> -->
+</body>
+
+</html>
