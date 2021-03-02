@@ -9,10 +9,11 @@
 <body>
     <div id="root">
         <script type="text/javascript">
-            for (let s = 1; s < 10; s++) {
-                var svg = document.createElement("img");
-                svg.alt = `00${s}`;
-                svg.src = `svg/00${s}.svg`;
+            for (let s = 1; s <= 10; s++) {
+                let svg = document.createElement("img");
+                let svgNum = ('00' + s).slice(-3);
+                svg.alt = svgNum;
+                svg.src = `svg/${svgNum}.svg`;
                 document.getElementById("root").appendChild(svg);
             }
         </script>
