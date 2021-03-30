@@ -18,7 +18,7 @@
     <g>
         <linearGradient id="linear-gradient2">
             <stop offset="0%" stop-color="purple"/>
-            <stop offset="100%" stop-color="black"/>
+            <stop offset="100%" stop-color="midnightblue"/>
         </linearGradient>
         <linearGradient id="linear-gradient3">
             <stop offset="0%" stop-color="blue"/>
