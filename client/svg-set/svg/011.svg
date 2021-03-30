@@ -20,9 +20,14 @@
             <stop offset="0%" stop-color="purple"/>
             <stop offset="100%" stop-color="black"/>
         </linearGradient>
+        <linearGradient id="linear-gradient3">
+            <stop offset="0%" stop-color="blue"/>
+            <stop offset="50%" stop-color="darkblue"/>
+            <stop offset="100%" stop-color="purple"/>
+        </linearGradient>
         <path d="M127.77 63.47l-20.7-.06a39.76 39.76 0 0 0-3.14-15.4 46.75 46.75 0 0 0-8.8-13.5l14.5-14.5s7.93 6.57 13.77 20.6a62.03 62.03 0 0 1 4.37 22.9zM87.64 123.4a62.05 62.05 0 0 1-22.9 4.37l.06-20.7a39.74 39.74 0 0 0 15.42-3.14 46.74 46.74 0 0 0 13.52-8.8l14.5 14.5s-6.57 7.93-20.6 13.77zM47.77 24.27a46.74 46.74 0 0 0-13.52 8.8l-14.5-14.5s6.56-7.93 20.6-13.77A62.04 62.04 0 0 1 63.25.44l-.06 20.7a39.75 39.75 0 0 0-15.46 3.13zm-23.5 55.96a46.74 46.74 0 0 0 8.8 13.52l-14.5 14.5s-7.93-6.57-13.76-20.6a62.04 62.04 0 0 1-4.33-22.9l20.7.06a39.75 39.75 0 0 0 3.14 15.46z"
               fill="url(#linear-gradient2)"/>
-        <circle cx="64.08" cy="64.08" r="4.92" fill="#160561"/>
+        <circle cx="64.08" cy="64.08" r="4.92" fill="url(#linear-gradient3)"/>
         <animateTransform attributeName="transform" type="rotate" from="0 64 64" to="90 64 64" dur="1170ms"
                           repeatCount="indefinite">
 
