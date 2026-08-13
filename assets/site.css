@@ -62,7 +62,20 @@ main {
   gap: 0.75rem;
   padding: 1.5rem 0 2rem;
 }
-.header__identity { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
+/* `flex: 1 1 0`, not `1 1 auto`. A flex container decides where to break lines
+   from the items' base sizes, before any shrinking happens — so an identity
+   whose base size is its full content width pushes the nav onto a second line,
+   where it lands hard against the left margin, no matter how shrinkable it is.
+   A zero base size takes the identity out of that calculation: it claims the
+   space the nav leaves over, and the tagline wraps under the name instead. */
+.header__identity {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1 1 0;
+  min-width: 0;
+}
 /* The file is 320px so it stays sharp on a dense screen, but the width and
    height attributes say 40 — the size it is actually drawn at. That way a
    missing or stale stylesheet renders a small square, not a 320px portrait.
@@ -75,13 +88,13 @@ main {
   object-fit: cover;
   flex: none;
 }
-.header__name { font-weight: 650; font-size: 1.05rem; }
-.header__tagline { color: var(--muted); font-size: 0.95rem; }
+.header__name { font-weight: 650; font-size: 1.05rem; flex: none; }
+.header__tagline { color: var(--muted); font-size: 0.95rem; min-width: 0; }
 
 /* Wrapping is not optional here. The nav carries three pages, three external
    links and the language toggle; on a 375px screen that is wider than the
    viewport, and without wrapping the tail simply leaves the page. */
-.nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; }
+.nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; flex: 0 0 auto; }
 .nav__link { color: var(--muted); text-decoration: none; }
 .nav__external { color: var(--muted); text-decoration: none; }
 .nav__link--current { color: var(--fg); font-weight: 600; }
@@ -280,11 +293,20 @@ img.card__cover { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: c
   font-size: 0.88rem;
 }
 
+/* The nav is about 500px of links. Below roughly 900px there is no honest way to
+   keep it beside the identity: squeezing the identity into the leftover turns it
+   into a narrow column with the avatar stranded on its own line. So give each of
+   them a full-width row instead — the same arrangement that works on a phone. */
+@media (max-width: 900px) {
+  .header { align-items: flex-start; }
+  .header__identity { flex: 1 1 100%; }
+  .nav { width: 100%; }
+}
+
 @media (max-width: 620px) {
   .header { padding-bottom: 1.25rem; }
   .header__tagline { flex-basis: 100%; }
-  /* Give the nav the full width so its own wrapping has somewhere to go. */
-  .nav { width: 100%; gap: 0.45rem 0.85rem; }
+  .nav { gap: 0.45rem 0.85rem; }
   .row__meta { width: 100%; }
   /* Five columns do not fit a phone. Let the table scroll inside its own box
      rather than making the whole page scroll sideways. */
