@@ -206,7 +206,7 @@
     "track": "teaching",
     "year": 2025,
     "stack": ["Podcast"],
-    "live": "/podcast/",
+    "live": "https://ysnit.mave.digital/",
     "cover": null,
     "title": { "en": "You should know IT", "ru": "You should know IT" },
     "summary": {
