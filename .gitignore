@@ -11,7 +11,9 @@ dist/
 
 # Private working files. These sit in the working tree of a public repository,
 # so `git add -A` must not be able to sweep them into a commit.
-#   private-repos.json  maps the opaque private-NN ids to real repository names
+#   private-repos.json  the opaque private-NN -> repository mapping. It lives in
+#                       the private site-docs repository now, not here; the rule
+#                       stays so that a stray copy can never be committed.
 #   private-review.txt  the proofreading dossier for the private copy
 #   dist-test/          the build test's output, left behind by a crashed run
 private-repos.json

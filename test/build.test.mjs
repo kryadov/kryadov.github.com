@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile, rm, stat } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { build, PASSTHROUGH } from '../build.mjs';
+import { loadPrivateRepos, secretNames, PRIVATE_REPOS_PATH } from '../scripts/private-repos.mjs';
 
 const OUT = 'dist-test';
 
@@ -77,22 +78,19 @@ test('no private repository name reaches the output as a github link', async (t)
 });
 
 test('no real private repository name appears in any tracked file', async (t) => {
-  // private-repos.json is gitignored, so it exists on the maintainer's machine and
-  // not in CI. Where it is absent there is nothing to check and nothing to leak.
-  let mapping;
-  try {
-    mapping = JSON.parse(await readFile('private-repos.json', 'utf8'));
-  } catch (error) {
-    if (error.code !== 'ENOENT') throw error;
-    t.skip('private-repos.json is not present');
+  // The mapping lives in the private site-docs repository, checked out beside
+  // this one. CI clones only the public repository, so it is absent there and
+  // there is nothing to check — and nothing that could leak.
+  const mapping = await loadPrivateRepos();
+  if (mapping === null) {
+    t.skip(`no mapping at ${PRIVATE_REPOS_PATH}`);
     return;
   }
 
   const tracked = execFileSync('git', ['ls-files'], { encoding: 'utf8' })
     .split('\n')
     .filter(Boolean);
-  const disclosed = new Set(mapping.alreadyPublic ?? []);
-  const names = Object.values(mapping.map).filter((name) => !disclosed.has(name));
+  const names = secretNames(mapping);
   assert.ok(names.length > 0, 'the mapping is empty');
 
   for (const file of tracked) {

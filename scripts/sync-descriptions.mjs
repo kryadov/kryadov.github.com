@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
+import { loadPrivateRepos, PRIVATE_REPOS_PATH } from './private-repos.mjs';
 
 const run = promisify(execFile);
 const apply = process.argv.includes('--apply');
@@ -10,8 +11,13 @@ const works = JSON.parse(await readFile('works.json', 'utf8'));
 
 // Private entries carry no repo field, and their id is an opaque private-NN slot
 // rather than a repository name — works.json is tracked in a public repository.
-// The real names live only in this gitignored mapping.
-const { map: privateRepos } = JSON.parse(await readFile('private-repos.json', 'utf8'));
+// The real names live only in the private site-docs repository.
+const mapping = await loadPrivateRepos();
+if (mapping === null) {
+  console.error(`no mapping at ${PRIVATE_REPOS_PATH} — check out kryadov/site-docs beside this repository, or set PRIVATE_REPOS.`);
+  process.exit(1);
+}
+const privateRepos = mapping.map;
 
 const targets = works
   .map((work) => ({
@@ -26,7 +32,7 @@ const targets = works
 
 const unmapped = works.filter((w) => w.private && !privateRepos[w.id]);
 if (unmapped.length > 0) {
-  console.error(`private-repos.json has no entry for: ${unmapped.map((w) => w.id).join(', ')}`);
+  console.error(`${mapping.path} has no entry for: ${unmapped.map((w) => w.id).join(', ')}`);
   process.exit(1);
 }
 
