@@ -5,7 +5,7 @@ import { LOCALES } from '../data.mjs';
 // The pages the header links to. `/lab/` is deliberately absent: it is reached
 // from its own hero card, not from the navigation. It is still built, still
 // bilingual, and still the readable index for the sketches — see build.mjs.
-export const PAGES = ['home', 'podcast'];
+export const PAGES = ['home', 'podcast', 'music'];
 
 const GITHUB_URL = 'https://github.com/kryadov';
 const TELEGRAM_URL = 'https://t.me/youshouldknowit';

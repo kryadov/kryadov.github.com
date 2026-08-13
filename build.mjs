@@ -6,6 +6,7 @@ import { outputPath } from './src/render/layout.mjs';
 import { renderHome } from './src/render/home.mjs';
 import { renderLab } from './src/render/lab.mjs';
 import { renderPodcast } from './src/render/podcast.mjs';
+import { renderMusic } from './src/render/music.mjs';
 
 // Copied verbatim so external links keep resolving. Never add docs, specs or
 // plans here: this repository is public and its output is published.
@@ -25,6 +26,7 @@ export async function build(outDir = 'dist') {
   const works = await loadWorks();
   const labItems = JSON.parse(await readFile('lab.json', 'utf8'));
   const podcastSections = JSON.parse(await readFile('podcast.json', 'utf8'));
+  const releases = JSON.parse(await readFile('music.json', 'utf8'));
 
   const written = [];
   for (const locale of LOCALES) {
@@ -36,6 +38,7 @@ export async function build(outDir = 'dist') {
         outputPath(locale, 'podcast'),
         renderPodcast(podcastSections, locale),
       ),
+      await writePage(outDir, outputPath(locale, 'music'), renderMusic(releases, locale)),
     );
   }
 

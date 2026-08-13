@@ -6,7 +6,7 @@ import { build, PASSTHROUGH } from '../build.mjs';
 
 const OUT = 'dist-test';
 
-test('build writes all six pages and the assets', async (t) => {
+test('build writes every page in both locales, and the assets', async (t) => {
   t.after(() => rm(OUT, { recursive: true, force: true }));
   await rm(OUT, { recursive: true, force: true });
   const written = await build(OUT);
@@ -14,9 +14,11 @@ test('build writes all six pages and the assets', async (t) => {
   assert.deepEqual(written.sort(), [
     'index.html',
     'lab/index.html',
+    'music/index.html',
     'podcast/index.html',
     'ru/index.html',
     'ru/lab/index.html',
+    'ru/music/index.html',
     'ru/podcast/index.html',
   ]);
 
