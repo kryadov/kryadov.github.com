@@ -17,27 +17,630 @@
     "detail": null
   },
   {
-    "id": "private-sample",
+    "id": "llm-hardware-calculator",
+    "repo": "llm-hardware-calculator",
+    "private": false,
+    "hero": true,
+    "track": "ai",
+    "year": 2026,
+    "stack": ["TypeScript", "vLLM", "GPU"],
+    "live": "https://kryadov.github.io/llm-hardware-calculator/",
+    "cover": null,
+    "title": { "en": "Inference TCO Calculator", "ru": "Калькулятор стоимости инференса" },
+    "summary": {
+      "en": "Works out what self-hosting Kimi, GLM, DeepSeek, Qwen or MiniMax actually costs — from accelerator count and parallelism scheme through racks, power and staffing to the price per million tokens. Every rejected configuration is reported with the size of the miss.",
+      "ru": "Считает, во что на самом деле обходится селф-хостинг Kimi, GLM, DeepSeek, Qwen или MiniMax: от числа ускорителей и схемы параллелизма до стоек, питания, людей и цены за миллион токенов. Каждая отвергнутая конфигурация объясняется с точностью до размера промаха."
+    },
+    "detail": null
+  },
+  {
+    "id": "art-morph",
+    "repo": "art-morph",
+    "private": false,
+    "hero": true,
+    "track": "interactive",
+    "year": 2026,
+    "stack": ["JavaScript", "WebGL", "GLSL"],
+    "live": "https://kryadov.github.io/art-morph/",
+    "cover": null,
+    "title": { "en": "Art Morph", "ru": "Art Morph" },
+    "summary": {
+      "en": "GPU fractals in WebGL with palettes drawn from Khokhloma and Gzhel folk painting. Zoom, pan, rotation and iteration depth all run on the graphics card.",
+      "ru": "Фракталы на GPU в WebGL с палитрами хохломской и гжельской росписи. Масштаб, панорама, поворот и глубина итераций — всё считает видеокарта."
+    },
+    "detail": null
+  },
+  {
+    "id": "video2docs",
+    "repo": "video2docs",
+    "private": false,
+    "hero": true,
+    "track": "ai",
+    "year": 2025,
+    "stack": ["Python", "Whisper", "FFmpeg"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "Video to Docs", "ru": "Видео в документ" },
+    "summary": {
+      "en": "Turns a YouTube link or a local video into a structured ODT, DOCX or PDF: speech recognised, slides pulled out of the frame, the whole thing organised by a language model.",
+      "ru": "Превращает ссылку на YouTube или локальный файл в структурированный ODT, DOCX или PDF: речь распознаётся, слайды вырезаются из кадра, а связный текст собирает языковая модель."
+    },
+    "detail": null
+  },
+  {
+    "id": "labyrinth7",
+    "repo": "labyrinth7",
+    "private": false,
+    "hero": true,
+    "track": "interactive",
+    "year": 2025,
+    "stack": ["Java", "JavaFX", "FXGL"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "Yet Another Labyrinth", "ru": "Ещё один лабиринт" },
+    "summary": {
+      "en": "A first-person maze game in Java 21 and JavaFX 3D. Every level generates a fresh maze; reach the animated exit and the next one grows.",
+      "ru": "Лабиринт от первого лица на Java 21 и JavaFX 3D. Каждый уровень — свежесгенерированный лабиринт; дошёл до анимированного выхода, следующий стал больше."
+    },
+    "detail": null
+  },
+  {
+    "id": "ai-for-business-tutorial",
+    "repo": "ai-for-business-tutorial",
+    "private": false,
+    "hero": true,
+    "track": "teaching",
+    "year": 2026,
+    "stack": ["TypeScript", "MDX"],
+    "live": "https://kryadov.github.io/ai-for-business-tutorial/",
+    "cover": null,
+    "title": { "en": "AI for Business", "ru": "ИИ для бизнеса" },
+    "summary": {
+      "en": "A handbook for people who sell, buy and scope AI projects without being AI engineers. It exists to settle the four words that derail most AI strategy conversations: assistant, RAG, text2SQL, agent.",
+      "ru": "Учебник для тех, кто продаёт, покупает и оценивает ИИ-проекты, не будучи ИИ-инженером. Написан, чтобы развести четыре слова, о которые спотыкается почти любой разговор об ИИ-стратегии: ассистент, RAG, text2SQL, агент."
+    },
+    "detail": null
+  },
+  {
+    "id": "search4people_v2",
+    "repo": "search4people_v2",
+    "private": false,
+    "hero": true,
+    "track": "ai",
+    "year": 2026,
+    "stack": ["Python", "LangGraph", "Chainlit"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "People Search Agent", "ru": "Агент поиска людей" },
+    "summary": {
+      "en": "A LangGraph state machine searches public profiles, stops to ask which candidate is the right one, then assembles a profile card with cited evidence. Public sources only.",
+      "ru": "Конечный автомат на LangGraph ищет публичные профили, останавливается и спрашивает, кто из кандидатов нужен, и собирает карточку со ссылками на источники. Только открытые данные."
+    },
+    "detail": null
+  },
+  {
+    "id": "payara-mcp-server",
+    "repo": "payara-mcp-server",
+    "private": false,
+    "hero": true,
+    "track": "ai",
+    "year": 2026,
+    "stack": ["Java", "MCP", "Gradle"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "Payara MCP Server", "ru": "MCP-сервер для Payara" },
+    "summary": {
+      "en": "An MCP server in Java that lets an assistant drive a Payara application server over STDIO: domain status, deployed applications, per-application configuration.",
+      "ru": "MCP-сервер на Java, через который ассистент управляет сервером приложений Payara по STDIO: статус доменов, развёрнутые приложения, конфигурация каждого из них."
+    },
+    "detail": null
+  },
+  {
+    "id": "private-01",
+    "repo": null,
+    "private": true,
+    "hero": true,
+    "track": "ai",
+    "year": 2025,
+    "stack": ["Python", "LangGraph", "Presidio"],
+    "live": null,
+    "cover": null,
+    "title": {
+      "en": "Enterprise Assistant on LangGraph",
+      "ru": "Корпоративный ассистент на LangGraph"
+    },
+    "summary": {
+      "en": "An assistant for a regulated environment: it answers from documentation, internal wikis, databases and component logs, under audit logging, personal-data anonymisation and prompt-injection screening.",
+      "ru": "Ассистент для регулируемой среды: отвечает по документации, внутренним вики, базам данных и логам компонентов — с аудит-логом, анонимизацией персональных данных и проверкой на инъекции в промпт."
+    },
+    "detail": {
+      "en": "The conversation runs as a LangGraph flow that gathers from several sources at once and keeps context across turns. Requests and responses pass through a screening layer: personal data is detected and anonymised before it reaches a model, and prompts are checked for injection attempts. Access is authenticated and rate-limited per user, and every exchange is written to an audit trail. Anything the assistant cannot answer confidently is escalated rather than guessed.",
+      "ru": "Диалог устроен как поток LangGraph: данные собираются из нескольких источников параллельно, контекст сохраняется между репликами. Запросы и ответы проходят через защитный слой — персональные данные распознаются и обезличиваются до того, как попадут в модель, а промпты проверяются на попытки инъекции. Доступ аутентифицирован, частота запросов ограничена по пользователю, каждый обмен пишется в аудит-лог. То, на что ассистент не может ответить уверенно, эскалируется, а не додумывается."
+    }
+  },
+  {
+    "id": "private-02",
     "repo": null,
     "private": true,
     "hero": true,
     "track": "jvm",
     "year": 2022,
-    "stack": ["Java", "PostgreSQL"],
+    "stack": ["Java", "JMX", "CVE"],
     "live": null,
     "cover": null,
     "title": {
-      "en": "Placeholder private project",
-      "ru": "Приватный проект — заглушка"
+      "en": "JVM Vulnerability Service",
+      "ru": "Сервис поиска уязвимостей в JVM"
     },
     "summary": {
-      "en": "Placeholder entry that exists only to exercise the private branch of the validator and the renderer. Task 14 replaces it.",
-      "ru": "Запись-заглушка, нужная только чтобы проверить приватную ветку валидатора и рендерера. Задача 14 её заменяет."
+      "en": "Watches running JVM applications for publicly disclosed vulnerabilities and tells the owning team what to do about them.",
+      "ru": "Следит за работающими JVM-приложениями на предмет публично известных уязвимостей и подсказывает команде, что с ними делать."
     },
     "detail": {
-      "en": "This entry describes no real project and contains no information about one. It exists so that Tasks 5 through 12 have a private record to render, validate and test against without committing any real private copy to a public repository. Its id is opaque, so it discloses no repository name. Task 14 deletes it and introduces the eleven real private entries, whose copy the owner proofreads at the Task 16 gate before anything is pushed.",
-      "ru": "Эта запись не описывает никакого реального проекта и не содержит сведений о нём. Она нужна, чтобы задачам с 5-й по 12-ю было что рендерить, валидировать и тестировать в приватной ветке, не отправляя реальные приватные тексты в публичный репозиторий. Идентификатор непрозрачен и не раскрывает имени репозитория. Задача 14 удаляет её и вводит одиннадцать настоящих приватных записей, тексты которых владелец вычитывает на шлюзе задачи 16 до любой отправки."
+      "en": "A Java agent attached to a running process reports what the JVM actually loaded, rather than what the build file claims. The service matches that inventory against open vulnerability databases and notifies the owning team, ranked by severity, with remediation options attached. Nodes are enrolled by an administrator and report their status over JMX and the service UI. Findings carry the evidence that produced them, so a team can see which loaded artefact triggered a match before deciding to act. The point is the gap it closes: dependency manifests and running processes drift apart, and only the second one is exploitable.",
+      "ru": "Java-агент, подключённый к работающему процессу, сообщает, что JVM загрузила на самом деле, а не что заявлено в сборочном файле. Сервис сверяет этот инвентарь с открытыми базами уязвимостей и уведомляет команду-владельца, ранжируя находки по важности и прилагая варианты устранения. Узлы заводит администратор, состояние видно через JMX и интерфейс сервиса. К каждой находке приложено основание: видно, какой именно загруженный артефакт дал совпадение, ещё до решения что-то менять. Смысл — в зазоре, который он закрывает: манифест зависимостей и живой процесс расходятся, а эксплуатируется только второй."
     }
+  },
+  {
+    "id": "osteopathic-examination-and-treatment-plan",
+    "repo": "osteopathic-examination-and-treatment-plan",
+    "private": false,
+    "hero": true,
+    "track": "medicine",
+    "year": 2025,
+    "stack": ["Python", "Flask", "Bootstrap"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "Osteopathic Examination", "ru": "Остеопатический осмотр" },
+    "summary": {
+      "en": "A Flask application for running a full osteopathic examination across the five WHO models, in eight interface languages. A language model turns the findings into a clinical summary, a working diagnosis and a prioritised treatment plan.",
+      "ru": "Приложение на Flask для полного остеопатического осмотра по пяти моделям ВОЗ, с интерфейсом на восьми языках. Языковая модель собирает из находок клиническое резюме, рабочий диагноз и приоритизированный план лечения."
+    },
+    "detail": null
+  },
+  {
+    "id": "podcast-ysnit",
+    "repo": null,
+    "private": false,
+    "hero": true,
+    "track": "teaching",
+    "year": 2025,
+    "stack": ["Podcast"],
+    "live": "/podcast/",
+    "cover": null,
+    "title": { "en": "You should know IT", "ru": "You should know IT" },
+    "summary": {
+      "en": "Conversations with IT people about what they actually do — architects, analysts, SRE, testers, designers, founders. Two seasons, indexed here by topic.",
+      "ru": "Разговоры с людьми из ИТ о том, чем они на самом деле занимаются: архитекторы, аналитики, SRE, тестировщики, дизайнеры, основатели. Два сезона, здесь — указатель по темам."
+    },
+    "detail": null
+  },
+  {
+    "id": "search4people",
+    "repo": "search4people",
+    "private": false,
+    "hero": false,
+    "track": "ai",
+    "year": 2025,
+    "stack": ["Python", "FastAPI", "SQLite"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "People Search", "ru": "Поиск людей" },
+    "summary": {
+      "en": "An earlier take on the same problem as the people search agent: FastAPI, DuckDuckGo, a confirmation loop and an LLM-written report, with the graph written out procedurally instead of with LangGraph.",
+      "ru": "Более ранний подход к той же задаче, что и агент поиска людей: FastAPI, DuckDuckGo, цикл подтверждения кандидата и отчёт от языковой модели — граф выписан процедурно, без LangGraph."
+    },
+    "detail": null
+  },
+  {
+    "id": "website2docs",
+    "repo": "website2docs",
+    "private": false,
+    "hero": false,
+    "track": "ai",
+    "year": 2026,
+    "stack": ["Python", "BeautifulSoup"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "Website to Docs", "ru": "Сайт в документ" },
+    "summary": {
+      "en": "Crawls a site within one domain and exports what it finds as a single PDF, DOCX or ODT. Deliberately dependency-light: no headless browser, plain heuristics for pulling readable text.",
+      "ru": "Обходит сайт в пределах одного домена и выгружает найденное одним PDF, DOCX или ODT. Нарочно лёгкий: без headless-браузера, читаемый текст вытаскивается простыми эвристиками."
+    },
+    "detail": null
+  },
+  {
+    "id": "my-ai-book-writer",
+    "repo": "my-ai-book-writer",
+    "private": false,
+    "hero": false,
+    "track": "ai",
+    "year": 2026,
+    "stack": ["Dart", "Flutter"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "AI Book Writer", "ru": "Писатель книг на ИИ" },
+    "summary": {
+      "en": "A desktop-first fiction editor in Flutter with the manuscript modelled as book, part, chapter and scene. Assistance comes from whichever provider you point it at — Ollama locally, or OpenAI, Gemini, Perplexity, OpenRouter.",
+      "ru": "Десктопный редактор прозы на Flutter, где рукопись разложена на книгу, части, главы и сцены. Помощь приходит от того провайдера, на который его направишь: локальная Ollama или OpenAI, Gemini, Perplexity, OpenRouter."
+    },
+    "detail": null
+  },
+  {
+    "id": "pdf2mp3",
+    "repo": "pdf2mp3",
+    "private": false,
+    "hero": false,
+    "track": "ai",
+    "year": 2026,
+    "stack": ["Python", "CUDA", "TTS"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "PDF to MP3", "ru": "PDF в аудио" },
+    "summary": {
+      "en": "Turns a PDF into an audiobook: a language model cleans the extracted text into something worth listening to, then a GPU renders it to speech.",
+      "ru": "Превращает PDF в аудиокнигу: языковая модель приводит извлечённый текст в пригодный для прослушивания вид, а видеокарта озвучивает результат."
+    },
+    "detail": null
+  },
+  {
+    "id": "multilingual-transcriber",
+    "repo": "multilingual-transcriber",
+    "private": false,
+    "hero": false,
+    "track": "ai",
+    "year": 2026,
+    "stack": ["Python", "faster-whisper", "pyannote"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "Multilingual Transcriber", "ru": "Многоязычная расшифровка" },
+    "summary": {
+      "en": "Transcribes audio and video locally with speaker diarisation, handling files that switch between Russian and English mid-sentence. Nothing leaves the machine.",
+      "ru": "Локально расшифровывает аудио и видео с разделением по говорящим и справляется с записями, где русский и английский чередуются посреди фразы. Ничего не уходит с машины."
+    },
+    "detail": null
+  },
+  {
+    "id": "podcasts-i18n",
+    "repo": "podcasts-i18n",
+    "private": false,
+    "hero": false,
+    "track": "ai",
+    "year": 2026,
+    "stack": ["Python", "Gemini", "SSML"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "Podcast Translator", "ru": "Перевод подкастов" },
+    "summary": {
+      "en": "Takes a speaker-labelled transcript, translates it, marks it up as SSML and renders a new MP3 — the same episode in another language, with a voice per speaker.",
+      "ru": "Берёт расшифровку с разметкой по говорящим, переводит её, размечает SSML и синтезирует новый MP3 — тот же эпизод на другом языке, с отдельным голосом на каждого участника."
+    },
+    "detail": null
+  },
+  {
+    "id": "docs-web-search-pgvector",
+    "repo": "docs-web-search-pgvector",
+    "private": false,
+    "hero": false,
+    "track": "ai",
+    "year": 2026,
+    "stack": ["Python", "PostgreSQL", "pgvector"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "Workspace RAG Search", "ru": "RAG-поиск по рабочим документам" },
+    "summary": {
+      "en": "Retrieval over documents with workspaces kept genuinely separate, built on PostgreSQL and pgvector rather than a dedicated vector store.",
+      "ru": "Поиск по документам с по-настоящему изолированными рабочими пространствами, построенный на PostgreSQL и pgvector вместо отдельного векторного хранилища."
+    },
+    "detail": null
+  },
+  {
+    "id": "vanna-2-demo",
+    "repo": "vanna-2-demo",
+    "private": false,
+    "hero": false,
+    "track": "ai",
+    "year": 2026,
+    "stack": ["Python", "FastAPI", "Vanna"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "Vanna v2 Reference Server", "ru": "Эталонный сервер Vanna v2" },
+    "summary": {
+      "en": "A minimal reference server for Vanna v2: FastAPI, a built-in chat UI, and the same conversation available over server-sent events, polling or a WebSocket, against four LLM providers.",
+      "ru": "Минимальный референсный сервер для Vanna v2: FastAPI, встроенный чат и один и тот же диалог через SSE, поллинг или WebSocket, поверх четырёх провайдеров моделей."
+    },
+    "detail": null
+  },
+  {
+    "id": "ai-adoption-interview",
+    "repo": "ai-adoption-interview",
+    "private": false,
+    "hero": false,
+    "track": "ai",
+    "year": 2026,
+    "stack": ["Python", "AWS Lambda", "Bedrock"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "AI Discovery Chat", "ru": "Интервью о внедрении ИИ" },
+    "summary": {
+      "en": "An interview assistant that walks a financial-sector company through an AI adoption discovery, built as a deliberately small AWS stack: one Lambda, Bedrock, DynamoDB.",
+      "ru": "Ассистент-интервьюер, который проводит компанию из финансового сектора через discovery по внедрению ИИ. Нарочно маленький стек на AWS: одна Lambda, Bedrock, DynamoDB."
+    },
+    "detail": null
+  },
+  {
+    "id": "analyze-it-trends-mcp-server",
+    "repo": "analyze-it-trends-mcp-server",
+    "private": false,
+    "hero": false,
+    "track": "ai",
+    "year": 2025,
+    "stack": ["Python", "FastMCP"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "IT Trends MCP Server", "ru": "MCP-сервер ИТ-трендов" },
+    "summary": {
+      "en": "An MCP server that gathers signals about which technologies are gaining ground — Reddit, Google Trends, GitHub Trending, Stack Overflow — and renders them as HTML, PDF or Excel reports.",
+      "ru": "MCP-сервер, который собирает сигналы о том, какие технологии набирают вес — Reddit, Google Trends, GitHub Trending, Stack Overflow — и сводит их в отчёты в HTML, PDF или Excel."
+    },
+    "detail": null
+  },
+  {
+    "id": "analyze-it-trends-telegram-bot",
+    "repo": "analyze-it-trends-telegram-bot",
+    "private": false,
+    "hero": false,
+    "track": "ai",
+    "year": 2025,
+    "stack": ["Python", "aiogram"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "IT Trends Telegram Bot", "ru": "Телеграм-бот ИТ-трендов" },
+    "summary": {
+      "en": "The consumer side of the trends server: an aiogram bot that runs the analysis on a schedule and publishes the result to a channel.",
+      "ru": "Потребитель того же сервера трендов: бот на aiogram запускает анализ по расписанию и публикует результат в канал."
+    },
+    "detail": null
+  },
+  {
+    "id": "vllm-windows-starter",
+    "repo": "vllm-windows-starter",
+    "private": false,
+    "hero": false,
+    "track": "ai",
+    "year": 2026,
+    "stack": ["Batchfile", "vLLM"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "vLLM on Windows", "ru": "vLLM под Windows" },
+    "summary": {
+      "en": "Batch scripts that get vLLM running on Windows without the usual afternoon of yak-shaving, with a launcher per model.",
+      "ru": "Батники, которые поднимают vLLM на Windows без обычного полудня возни, с отдельным запускателем на каждую модель."
+    },
+    "detail": null
+  },
+  {
+    "id": "shazam-artist-stats",
+    "repo": "shazam-artist-stats",
+    "private": false,
+    "hero": false,
+    "track": "ai",
+    "year": 2026,
+    "stack": ["Python", "CLI"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "Shazam Artist Stats", "ru": "Статистика артистов в Shazam" },
+    "summary": {
+      "en": "A zero-dependency CLI that reports how many times an artist has been Shazamed, per track. Shazam publishes no such API; this walks the iTunes catalogue and reads the counts off the public song pages.",
+      "ru": "CLI без единой зависимости, показывающий, сколько раз артиста шазамили, с разбивкой по трекам. Такого API у Shazam нет — утилита обходит каталог iTunes и снимает счётчики с публичных страниц песен."
+    },
+    "detail": null
+  },
+  {
+    "id": "private-03",
+    "repo": null,
+    "private": true,
+    "hero": false,
+    "track": "ai",
+    "year": 2026,
+    "stack": ["Python", "FastAPI", "MCP"],
+    "live": null,
+    "cover": null,
+    "title": {
+      "en": "Multi-Agent Analytics Assistant",
+      "ru": "Мультиагентный аналитический ассистент"
+    },
+    "summary": {
+      "en": "A multi-agent analytics assistant that answers business questions by pulling from databases, documents and REST services at once. A planner decides the route, specialised agents fetch, and a critic checks the answer before it is returned.",
+      "ru": "Мультиагентный аналитический ассистент, отвечающий на бизнес-вопросы, собирая данные из баз, документов и REST-сервисов сразу. Планировщик выбирает маршрут, специализированные агенты добывают данные, критик проверяет ответ перед выдачей."
+    },
+    "detail": {
+      "en": "The orchestrator is deliberately stateless: it loads and saves state externally at each step, so a conversation can be resumed or moved between workers. Tools are discovered rather than hard-wired, and each is rate-limited independently. A question is decomposed into sub-questions that run in parallel where they do not depend on one another, which is what keeps a multi-source answer inside a usable response time. The critic agent exists because the failure mode that matters in analytics is not a crash but a confident wrong number. When the critic cannot support a figure from the retrieved evidence, the assistant says so rather than smoothing it over.",
+      "ru": "Оркестратор нарочно не хранит состояние: на каждом шаге он загружает и сохраняет его снаружи, поэтому диалог можно продолжить или передать другому воркеру. Инструменты обнаруживаются, а не прописываются заранее, и у каждого своё ограничение по частоте. Вопрос раскладывается на подвопросы, которые считаются параллельно там, где не зависят друг от друга, — за счёт этого ответ по нескольким источникам укладывается в приемлемое время. Агент-критик появился потому, что в аналитике опасен не сбой, а уверенно названное неверное число. Если критик не может подтвердить цифру найденными данными, ассистент прямо об этом говорит, а не сглаживает."
+    }
+  },
+  {
+    "id": "private-04",
+    "repo": null,
+    "private": true,
+    "hero": false,
+    "track": "ai",
+    "year": 2025,
+    "stack": ["Python", "PostgreSQL", "Slack"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "Text2SQL for PostgreSQL", "ru": "Text2SQL для PostgreSQL" },
+    "summary": {
+      "en": "Natural-language questions turned into SQL against PostgreSQL, reachable from a CLI, a web UI or Slack, with a training pipeline that ingests schema, worked examples and prose documentation.",
+      "ru": "Вопросы на естественном языке превращаются в SQL к PostgreSQL — из CLI, веб-интерфейса или Slack. Обучающий конвейер поглощает схему, разобранные примеры и текстовую документацию."
+    },
+    "detail": {
+      "en": "Training data is treated as a first-class artefact rather than a prompt: schema definitions, question-and-query pairs and documentation are ingested into a local vector store and versioned alongside the code. The model provider is swappable, which matters when the database is not allowed to be reached by a hosted model. Generated SQL is shown before it runs, and read-only credentials keep an unlucky generation from becoming an incident. The three front ends share one service, so a query answered in Slack and the same query in the web UI take the identical path. What made it useful in practice was less the generation than the training loop: every corrected query goes back into the store and the same question stops being wrong.",
+      "ru": "Обучающие данные здесь — полноценный артефакт, а не промпт: определения схемы, пары «вопрос-запрос» и документация загружаются в локальное векторное хранилище и версионируются вместе с кодом. Провайдер модели заменяем — это важно, когда до базы нельзя допускать облачную модель. Сгенерированный SQL показывается до выполнения, а доступ только на чтение не даёт неудачной генерации превратиться в инцидент. Три интерфейса работают через один сервис, поэтому запрос из Slack и тот же запрос из веба идут одинаковым путём. Полезным на практике оказалась не столько генерация, сколько цикл дообучения: каждый исправленный запрос возвращается в хранилище, и тот же вопрос перестаёт быть ошибочным."
+    }
+  },
+  {
+    "id": "private-05",
+    "repo": null,
+    "private": true,
+    "hero": false,
+    "track": "ai",
+    "year": 2025,
+    "stack": ["Python", "AG2"],
+    "live": null,
+    "cover": null,
+    "title": {
+      "en": "Multi-Agent Assistant on AG2",
+      "ru": "Мультиагентный ассистент на AG2"
+    },
+    "summary": {
+      "en": "An earlier multi-agent assistant, built on AG2, splitting the work across a manager, a database agent, a documentation agent, a caching agent and a security agent that vets both requests and responses.",
+      "ru": "Более ранний мультиагентный ассистент на AG2: работа разложена между менеджером, агентом баз данных, агентом документации, агентом кеширования и агентом безопасности, который проверяет и запросы, и ответы."
+    },
+    "detail": {
+      "en": "Requests are classified and routed to a specialist rather than handled by one general agent, and the database agent retries its own failed queries instead of surfacing them. A caching agent matches new questions against previous ones by similarity, which cuts both cost and latency on the questions people actually repeat. The security agent sits on both sides of the exchange, screening what goes to a model and what comes back, so a single component owns that concern instead of it being sprinkled through the others. Splitting the roles this explicitly made each one testable on its own, which is the part that carried over into the later version. Its limitation was the flip side of the same choice: the routing lived inside agent conversations, and when it went wrong there was no graph to look at.",
+      "ru": "Запросы классифицируются и уходят к профильному агенту, а не обрабатываются одним универсальным; агент баз данных сам переспрашивает после неудачного запроса, а не выносит ошибку наверх. Агент кеширования сопоставляет новые вопросы с прежними по близости — это срезает и стоимость, и задержку на тех вопросах, которые люди действительно повторяют. Агент безопасности стоит с обеих сторон обмена, проверяя и то, что уходит в модель, и то, что возвращается: ответственность собрана в одном компоненте, а не размазана по остальным. Такое явное разделение ролей сделало каждую из них тестируемой отдельно — это и перешло в следующую версию. Ограничение было оборотной стороной того же решения: маршрутизация жила внутри разговоров агентов, и когда она ошибалась, смотреть было не на что."
+    }
+  },
+  {
+    "id": "private-06",
+    "repo": null,
+    "private": true,
+    "hero": false,
+    "track": "ai",
+    "year": 2025,
+    "stack": ["Python", "Celery", "Redis"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "PDF Audiobook Bot", "ru": "Бот для аудиокниг из PDF" },
+    "summary": {
+      "en": "The PDF-to-audiobook converter as a Telegram bot for many users at once: a Celery and Redis queue, live progress with an estimate, per-user access tokens and history.",
+      "ru": "Тот же конвертер PDF в аудиокнигу, но телеграм-ботом на много пользователей сразу: очередь на Celery и Redis, живой прогресс с оценкой времени, токены доступа и история по каждому."
+    },
+    "detail": {
+      "en": "Converting a book takes minutes on a GPU, so the interesting part is not the conversion but everything around it. The queue has to survive a restart without losing a job someone has been waiting ten minutes for, and progress has to mean something to the person watching rather than jumping from nothing to done. Access is handled with time-limited tokens issued per user, because a single GPU cannot serve an unbounded audience and the limit needs to be a policy rather than a queue that quietly grows. An admin side shows worker health and the current backlog, which is what tells you whether a stuck job is the file or the machine. The conversion itself is the same pipeline as the single-user tool; nearly all the code here is the operational shell around it.",
+      "ru": "Конвертация книги занимает минуты даже на видеокарте, поэтому интересна не она, а всё вокруг. Очередь должна пережить перезапуск, не потеряв задачу, которую человек ждёт уже десять минут, а прогресс — что-то говорить ждущему, а не прыгать от нуля к готово. Доступ устроен на токенах с ограниченным сроком по каждому пользователю: одна видеокарта не обслужит неограниченную аудиторию, и ограничение должно быть политикой, а не тихо растущей очередью. Админская часть показывает состояние воркеров и текущий затор — по ней и понятно, дело в файле или в машине. Сама конвертация — тот же конвейер, что и в однопользовательской утилите; почти весь код здесь — эксплуатационная оболочка вокруг него."
+    }
+  },
+  {
+    "id": "private-07",
+    "repo": null,
+    "private": true,
+    "hero": false,
+    "track": "ai",
+    "year": 2026,
+    "stack": ["Python", "Playwright", "Vosk"],
+    "live": null,
+    "cover": null,
+    "title": {
+      "en": "Book Club Voice Assistant",
+      "ru": "Голосовой ассистент книжного клуба"
+    },
+    "summary": {
+      "en": "A voice assistant that joins a Zoom call as an ordinary participant, listens for its name, and answers about the book under discussion — out loud and in the chat, quoting the passage it relied on.",
+      "ru": "Голосовой ассистент, который заходит в Zoom обычным участником, слушает, не назвали ли его по имени, и отвечает по обсуждаемой книге — голосом и в чат, с цитатой того места, на которое опирается."
+    },
+    "detail": {
+      "en": "The book is split into passages and indexed for full-text search before the call, so an answer can cite a specific place rather than paraphrase the whole thing. Audio is recognised locally and the reply is spoken through the system voice; the call itself is joined through the Zoom web client under browser automation, which avoids needing anything installed on the meeting side. Recognition runs continuously but the assistant only acts when it hears its own name, because a book club is a conversation between people and an assistant that answers unbidden ruins it. Latency is the real constraint: an answer that arrives after the discussion has moved on is worse than no answer, so retrieval is local and the index is built ahead of time. Quoting the source passage turned out to matter more than the answer itself — it lets the group argue with the book rather than with the assistant.",
+      "ru": "Книга заранее разбивается на отрывки и индексируется для полнотекстового поиска, поэтому ответ ссылается на конкретное место, а не пересказывает целое. Речь распознаётся локально, ответ произносится системным голосом, а в саму встречу ассистент заходит через веб-клиент Zoom под управлением браузерной автоматизации — на стороне встречи ничего ставить не нужно. Распознавание идёт непрерывно, но вмешивается ассистент только услышав своё имя: книжный клуб — это разговор людей, и ассистент, отвечающий без спроса, его портит. Настоящее ограничение — задержка: ответ, пришедший когда обсуждение ушло дальше, хуже, чем отсутствие ответа, поэтому поиск локальный, а индекс собран заранее. Цитата источника оказалась важнее самого ответа — она позволяет группе спорить с книгой, а не с ассистентом."
+    }
+  },
+  {
+    "id": "private-08",
+    "repo": null,
+    "private": true,
+    "hero": false,
+    "track": "ai",
+    "year": 2026,
+    "stack": ["Python", "Playwright"],
+    "live": null,
+    "cover": null,
+    "title": {
+      "en": "Attendee List Enrichment",
+      "ru": "Обогащение списков участников"
+    },
+    "summary": {
+      "en": "A skill for coding agents that takes a spreadsheet of seminar attendees and fills in what is publicly known about the companies they work for, returning a validated report with every claim carrying its source.",
+      "ru": "Навык для кодинг-агентов: берёт таблицу участников семинара и дополняет её тем, что публично известно о компаниях, где они работают, возвращая проверенный отчёт, где у каждого утверждения указан источник."
+    },
+    "detail": {
+      "en": "The work is split into independent units so an agent can dispatch them in parallel and each result can be validated on its own. Every piece of evidence carries the source it came from, and sources are labelled by how open they are, so whoever consumes the report can discard any tier they do not want to rely on. The output is schema-validated rather than free text, which is what makes it usable as an input to something else instead of as something a person has to read and retype. Anything the sources do not support is left empty rather than guessed — a blank cell is information, an invented one is a liability. Written as an agent skill rather than an application, it is a set of instructions and schemas a coding agent executes, so it fits wherever that agent already runs.",
+      "ru": "Работа разбита на независимые единицы, чтобы агент мог раздать их параллельно и проверить каждый результат отдельно. У каждого свидетельства указан источник, а источники размечены по степени открытости — потребитель отчёта может отбросить тот уровень, на который не хочет опираться. На выходе не свободный текст, а документ, проверенный по схеме: именно это позволяет подать его на вход чему-то ещё, а не заставлять человека читать и перенабирать. То, что источники не подтверждают, остаётся пустым, а не додумывается: пустая ячейка — это информация, выдуманная — это риск. Сделано не приложением, а навыком для агента: набор инструкций и схем, который кодинг-агент исполняет там, где он уже запущен."
+    }
+  },
+  {
+    "id": "private-09",
+    "repo": null,
+    "private": true,
+    "hero": false,
+    "track": "jvm",
+    "year": 2025,
+    "stack": ["Python", "LangChain"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "Vulnerable Class Finder", "ru": "Поиск уязвимых классов" },
+    "summary": {
+      "en": "Given a CVE identifier, works out which Java classes are actually the vulnerable ones, by reading the advisory, the linked commits and whatever references exist, and returns the fully qualified names with citations.",
+      "ru": "По идентификатору CVE выясняет, какие именно классы Java уязвимы: читает бюллетень, связанные коммиты и все доступные ссылки и возвращает полные имена классов с указанием источников."
+    },
+    "detail": {
+      "en": "A CVE record tells you a library and a version range; it rarely tells you which classes matter, and that is the thing you need to know whether your code is exposed. The agent pulls from advisory databases and source hosting, matches descriptions against class names, and returns structured output rather than prose. Where a fix commit is linked, the changed classes are the strongest available signal, so the commit is read in preference to the prose description. It works without search API keys, falling back to a simpler retrieval path when they are absent. Every class it names carries the reference that produced it, because an unsourced list of class names is not something anyone should act on.",
+      "ru": "Запись CVE называет библиотеку и диапазон версий, но почти никогда — конкретные классы, а именно это нужно, чтобы понять, задет ли твой код. Агент тянет данные из баз бюллетеней и хостингов исходников, сопоставляет описания с именами классов и отдаёт структурированный результат, а не прозу. Если к записи привязан коммит с исправлением, изменённые в нём классы — самый надёжный доступный сигнал, поэтому изменения коммита читаются прежде текстового описания. Работает и без ключей к поисковым API, переключаясь на более простой путь получения данных. У каждого названного класса указана ссылка, из которой он взят: список имён классов без источника — не то, по чему стоит действовать."
+    }
+  },
+  {
+    "id": "private-10",
+    "repo": null,
+    "private": true,
+    "hero": false,
+    "track": "jvm",
+    "year": 2025,
+    "stack": ["Python", "LangGraph"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "CVE Analyser", "ru": "Анализатор CVE" },
+    "summary": {
+      "en": "The second generation of the same idea, rebuilt on LangGraph: the same question about vulnerable Java classes, answered through an explicit graph with pluggable model providers and search backends.",
+      "ru": "Второе поколение той же идеи, переписанное на LangGraph: тот же вопрос об уязвимых классах Java, но через явный граф, со сменными провайдерами моделей и поисковыми бэкендами."
+    },
+    "detail": {
+      "en": "Rebuilding the agent as an explicit graph made the retry and fallback behaviour visible instead of buried in control flow. It processes repositories and commits linked from a CVE record, extracts what it can from non-repository references, and emits JSON. Both the model provider and the search backend are swappable, which is what lets the same graph run against a hosted model or a local one without touching the logic. When a node fails it degrades to a weaker source rather than aborting, so a partial answer with named sources beats no answer. Together with its predecessor and the JVM vulnerability service, it is the third pass at the same problem, each one moving further from manual work.",
+      "ru": "Переписывание агента в явный граф сделало видимыми повторные попытки и запасные пути, прежде размазанные по потоку управления. Он обрабатывает репозитории и коммиты, на которые ссылается запись CVE, вытаскивает что может из нерепозиторных ссылок и отдаёт JSON. Провайдер модели и поисковый бэкенд заменяемы — за счёт этого один и тот же граф работает и с облачной моделью, и с локальной, без правок логики. При отказе узла он спускается к более слабому источнику, а не прерывается: частичный ответ с указанными источниками лучше, чем никакого. Вместе с предшественником и сервисом уязвимостей JVM это третий подход к одной и той же задаче, каждый раз дальше от ручной работы."
+    }
+  },
+  {
+    "id": "zulu-tomcat",
+    "repo": "zulu-tomcat",
+    "private": false,
+    "hero": false,
+    "track": "jvm",
+    "year": 2025,
+    "stack": ["Shell", "Docker", "Tomcat"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "Zulu Tomcat Images", "ru": "Образы Tomcat на Zulu" },
+    "summary": {
+      "en": "A build matrix of Tomcat container images on Azul Zulu: three Tomcat and JDK generations across five base distributions, all generated from one configuration file.",
+      "ru": "Матрица сборок контейнеров Tomcat на Azul Zulu: три поколения Tomcat и JDK на пяти базовых дистрибутивах, всё генерируется из одного конфигурационного файла."
+    },
+    "detail": null
+  },
+  {
+    "id": "java_module_hello_world",
+    "repo": "java_module_hello_world",
+    "private": false,
+    "hero": false,
+    "track": "jvm",
+    "year": 2023,
+    "stack": ["Java", "Gradle", "jlink"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "Java Modules Example", "ru": "Пример модулей Java" },
+    "summary": {
+      "en": "A two-part worked example of the Java module system: dependent modules first, then a module that deliberately depends on components with known vulnerabilities, packaged with jlink.",
+      "ru": "Разобранный пример системы модулей Java в двух частях: сначала зависимые модули, затем модуль, который нарочно тянет компоненты с известными уязвимостями, упакованный через jlink."
+    },
+    "detail": null
   },
   {
     "id": "lab-fractals",
@@ -53,6 +656,145 @@
     "summary": {
       "en": "Eight variations on a recursive branching figure, animated in p5.js — the same generator run at different depths and branching factors.",
       "ru": "Восемь вариаций рекурсивной ветвящейся фигуры, анимированных на p5.js: один и тот же генератор при разной глубине и разном коэффициенте ветвления."
+    },
+    "detail": null
+  },
+  {
+    "id": "lab-spirals",
+    "repo": null,
+    "private": false,
+    "hero": false,
+    "track": "interactive",
+    "year": 2024,
+    "stack": ["SVG"],
+    "live": "/lab/",
+    "cover": null,
+    "title": { "en": "Spiral set", "ru": "Набор спиралей" },
+    "summary": {
+      "en": "Fourteen SVG spirals built by hand, laid out as a contact sheet — the same construction varied until it stopped being the same.",
+      "ru": "Четырнадцать SVG-спиралей, собранных вручную и выложенных контрольным листом: одна и та же конструкция, менявшаяся, пока не перестала быть той же."
+    },
+    "detail": null
+  },
+  {
+    "id": "lab-s1",
+    "repo": null,
+    "private": false,
+    "hero": false,
+    "track": "interactive",
+    "year": 2024,
+    "stack": ["SVG"],
+    "live": "/lab/",
+    "cover": null,
+    "title": { "en": "Path preloader", "ru": "Прелоадер по пути" },
+    "summary": {
+      "en": "A loading spinner made from a single SVG path animated inside a circular clip — no images, no script beyond setting the path.",
+      "ru": "Индикатор загрузки из одного SVG-пути, анимированного внутри круглой обрезки: ни картинок, ни скрипта сверх задания самого пути."
+    },
+    "detail": null
+  },
+  {
+    "id": "private-11",
+    "repo": null,
+    "private": true,
+    "hero": false,
+    "track": "interactive",
+    "year": 2021,
+    "stack": ["TypeScript", "Expo", "Android"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "Replax", "ru": "Replax" },
+    "summary": {
+      "en": "An Android application built with Expo. Its privacy policy and terms still live in this repository and are still served from it.",
+      "ru": "Приложение для Android на Expo. Его политика конфиденциальности и условия использования до сих пор лежат в этом репозитории и раздаются с него."
+    },
+    "detail": {
+      "en": "The application itself is closed, but two artefacts of it remain public and must stay reachable: the privacy policy and the terms and conditions, both linked from outside this site. They are the reason those two files are excluded from every cleanup, and the reason this entry exists at all rather than being dropped. Expo was chosen to get one codebase onto Android without a native toolchain, which was the right trade at the time and is why the project shipped. What is left is the least interesting part of the work and the only part that still has to run. It is listed here because a portfolio that quietly omits the things that ended is not an honest one.",
+      "ru": "Само приложение закрыто, но два его артефакта остаются публичными и должны оставаться доступными: политика конфиденциальности и условия использования, на которые ссылаются снаружи. Из-за них эти два файла исключены из любой уборки — и из-за них же эта запись вообще существует, а не выброшена. Expo был выбран, чтобы получить одну кодовую базу под Android без нативного тулчейна: на тот момент размен верный, и именно поэтому проект вышел. Осталась от него наименее интересная часть работы — и единственная, которая обязана продолжать работать. Он в списке потому, что портфолио, тихо опускающее то, что закончилось, честным не является."
+    }
+  },
+  {
+    "id": "ml-course",
+    "repo": "ml-course",
+    "private": false,
+    "hero": false,
+    "track": "teaching",
+    "year": 2026,
+    "stack": ["Python", "NumPy", "PyTorch"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "ML Practice Track", "ru": "Учебный трек по ML" },
+    "summary": {
+      "en": "A year of machine learning practice kept in public from day one, from NumPy vectorisation to training on a GPU — the repository is the portfolio.",
+      "ru": "Год практики по машинному обучению, который с первого дня ведётся открыто: от векторизации в NumPy до обучения на видеокарте. Репозиторий и есть портфолио."
+    },
+    "detail": null
+  },
+  {
+    "id": "gpt-tutorial",
+    "repo": "gpt-tutorial",
+    "private": false,
+    "hero": false,
+    "track": "teaching",
+    "year": 2024,
+    "stack": ["Python", "Java", "Node.js"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "GPT Tutorial", "ru": "Туториал по GPT" },
+    "summary": {
+      "en": "A numbered walk through working with language models, with the same ground covered in Python, Java and Node so a reader can follow it in their own language.",
+      "ru": "Пронумерованный проход по работе с языковыми моделями, где один и тот же материал разобран на Python, Java и Node — чтобы читатель шёл на своём языке."
+    },
+    "detail": null
+  },
+  {
+    "id": "vibecoding-episode-1-python-app",
+    "repo": "vibecoding-episode-1-python-app",
+    "private": false,
+    "hero": false,
+    "track": "teaching",
+    "year": 2025,
+    "stack": ["Python", "CLI"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "Vibecoding, episode 1", "ru": "Вайбкодинг, эпизод 1" },
+    "summary": {
+      "en": "The artefact from the first live coding episode: a weather CLI with no third-party dependencies, historical averages bundled and a live source behind a flag.",
+      "ru": "Артефакт первого эпизода живого кодинга: погодная утилита без сторонних зависимостей, с вшитыми историческими средними и живым источником по флагу."
+    },
+    "detail": null
+  },
+  {
+    "id": "vibecoding-episode-2-typescript-app",
+    "repo": "vibecoding-episode-2-typescript-app",
+    "private": false,
+    "hero": false,
+    "track": "teaching",
+    "year": 2025,
+    "stack": ["TypeScript", "React", "Node.js"],
+    "live": null,
+    "cover": null,
+    "title": { "en": "Vibecoding, episode 2", "ru": "Вайбкодинг, эпизод 2" },
+    "summary": {
+      "en": "The artefact from the second episode: a currency lookup built as a React front end over a TypeScript service, written in the same sitting.",
+      "ru": "Артефакт второго эпизода: поиск курса валют, собранный как React-фронтенд поверх сервиса на TypeScript, за один присест."
+    },
+    "detail": null
+  },
+  {
+    "id": "five-osteopathic-models-guide",
+    "repo": "five-osteopathic-models-guide",
+    "private": false,
+    "hero": false,
+    "track": "medicine",
+    "year": 2025,
+    "stack": ["JavaScript", "LocalStorage"],
+    "live": "https://kryadov.github.io/five-osteopathic-models-guide/",
+    "cover": null,
+    "title": { "en": "Five Osteopathic Models", "ru": "Пять остеопатических моделей" },
+    "summary": {
+      "en": "A bilingual teaching app for the five osteopathic models: each one explained, then quizzed, with the next locked until you clear eighty per cent and a review mode that keeps returning your mistakes.",
+      "ru": "Двуязычное учебное приложение по пяти остеопатическим моделям: каждая объясняется, затем проверяется тестом, следующая не открывается до восьмидесяти процентов, а режим повторения возвращает ошибки, пока они не кончатся."
     },
     "detail": null
   }

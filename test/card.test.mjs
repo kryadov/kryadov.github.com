@@ -19,7 +19,7 @@ const base = {
 
 const secret = {
   ...base,
-  id: 'cve-manager',
+  id: 'private-02',
   repo: null,
   private: true,
   live: null,
