@@ -51,3 +51,26 @@ test('every episode is linked', () => {
 test('is a complete document', () => {
   assert.match(renderPodcast(sections, 'ru'), /^<!doctype html>/);
 });
+
+test('the page links both the audio and the video channel', () => {
+  for (const locale of ['en', 'ru']) {
+    const page = renderPodcast(sections, locale);
+    assert.match(page, /href="https:\/\/ysnit\.mave\.digital\/"/);
+    assert.match(page, /href="https:\/\/www\.youtube\.com\/@you-should-know-it"/);
+  }
+});
+
+test('every episode the podcast publishes is listed exactly once', () => {
+  const codes = sections
+    .flatMap((s) => s.episodes)
+    .map((e) => Number(e.url.match(/ep-(\d+)$/)[1]))
+    .sort((a, b) => a - b);
+  assert.equal(new Set(codes).size, codes.length, 'an episode is listed twice');
+  assert.deepEqual(codes, Array.from({ length: 45 }, (_, i) => i + 1));
+});
+
+test('seasons are the three the podcast actually has', () => {
+  const seasons = new Set(sections.flatMap((s) => s.episodes).map((e) => e.season));
+  assert.deepEqual([...seasons].sort(), [1, 2, 3]);
+});
+

@@ -32,10 +32,18 @@ function table(section, locale) {
   `;
 }
 
+const AUDIO_URL = 'https://ysnit.mave.digital/';
+const VIDEO_URL = 'https://www.youtube.com/@you-should-know-it';
+
 export function renderPodcast(sections, locale) {
   const body = html`
     <main id="content">
       <h2 class="section__heading">${t(locale, 'heading.podcast')}</h2>
+      <p class="podcast__where">
+        ${t(locale, 'podcast.where')}
+        <a class="podcast__channel" href="${AUDIO_URL}">${t(locale, 'podcast.audio')}</a>
+        <a class="podcast__channel" href="${VIDEO_URL}">${t(locale, 'podcast.video')}</a>
+      </p>
       ${sections.map((section) => table(section, locale))}
     </main>
   `;
