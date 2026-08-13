@@ -213,6 +213,15 @@ img.card__cover { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: c
 }
 .podcast__table th { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.07em; }
 
+/* The intro is one short paragraph on purpose: the hero grid has to stay in the
+   first screen. */
+.intro {
+  margin: 0 0 2rem;
+  max-width: 46rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
 .music__lead { color: var(--muted); margin: 0 0 1.5rem; max-width: 46rem; }
 .music__grid {
   display: grid;

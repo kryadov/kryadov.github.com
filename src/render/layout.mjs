@@ -9,6 +9,7 @@ export const PAGES = ['home', 'podcast', 'music'];
 
 const GITHUB_URL = 'https://github.com/kryadov';
 const TELEGRAM_URL = 'https://t.me/youshouldknowit';
+const LINKEDIN_URL = 'https://www.linkedin.com/in/konstantin-ryadov/';
 
 export function pagePath(locale, page) {
   const segment = page === 'home' ? '' : `${page}/`;
@@ -37,6 +38,7 @@ function nav(locale, page) {
       )}
       <a class="nav__external" href="${GITHUB_URL}" rel="me">${t(locale, 'footer.github')}</a>
       <a class="nav__external" href="${TELEGRAM_URL}" rel="me">${t(locale, 'footer.telegram')}</a>
+      <a class="nav__external" href="${LINKEDIN_URL}" rel="me">${t(locale, 'footer.linkedin')}</a>
       <a
         class="nav__lang"
         href="${pagePath(other(locale), page)}"
@@ -77,6 +79,7 @@ export function layout({ locale, page, title, description, body }) {
     <footer class="footer">
       <a href="${GITHUB_URL}">${t(locale, 'footer.github')}</a>
       <a href="${TELEGRAM_URL}">${t(locale, 'footer.telegram')}</a>
+      <a href="${LINKEDIN_URL}">${t(locale, 'footer.linkedin')}</a>
       <a href="${`${GITHUB_URL}?tab=repositories`}">${t(locale, 'footer.allRepos')}</a>
     </footer>
   </body>

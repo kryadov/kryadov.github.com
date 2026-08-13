@@ -72,3 +72,11 @@ test('the header does not link the lab, which has its own card', () => {
   assert.match(head, /href="\/podcast\/"/);
 });
 
+test('linkedin is reachable from both the header and the footer', () => {
+  const url = 'https://www.linkedin.com/in/konstantin-ryadov/';
+  const head = page.slice(page.indexOf('<header'), page.indexOf('</header>'));
+  const foot = page.slice(page.indexOf('<footer'), page.indexOf('</footer>'));
+  assert.ok(head.includes(`href="${url}"`), 'missing from the header');
+  assert.ok(foot.includes(`href="${url}"`), 'missing from the footer');
+});
+

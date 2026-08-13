@@ -71,6 +71,7 @@ export function renderHome(works, locale) {
   const heroes = works.filter((work) => work.hero);
   const body = html`
     <main id="content">
+      <p class="intro">${t(locale, 'home.intro')}</p>
       <section id="heroes" class="heroes">
         <h2 class="section__heading">${t(locale, 'heading.heroes')}</h2>
         <div class="heroes__grid">${heroes.map((work) => heroCard(work, locale))}</div>

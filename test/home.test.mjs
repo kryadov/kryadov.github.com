@@ -77,3 +77,15 @@ test('the lab is one hero card, not three catalogue rows', async () => {
   assert.match(heroes, /href="\/lab\/"/, 'the lab card should link to the lab page');
 });
 
+test('the home page opens with the intro, above the heroes', async () => {
+  const { loadWorks } = await import('../src/data.mjs');
+  const works = await loadWorks();
+  for (const [locale, phrase] of [['en', 'Kostya Ryadov'], ['ru', 'Костя Рядов']]) {
+    const page = renderHome(works, locale);
+    const intro = page.indexOf('class="intro"');
+    assert.ok(intro !== -1, `${locale}: no intro`);
+    assert.ok(page.slice(intro, intro + 400).includes(phrase), `${locale}: intro does not introduce`);
+    assert.ok(intro < page.indexOf('heroes__grid'), `${locale}: intro is below the heroes`);
+  }
+});
+
