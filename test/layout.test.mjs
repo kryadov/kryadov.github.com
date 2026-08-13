@@ -82,11 +82,22 @@ test('linkedin is reachable from both the header and the footer', () => {
 
 test('the header carries the avatar, sized and decorative', () => {
   const head = page.slice(page.indexOf('<header'), page.indexOf('</header>'));
-  assert.match(head, /src="\/assets\/avatar\.jpg"/, 'no avatar');
-  // Explicit dimensions reserve the box, so the header does not jump when the
-  // image lands. Empty alt: the name follows in text, right there.
-  assert.match(head, /width="320"/);
-  assert.match(head, /height="320"/);
+  assert.match(head, /src="\/assets\/avatar\.jpg\?v=[0-9a-f]{8}"/, 'no versioned avatar');
+  // The attributes carry the drawn size, not the file's, so a stale or missing
+  // stylesheet cannot render a 320px portrait in the header.
+  assert.match(head, /width="40"/);
+  assert.match(head, /height="40"/);
   assert.match(head, /alt=""/);
+});
+
+test('assets are versioned by content, so a deploy cannot be met with stale css', () => {
+  // Without this, a returning visitor keeps the stylesheet they already have and
+  // sees the new markup laid out by the old rules — which looks like a bug.
+  const css = /<link rel="stylesheet" href="\/assets\/site\.css\?v=([0-9a-f]{8})"/.exec(page);
+  assert.ok(css, 'the stylesheet is not versioned');
+
+  const other = layout({ locale: 'ru', page: 'home', title: 'x', description: 'y', body: '' });
+  const again = /site\.css\?v=([0-9a-f]{8})/.exec(other);
+  assert.equal(again[1], css[1], 'the version must depend on the file, not the page');
 });
 

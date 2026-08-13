@@ -1,5 +1,6 @@
 import { html, raw } from '../html.mjs';
 import { t } from '../i18n.mjs';
+import { assetUrl } from '../assets.mjs';
 import { LOCALES } from '../data.mjs';
 
 // The pages the header links to. `/lab/` is deliberately absent: it is reached
@@ -64,7 +65,7 @@ export function layout({ locale, page, title, description, body }) {
     ${LOCALES.map(
       (l) => html`<link rel="alternate" hreflang="${l}" href="${pagePath(l, page)}" />`,
     )}
-    <link rel="stylesheet" href="/assets/site.css" />
+    <link rel="stylesheet" href="${assetUrl('/assets/site.css')}" />
   </head>
   <body>
     <a class="skip" href="#content">${t(locale, 'nav.skip')}</a>
@@ -72,9 +73,9 @@ export function layout({ locale, page, title, description, body }) {
       <div class="header__identity">
         <img
           class="header__avatar"
-          src="/assets/avatar.jpg"
-          width="320"
-          height="320"
+          src="${assetUrl('/assets/avatar.jpg')}"
+          width="40"
+          height="40"
           alt=""
           decoding="async"
         />

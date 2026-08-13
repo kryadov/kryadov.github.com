@@ -63,10 +63,11 @@ main {
   padding: 1.5rem 0 2rem;
 }
 .header__identity { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
-/* Intrinsic size is 320px so the file stays sharp on a high-density screen; the
-   width/height attributes are the real pixels, so the browser reserves the right
-   box before the image arrives and nothing jumps. alt is empty on purpose — the
-   name is the next element, and a screen reader should not hear it twice. */
+/* The file is 320px so it stays sharp on a dense screen, but the width and
+   height attributes say 40 — the size it is actually drawn at. That way a
+   missing or stale stylesheet renders a small square, not a 320px portrait.
+   alt is empty on purpose: the name is the next element, and a screen reader
+   should not read it twice. */
 .header__avatar {
   width: 40px;
   height: 40px;

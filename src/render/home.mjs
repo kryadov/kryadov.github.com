@@ -1,5 +1,6 @@
 import { html } from '../html.mjs';
 import { t } from '../i18n.mjs';
+import { assetUrl } from '../assets.mjs';
 import { TRACKS } from '../data.mjs';
 import { layout } from './layout.mjs';
 import { heroCard } from './card.mjs';
@@ -81,7 +82,7 @@ export function renderHome(works, locale) {
         ${filterBar(works, locale)} ${catalogueSection(works, locale)}
       </section>
     </main>
-    <script src="/assets/filter.js" defer></script>
+    <script src="${assetUrl('/assets/filter.js')}" defer></script>
   `;
   return layout({
     locale,
