@@ -1,0 +1,14 @@
+{
+  "name": "kryadov-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Bilingual showcase of works at kryadov.github.io",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "href": "/client/fractal/001/index-3.html",
+    "title": { "en": "Fractal, depth 3", "ru": "Фрактал, глубина 3" },
+    "note": { "en": "Branching factor 3, 3000 frames.", "ru": "Коэффициент ветвления 3, 3000 кадров." }
+  },
+  {
+    "href": "/client/fractal/001/index-4.html",
+    "title": { "en": "Fractal, depth 4", "ru": "Фрактал, глубина 4" },
+    "note": { "en": "One level deeper.", "ru": "На уровень глубже." }
+  },
+  {
+    "href": "/client/fractal/001/index-5.html",
+    "title": { "en": "Fractal, depth 5", "ru": "Фрактал, глубина 5" },
+    "note": { "en": "Five levels of recursion.", "ru": "Пять уровней рекурсии." }
+  },
+  {
+    "href": "/client/fractal/001/index-6.html",
+    "title": { "en": "Fractal, depth 6", "ru": "Фрактал, глубина 6" },
+    "note": { "en": "Denser, slower to settle.", "ru": "Плотнее и дольше устаканивается." }
+  },
+  {
+    "href": "/client/fractal/001/index-7.html",
+    "title": { "en": "Fractal, depth 7", "ru": "Фрактал, глубина 7" },
+    "note": { "en": "The branches start to overlap.", "ru": "Ветви начинают перекрываться." }
+  },
+  {
+    "href": "/client/fractal/001/index-8.html",
+    "title": { "en": "Fractal, depth 8", "ru": "Фрактал, глубина 8" },
+    "note": { "en": "Approaching a solid field.", "ru": "Почти сплошное поле." }
+  },
+  {
+    "href": "/client/fractal/001/index-9.html",
+    "title": { "en": "Fractal, depth 9", "ru": "Фрактал, глубина 9" },
+    "note": { "en": "Heavy on the CPU.", "ru": "Нагружает процессор." }
+  },
+  {
+    "href": "/client/fractal/001/index-10.html",
+    "title": { "en": "Fractal, depth 10", "ru": "Фрактал, глубина 10" },
+    "note": { "en": "The deepest of the set.", "ru": "Самый глубокий в наборе." }
+  },
+  {
+    "href": "/client/svg-set/",
+    "title": { "en": "Spiral set", "ru": "Набор спиралей" },
+    "note": { "en": "Fourteen hand-built SVG spirals.", "ru": "Четырнадцать SVG-спиралей, собранных вручную." }
+  },
+  {
+    "href": "/client/s1/",
+    "title": { "en": "Path preloader", "ru": "Прелоадер по пути" },
+    "note": { "en": "An SVG spinner animated along a clipped path.", "ru": "SVG-спиннер, анимированный вдоль обрезанного пути." }
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "name": { "en": "Openers", "ru": "Вводные" },
+    "episodes": [
+      { "season": 1, "episode": null, "date": "2024-06-06", "title": "Введение. Знай и умей ИТ об ИТ-людях", "url": "https://ysnit.mave.digital/ep-1", "length": "41:00" },
+      { "season": 2, "episode": null, "date": "2024-10-28", "title": "Второй сезон — открытый микрофон", "url": "https://ysnit.mave.digital/ep-17", "length": "57:00" }
+    ]
+  },
+  {
+    "name": { "en": "Analytics and data", "ru": "Аналитика и данные" },
+    "episodes": [
+      { "season": 2, "episode": 2, "date": "2024-11-15", "title": "Аналитик Иван — SQL, хранилища, витрины данных и обучающие курсы", "url": "https://ysnit.mave.digital/ep-19", "length": "30:07" },
+      { "season": 2, "episode": 3, "date": "2024-11-21", "title": "Системный аналитик-таймлайн Николай: BRD, BPMN, скоринг и PBR", "url": "https://ysnit.mave.digital/ep-20", "length": "31:07" },
+      { "season": 1, "episode": 9, "date": "2024-08-02", "title": "Эксперт по данным Иван — всё об открытой инженерии данных", "url": "https://ysnit.mave.digital/ep-10", "length": "35:02" }
+    ]
+  },
+  {
+    "name": { "en": "Design and frontend", "ru": "Дизайн и фронт" },
+    "episodes": [
+      { "season": 6, "episode": 6, "date": "2024-07-09", "title": "Фронтенд-разработчик Евгений — от HTML и серверного рендеринга до Vue и React", "url": "https://ysnit.mave.digital/ep-7", "length": "39:38" },
+      { "season": 7, "episode": 7, "date": "2024-07-18", "title": "UX-дизайнер Егор — от 3D Studio Max через мобильные приложения к IT-астрологии", "url": "https://ysnit.mave.digital/ep-8", "length": "40:49" }
+    ]
+  },
+  {
+    "name": { "en": "Java and development", "ru": "Java и разработка" },
+    "episodes": [
+      { "season": 2, "episode": 2, "date": "2024-11-01", "title": "Java-разработчик Антон: как попасть в IT, быть в теме и на волне", "url": "https://ysnit.mave.digital/ep-18", "length": "52:57" },
+      { "season": 1, "episode": 10, "date": "2024-08-09", "title": "Java-эксперт Алексей — знания в массы, время исполнения в бизнес", "url": "https://ysnit.mave.digital/ep-11", "length": "39:13" }
+    ]
+  },
+  {
+    "name": { "en": "QA and testing", "ru": "QA и тестирование" },
+    "episodes": [
+      { "season": 4, "episode": 1, "date": "2024-06-25", "title": "QA expert Анна — прагматика тестирования и много NDA", "url": "https://ysnit.mave.digital/ep-5", "length": "46:23" }
+    ]
+  },
+  {
+    "name": { "en": "Systems and infrastructure", "ru": "Системы и инфраструктура" },
+    "episodes": [
+      { "season": 2, "episode": 6, "date": "2024-12-27", "title": "SRE Иван — человек клаудной инфраструктуры", "url": "https://ysnit.mave.digital/ep-23", "length": "39:03" },
+      { "season": 1, "episode": 3, "date": "2024-06-18", "title": "Devops Стас — через тернии администрирования к dev ops в java-вендоре", "url": "https://ysnit.mave.digital/ep-4", "length": "33:18" }
+    ]
+  },
+  {
+    "name": { "en": "Artificial intelligence", "ru": "Искусственный интеллект" },
+    "episodes": [
+      { "season": 2, "episode": 4, "date": "2024-12-04", "title": "Техдир по ИИ Павел — диалоги об AI и запасном мозге", "url": "https://ysnit.mave.digital/ep-21", "length": "41:43" },
+      { "season": 2, "episode": 1, "date": "2024-06-11", "title": "Бэкендер Павел — от общения с профессионалами до соучредителя AI-проекта", "url": "https://ysnit.mave.digital/ep-3", "length": "49:51" }
+    ]
+  },
+  {
+    "name": { "en": "Career and growth", "ru": "Карьера и личное развитие" },
+    "episodes": [
+      { "season": 2, "episode": 5, "date": "2024-12-11", "title": "Генеральный директор Олег: как выйти из найма в собственный бизнес", "url": "https://ysnit.mave.digital/ep-22", "length": "33:41" },
+      { "season": 8, "episode": 8, "date": "2024-07-26", "title": "Руководитель Ольга — принятие решений и обратная совместимость в финтехе", "url": "https://ysnit.mave.digital/ep-9", "length": "28:42" },
+      { "season": 1, "episode": 1, "date": "2024-06-06", "title": "IT-архитектор Даниил — от проверки пин-кода до начисления процентов по кредиту", "url": "https://ysnit.mave.digital/ep-1", "length": "41:11" },
+      { "season": 14, "episode": 1, "date": "2024-09-06", "title": "Директор IT-компании, ментор, бизнес-тренер и спикер Юлия", "url": "https://ysnit.mave.digital/ep-15", "length": "49:40" },
+      { "season": 13, "episode": 1, "date": "2024-08-30", "title": "Интерпренер Денис — 30 лет эволюции платёжных карт, уборка мусора, психология и сельское хозяйство", "url": "https://ysnit.mave.digital/ep-14", "length": "30:17" }
+    ]
+  },
+  {
+    "name": { "en": "Leaving IT", "ru": "Выйти из ИТ" },
+    "episodes": [
+      { "season": 11, "episode": 1, "date": "2024-08-16", "title": "Исследователь экопоселений Сергей — кафедра, хакатон, коливинг, геймчейнджеры, часть 1", "url": "https://ysnit.mave.digital/ep-12", "length": "41:13" },
+      { "season": 12, "episode": 1, "date": "2024-08-23", "title": "Исследователь экопоселений Сергей — Восток 6, Анконференция и экопоселения, часть 2", "url": "https://ysnit.mave.digital/ep-13", "length": "32:36" }
+    ]
+  }
+]

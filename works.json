@@ -1,0 +1,59 @@
+[
+  {
+    "id": "race-the-city",
+    "repo": "race-the-city",
+    "private": false,
+    "hero": true,
+    "track": "interactive",
+    "year": 2026,
+    "stack": ["TypeScript", "Three.js", "OpenStreetMap"],
+    "live": "https://race-the-city.games",
+    "cover": null,
+    "title": { "en": "Race the City", "ru": "Гонки по городу" },
+    "summary": {
+      "en": "Type a city name and drive through a low-poly version of its real streets, built on the fly from OpenStreetMap and terrain tiles. Traffic, weather and a day/night cycle included; no backend.",
+      "ru": "Вводишь название города — и едешь по его настоящим улицам, собранным на лету из OpenStreetMap и тайлов рельефа. С трафиком, погодой и сменой дня и ночи, без единого запроса к серверу."
+    },
+    "detail": null
+  },
+  {
+    "id": "private-sample",
+    "repo": null,
+    "private": true,
+    "hero": true,
+    "track": "jvm",
+    "year": 2022,
+    "stack": ["Java", "PostgreSQL"],
+    "live": null,
+    "cover": null,
+    "title": {
+      "en": "Placeholder private project",
+      "ru": "Приватный проект — заглушка"
+    },
+    "summary": {
+      "en": "Placeholder entry that exists only to exercise the private branch of the validator and the renderer. Task 14 replaces it.",
+      "ru": "Запись-заглушка, нужная только чтобы проверить приватную ветку валидатора и рендерера. Задача 14 её заменяет."
+    },
+    "detail": {
+      "en": "This entry describes no real project and contains no information about one. It exists so that Tasks 5 through 12 have a private record to render, validate and test against without committing any real private copy to a public repository. Its id is opaque, so it discloses no repository name. Task 14 deletes it and introduces the eleven real private entries, whose copy the owner proofreads at the Task 16 gate before anything is pushed.",
+      "ru": "Эта запись не описывает никакого реального проекта и не содержит сведений о нём. Она нужна, чтобы задачам с 5-й по 12-ю было что рендерить, валидировать и тестировать в приватной ветке, не отправляя реальные приватные тексты в публичный репозиторий. Идентификатор непрозрачен и не раскрывает имени репозитория. Задача 14 удаляет её и вводит одиннадцать настоящих приватных записей, тексты которых владелец вычитывает на шлюзе задачи 16 до любой отправки."
+    }
+  },
+  {
+    "id": "lab-fractals",
+    "repo": null,
+    "private": false,
+    "hero": false,
+    "track": "interactive",
+    "year": 2024,
+    "stack": ["p5.js", "Canvas"],
+    "live": "/lab/",
+    "cover": null,
+    "title": { "en": "Recursive fractals", "ru": "Рекурсивные фракталы" },
+    "summary": {
+      "en": "Eight variations on a recursive branching figure, animated in p5.js — the same generator run at different depths and branching factors.",
+      "ru": "Восемь вариаций рекурсивной ветвящейся фигуры, анимированных на p5.js: один и тот же генератор при разной глубине и разном коэффициенте ветвления."
+    },
+    "detail": null
+  }
+]
