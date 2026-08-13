@@ -44,9 +44,19 @@ test('renders a complete document in the requested locale', () => {
   assert.match(renderMusic(releases, 'en'), /Music/);
 });
 
-test('the artist name is shown but not translated', () => {
+test('the artist is named once on the page itself, not on every tile', () => {
   for (const locale of ['en', 'ru']) {
-    assert.match(renderMusic(releases, locale), /PERSONAL ANIMOSITY/);
+    const page = renderMusic(releases, locale);
+    // The head is allowed to repeat it — description and og:description are how
+    // the page is found. What must not repeat is the visible body.
+    const main = page.slice(page.indexOf('<main'), page.indexOf('</main>'));
+    assert.equal(
+      (main.match(new RegExp(ARTIST, 'g')) ?? []).length,
+      1,
+      `the artist name is repeated in the ${locale} body`,
+    );
+    const lead = main.slice(main.indexOf('music__lead'), main.indexOf('music__grid'));
+    assert.ok(lead.includes(ARTIST), 'the artist should be named in the lead');
   }
 });
 

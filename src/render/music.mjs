@@ -16,10 +16,7 @@ export function renderMusic(releases, locale) {
         ${releases.map(
           (release) => html`
             <li class="music__item">
-              <a class="music__link" href="${release.url}">
-                <span class="music__title">${release.title}</span>
-                <span class="music__artist">${ARTIST}</span>
-              </a>
+              <a class="music__link" href="${release.url}">${release.title}</a>
             </li>
           `,
         )}
