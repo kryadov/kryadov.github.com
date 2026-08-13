@@ -63,3 +63,17 @@ test('the private entry leaks no github url anywhere on the page', () => {
   const page = renderHome(works, 'en');
   assert.ok(!page.includes('github.com/kryadov/tail-b'));
 });
+
+test('the lab is one hero card, not three catalogue rows', async () => {
+  const { loadWorks } = await import('../src/data.mjs');
+  const works = await loadWorks();
+  const lab = works.filter((w) => w.live === '/lab/');
+  assert.equal(lab.length, 1, 'the lab should be a single entry');
+  assert.equal(lab[0].id, 'lab');
+  assert.ok(lab[0].hero, 'the lab entry should be a hero');
+
+  const page = renderHome(works, 'en');
+  const heroes = page.slice(page.indexOf('heroes__grid'), page.indexOf('id="catalogue"'));
+  assert.match(heroes, /href="\/lab\/"/, 'the lab card should link to the lab page');
+});
+

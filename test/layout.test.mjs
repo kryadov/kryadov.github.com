@@ -65,3 +65,10 @@ test('the header carries the github and telegram links', () => {
   assert.match(head, /href="https:\/\/github\.com\/kryadov"/);
   assert.match(head, /href="https:\/\/t\.me\/youshouldknowit"/);
 });
+
+test('the header does not link the lab, which has its own card', () => {
+  const head = page.slice(page.indexOf('<header'), page.indexOf('</header>'));
+  assert.ok(!head.includes('href="/lab/"'), 'the lab is reached from its card, not the nav');
+  assert.match(head, /href="\/podcast\/"/);
+});
+
