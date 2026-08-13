@@ -25,6 +25,7 @@ test('build writes every page in both locales, and the assets', async (t) => {
 
   await stat(`${OUT}/assets/site.css`);
   await stat(`${OUT}/assets/filter.js`);
+  await stat(`${OUT}/assets/avatar.jpg`);
 });
 
 test('the preserved urls survive the build', async (t) => {

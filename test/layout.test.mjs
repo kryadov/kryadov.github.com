@@ -80,3 +80,13 @@ test('linkedin is reachable from both the header and the footer', () => {
   assert.ok(foot.includes(`href="${url}"`), 'missing from the footer');
 });
 
+test('the header carries the avatar, sized and decorative', () => {
+  const head = page.slice(page.indexOf('<header'), page.indexOf('</header>'));
+  assert.match(head, /src="\/assets\/avatar\.jpg"/, 'no avatar');
+  // Explicit dimensions reserve the box, so the header does not jump when the
+  // image lands. Empty alt: the name follows in text, right there.
+  assert.match(head, /width="320"/);
+  assert.match(head, /height="320"/);
+  assert.match(head, /alt=""/);
+});
+

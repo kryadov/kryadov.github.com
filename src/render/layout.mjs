@@ -70,6 +70,14 @@ export function layout({ locale, page, title, description, body }) {
     <a class="skip" href="#content">${t(locale, 'nav.skip')}</a>
     <header class="header">
       <div class="header__identity">
+        <img
+          class="header__avatar"
+          src="/assets/avatar.jpg"
+          width="320"
+          height="320"
+          alt=""
+          decoding="async"
+        />
         <span class="header__name">${t(locale, 'site.name')}</span>
         <span class="header__tagline">${t(locale, 'site.tagline')}</span>
       </div>

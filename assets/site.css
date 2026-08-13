@@ -62,12 +62,27 @@ main {
   gap: 0.75rem;
   padding: 1.5rem 0 2rem;
 }
-.header__identity { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; }
+.header__identity { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
+/* Intrinsic size is 320px so the file stays sharp on a high-density screen; the
+   width/height attributes are the real pixels, so the browser reserves the right
+   box before the image arrives and nothing jumps. alt is empty on purpose — the
+   name is the next element, and a screen reader should not hear it twice. */
+.header__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: none;
+}
 .header__name { font-weight: 650; font-size: 1.05rem; }
 .header__tagline { color: var(--muted); font-size: 0.95rem; }
 
-.nav { display: flex; align-items: center; gap: 1rem; }
+/* Wrapping is not optional here. The nav carries three pages, three external
+   links and the language toggle; on a 375px screen that is wider than the
+   viewport, and without wrapping the tail simply leaves the page. */
+.nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; }
 .nav__link { color: var(--muted); text-decoration: none; }
+.nav__external { color: var(--muted); text-decoration: none; }
 .nav__link--current { color: var(--fg); font-weight: 600; }
 .nav__lang {
   border: 1px solid var(--line);
@@ -88,7 +103,7 @@ main {
 
 .heroes__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(310px, 100%), 1fr));
   gap: var(--gap);
 }
 
@@ -225,7 +240,7 @@ img.card__cover { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: c
 .music__lead { color: var(--muted); margin: 0 0 1.5rem; max-width: 46rem; }
 .music__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
   gap: 0.75rem;
   list-style: none;
   padding: 0;
@@ -241,7 +256,7 @@ img.card__cover { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: c
   font-weight: 600;
 }
 
-.lab__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+.lab__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); gap: 1rem; }
 .lab__item {
   display: block;
   padding: 1rem;
@@ -267,5 +282,11 @@ img.card__cover { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: c
 @media (max-width: 620px) {
   .header { padding-bottom: 1.25rem; }
   .header__tagline { flex-basis: 100%; }
+  /* Give the nav the full width so its own wrapping has somewhere to go. */
+  .nav { width: 100%; gap: 0.45rem 0.85rem; }
   .row__meta { width: 100%; }
+  /* Five columns do not fit a phone. Let the table scroll inside its own box
+     rather than making the whole page scroll sideways. */
+  .podcast__table { display: block; overflow-x: auto; white-space: nowrap; }
+  .podcast__table td:nth-child(4) { white-space: normal; min-width: 16rem; }
 }
