@@ -105,6 +105,11 @@ test('front matter wins over the first paragraph', () => {
   assert.equal(post.summary, 'Chosen.');
 });
 
+test('a link whose URL contains parentheses does not garble the summary', () => {
+  const post = parsePost('# T\n\nSee [this](https://x.test/a(b)c) for more.\n\nEnd.\n');
+  assert.equal(post.summary, 'See this for more.');
+});
+
 test('truncate leaves short text alone', () => {
   assert.equal(truncate('Short enough.'), 'Short enough.');
 });
@@ -161,6 +166,23 @@ test('a file that does not follow the naming contract is an error', async () => 
     '2026-08-16-ok.en.md': body(), '2026-08-16-ok.ru.md': body(),
   });
   await assert.rejects(loadPosts(dir), /draft\.md/);
+});
+
+test('a slug outside the allowed characters is an error naming the slug', async () => {
+  const dir = await dirWith({
+    '2026-08-16-Bad_Slug.en.md': body(), '2026-08-16-Bad_Slug.ru.md': body(),
+    '2026-08-16-Upper.en.md': body(), '2026-08-16-Upper.ru.md': body(),
+    '2026-08-16-with_underscore.en.md': body(), '2026-08-16-with_underscore.ru.md': body(),
+    '2026-08-16--leading.en.md': body(), '2026-08-16--leading.ru.md': body(),
+    '2026-08-16-trailing-.en.md': body(), '2026-08-16-trailing-.ru.md': body(),
+  });
+  const error = await loadPosts(dir).then(() => null, (e) => e);
+  assert.ok(error, 'expected a rejection');
+  assert.match(error.message, /slug Bad_Slug/);
+  assert.match(error.message, /slug Upper/);
+  assert.match(error.message, /slug with_underscore/);
+  assert.match(error.message, /slug -leading/);
+  assert.match(error.message, /slug trailing-/);
 });
 
 test('a date that is not on the calendar is an error', async () => {

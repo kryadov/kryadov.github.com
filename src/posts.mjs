@@ -68,10 +68,17 @@ function takeTitle(text) {
   return { title, body: lines.join('\n').trim() };
 }
 
+// The URL in parens may itself contain one level of nested parens (Wikipedia
+// links, parenthetical citations); a bare [^)]* stops at the first ) and
+// garbles the surrounding text, so one level of nesting is tolerated here.
+const PAREN_URL = '(?:[^()]|\\([^()]*\\))*';
+const IMAGE = new RegExp(`!\\[[^\\]]*\\]\\(${PAREN_URL}\\)`, 'g');
+const LINK = new RegExp(`\\[([^\\]]*)\\]\\(${PAREN_URL}\\)`, 'g');
+
 function stripInline(text) {
   return text
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
-    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(IMAGE, '')
+    .replace(LINK, '$1')
     .replace(/`([^`]*)`/g, '$1')
     .replace(/\*\*([^*]+)\*\*/g, '$1')
     .replace(/__([^_]+)__/g, '$1')
