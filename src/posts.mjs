@@ -115,7 +115,22 @@ export function parsePost(text) {
 }
 
 export async function loadPosts(dir = 'posts') {
-  const names = (await readdir(dir)).sort();
+  // A missing directory is not an error; it means there are no posts. This is
+  // needed because git cannot track empty directories: if all posts are removed,
+  // a fresh clone will have no posts/ directory at all, and the site must still
+  // build with an empty blog. Any other error propagates: permissions failures,
+  // a corrupt filesystem, etc., must be reported, not silently treated as "no posts".
+  let names;
+  try {
+    names = await readdir(dir);
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      names = [];
+    } else {
+      throw error;
+    }
+  }
+  names.sort();
   const errors = [];
   const bySlug = new Map();
 

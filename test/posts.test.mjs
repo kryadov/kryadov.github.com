@@ -155,6 +155,11 @@ test('an empty directory loads as an empty list, not an error', async () => {
   assert.deepEqual(await loadPosts(await dirWith({})), []);
 });
 
+test('a non-existent directory returns an empty list, not an error', async () => {
+  const nonExistent = join(tmpdir(), 'posts-nonexistent-does-not-exist-12345');
+  assert.deepEqual(await loadPosts(nonExistent), []);
+});
+
 test('a missing translation is an error naming the file that is absent', async () => {
   const dir = await dirWith({ '2026-08-16-lonely.en.md': body() });
   await assert.rejects(loadPosts(dir), /2026-08-16-lonely\.ru\.md/);
