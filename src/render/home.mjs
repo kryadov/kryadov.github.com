@@ -2,9 +2,10 @@ import { html } from '../html.mjs';
 import { t } from '../i18n.mjs';
 import { assetUrl } from '../assets.mjs';
 import { TRACKS } from '../data.mjs';
-import { layout } from './layout.mjs';
+import { layout, pagePath } from './layout.mjs';
 import { heroCard } from './card.mjs';
 import { catalogueRow, rowLanguage } from './row.mjs';
+import { postItem } from './blog.mjs';
 
 export function catalogueLanguages(works) {
   const seen = [];
@@ -68,11 +69,26 @@ function catalogueSection(works, locale) {
   `;
 }
 
-export function renderHome(works, locale) {
+// Trimming to three is the caller's job: this renders what it is handed. With
+// nothing to hand it, the whole block disappears rather than leaving a heading
+// over an empty list.
+function latestSection(latest, locale) {
+  if (latest.length === 0) return null;
+  return html`
+    <section id="latest" class="latest">
+      <h2 class="section__heading">${t(locale, 'heading.latest')}</h2>
+      <ol class="blog__list">${latest.map((post) => postItem(post, locale))}</ol>
+      <p class="latest__all"><a href="${pagePath(locale, 'blog')}">${t(locale, 'blog.all')}</a></p>
+    </section>
+  `;
+}
+
+export function renderHome(works, locale, latest = []) {
   const heroes = works.filter((work) => work.hero);
   const body = html`
     <main id="content">
       <p class="intro">${t(locale, 'home.intro')}</p>
+      ${latestSection(latest, locale)}
       <section id="heroes" class="heroes">
         <h2 class="section__heading">${t(locale, 'heading.heroes')}</h2>
         <div class="heroes__grid">${heroes.map((work) => heroCard(work, locale))}</div>

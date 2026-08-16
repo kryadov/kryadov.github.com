@@ -89,3 +89,45 @@ test('the home page opens with the intro, above the heroes', async () => {
   }
 });
 
+const latest = [
+  {
+    slug: 'newer', date: '2026-08-16',
+    en: { title: 'Newer', summary: 'The newer one.', body: 'x', source: 'a' },
+    ru: { title: 'Новее', summary: 'Которая новее.', body: 'x', source: 'b' },
+  },
+  {
+    slug: 'older', date: '2025-01-02',
+    en: { title: 'Older', summary: 'The older one.', body: 'x', source: 'c' },
+    ru: { title: 'Старее', summary: 'Которая старее.', body: 'x', source: 'd' },
+  },
+];
+
+test('the latest posts sit between the greeting and the selected work', () => {
+  const page = renderHome(works, 'en', latest);
+  assert.ok(page.indexOf('class="intro"') < page.indexOf('id="latest"'));
+  assert.ok(page.indexOf('id="latest"') < page.indexOf('id="heroes"'));
+});
+
+test('each latest entry links to its post', () => {
+  const page = renderHome(works, 'en', latest);
+  assert.match(page, /href="\/blog\/2026\/08\/newer\/"/);
+  assert.match(page, /The newer one\./);
+});
+
+test('the block leads on to the whole blog', () => {
+  assert.match(renderHome(works, 'en', latest), /<a href="\/blog\/">Read the blog<\/a>/);
+  assert.match(renderHome(works, 'ru', latest), /<a href="\/ru\/blog\/">Читать блог<\/a>/);
+});
+
+test('with no posts there is no empty heading on the home page', () => {
+  const page = renderHome(works, 'en', []);
+  assert.ok(!page.includes('id="latest"'));
+  assert.ok(!page.includes('Latest posts'));
+});
+
+test('the third argument is optional, so the home page still renders alone', () => {
+  const page = renderHome(works, 'en');
+  assert.match(page, /^<!doctype html>/);
+  assert.ok(!page.includes('id="latest"'));
+});
+
