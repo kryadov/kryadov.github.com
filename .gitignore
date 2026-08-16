@@ -23,3 +23,7 @@ dist-test/
 # Tooling
 node_modules/
 .idea/
+
+# Scratch for the subagent-driven execution of a plan: ledger, briefs, review
+# packages. Generated, disposable, and — like the plans themselves — private.
+.superpowers/
