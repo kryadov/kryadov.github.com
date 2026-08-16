@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { layout, pagePath, outputPath, PAGES } from '../src/render/layout.mjs';
+import { layout, pagePath, outputPath, feedPath, feedOutputPath, PAGES, SITE_URL } from '../src/render/layout.mjs';
 import { LOCALES } from '../src/data.mjs';
 
 test('english lives at the root, russian under /ru/', () => {
@@ -99,5 +99,61 @@ test('assets are versioned by content, so a deploy cannot be met with stale css'
   const other = layout({ locale: 'ru', page: 'home', title: 'x', description: 'y', body: '' });
   const again = /site\.css\?v=([0-9a-f]{8})/.exec(other);
   assert.equal(again[1], css[1], 'the version must depend on the file, not the page');
+});
+
+test('the site url is absolute and has no trailing slash', () => {
+  assert.equal(SITE_URL, 'https://kryadov.github.io');
+});
+
+const post = { slug: 'polyglot', date: '2026-08-16' };
+
+test('a post lives under its year and month', () => {
+  assert.equal(pagePath('en', 'blog', post), '/blog/2026/08/polyglot/');
+  assert.equal(pagePath('ru', 'blog', post), '/ru/blog/2026/08/polyglot/');
+});
+
+test('without a post, the blog is its list page', () => {
+  assert.equal(pagePath('en', 'blog'), '/blog/');
+  assert.equal(pagePath('ru', 'blog'), '/ru/blog/');
+});
+
+test('post output paths are directory indexes too', () => {
+  assert.equal(outputPath('en', 'blog', post), 'blog/2026/08/polyglot/index.html');
+  assert.equal(outputPath('ru', 'blog', post), 'ru/blog/2026/08/polyglot/index.html');
+});
+
+test('each locale has its own feed', () => {
+  assert.equal(feedPath('en'), '/blog/feed.xml');
+  assert.equal(feedPath('ru'), '/ru/blog/feed.xml');
+  assert.equal(feedOutputPath('en'), 'blog/feed.xml');
+  assert.equal(feedOutputPath('ru'), 'ru/blog/feed.xml');
+});
+
+test('the header links the blog', () => {
+  const head = page.slice(page.indexOf('<header'), page.indexOf('</header>'));
+  assert.match(head, /href="\/blog\/"/);
+});
+
+test('every page advertises the feed of its own locale', () => {
+  assert.match(page, /<link rel="alternate" type="application\/atom\+xml" href="\/blog\/feed\.xml"/);
+  const ru = layout({ locale: 'ru', page: 'home', title: 'x', description: 'y', body: '' });
+  assert.match(ru, /href="\/ru\/blog\/feed\.xml"/);
+  assert.ok(!ru.includes('href="/blog/feed.xml"'), 'the russian page must not point at the english feed');
+});
+
+test('on a post page the alternates and the toggle point at the same post', () => {
+  const rendered = layout({
+    locale: 'en', page: 'blog', post, title: 'x', description: 'y', body: '',
+  });
+  assert.match(rendered, /<link rel="alternate" hreflang="ru" href="\/ru\/blog\/2026\/08\/polyglot\/" \/>/);
+  assert.match(rendered, /href="\/ru\/blog\/2026\/08\/polyglot\/"[^>]*>RU</);
+});
+
+test('on a post page the blog nav item is the current one', () => {
+  const rendered = layout({
+    locale: 'en', page: 'blog', post, title: 'x', description: 'y', body: '',
+  });
+  const head = rendered.slice(rendered.indexOf('<header'), rendered.indexOf('</header>'));
+  assert.match(head, /class="nav__link nav__link--current"[^>]*aria-current="page"/);
 });
 
