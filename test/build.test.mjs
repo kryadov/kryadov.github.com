@@ -4,6 +4,9 @@ import { readFile, rm, stat } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { build, PASSTHROUGH } from '../build.mjs';
 import { loadPrivateRepos, secretNames, PRIVATE_REPOS_PATH } from '../scripts/private-repos.mjs';
+import { loadPosts } from '../src/posts.mjs';
+import { outputPath, feedOutputPath } from '../src/render/layout.mjs';
+import { LOCALES } from '../src/data.mjs';
 
 const OUT = 'dist-test';
 
@@ -12,16 +15,24 @@ test('build writes every page in both locales, and the assets', async (t) => {
   await rm(OUT, { recursive: true, force: true });
   const written = await build(OUT);
 
-  assert.deepEqual(written.sort(), [
+  const posts = await loadPosts();
+  const expected = [
     'index.html',
+    'blog/index.html',
     'lab/index.html',
     'music/index.html',
     'podcast/index.html',
     'ru/index.html',
+    'ru/blog/index.html',
     'ru/lab/index.html',
     'ru/music/index.html',
     'ru/podcast/index.html',
-  ]);
+    ...LOCALES.map((locale) => feedOutputPath(locale)),
+    ...posts.flatMap((post) => LOCALES.map((locale) => outputPath(locale, 'blog', post))),
+  ];
+
+  assert.deepEqual(written.sort(), expected.sort());
+  assert.ok(posts.length > 0, 'there should be posts to publish');
 
   await stat(`${OUT}/assets/site.css`);
   await stat(`${OUT}/assets/filter.js`);
@@ -99,5 +110,27 @@ test('no real private repository name appears in any tracked file', async (t) =>
     for (const name of names) {
       assert.ok(!contents.includes(name), `${file} names the private repository ${name}`);
     }
+  }
+});
+
+test('the markdown sources are not published — the pages replace them', async (t) => {
+  t.after(() => rm(OUT, { recursive: true, force: true }));
+  await build(OUT);
+  assert.ok(!PASSTHROUGH.includes('posts'), 'posts is in PASSTHROUGH');
+  await assert.rejects(stat(`${OUT}/posts`), /ENOENT/);
+});
+
+test('a post page and its feed reach the output, in both locales', async (t) => {
+  t.after(() => rm(OUT, { recursive: true, force: true }));
+  await build(OUT);
+  const posts = await loadPosts();
+  const [newest] = posts;
+  for (const locale of LOCALES) {
+    const page = await readFile(`${OUT}/${outputPath(locale, 'blog', newest)}`, 'utf8');
+    assert.match(page, new RegExp(`<html lang="${locale}">`));
+    assert.ok(page.includes(newest[locale].title), 'the post title is missing from its page');
+    const feed = await readFile(`${OUT}/${feedOutputPath(locale)}`, 'utf8');
+    assert.match(feed, /<feed xmlns="http:\/\/www\.w3\.org\/2005\/Atom"/);
+    assert.ok(feed.includes(newest[locale].title), 'the post is missing from the feed');
   }
 });

@@ -2,8 +2,12 @@ import { readFile, writeFile, mkdir, rm, cp } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { loadWorks, LOCALES } from './src/data.mjs';
-import { outputPath } from './src/render/layout.mjs';
+import { loadPosts } from './src/posts.mjs';
+import { outputPath, feedOutputPath } from './src/render/layout.mjs';
 import { renderHome } from './src/render/home.mjs';
+import { renderBlog } from './src/render/blog.mjs';
+import { renderPost } from './src/render/post.mjs';
+import { renderFeed } from './src/render/feed.mjs';
 import { renderLab } from './src/render/lab.mjs';
 import { renderPodcast } from './src/render/podcast.mjs';
 import { renderMusic } from './src/render/music.mjs';
@@ -24,6 +28,7 @@ export async function build(outDir = 'dist') {
   await mkdir(outDir, { recursive: true });
 
   const works = await loadWorks();
+  const posts = await loadPosts();
   const labItems = JSON.parse(await readFile('lab.json', 'utf8'));
   const podcastSections = JSON.parse(await readFile('podcast.json', 'utf8'));
   const releases = JSON.parse(await readFile('music.json', 'utf8'));
@@ -31,7 +36,8 @@ export async function build(outDir = 'dist') {
   const written = [];
   for (const locale of LOCALES) {
     written.push(
-      await writePage(outDir, outputPath(locale, 'home'), renderHome(works, locale)),
+      await writePage(outDir, outputPath(locale, 'home'), renderHome(works, locale, posts.slice(0, 3))),
+      await writePage(outDir, outputPath(locale, 'blog'), renderBlog(posts, locale)),
       await writePage(outDir, outputPath(locale, 'lab'), renderLab(labItems, locale)),
       await writePage(
         outDir,
@@ -39,7 +45,13 @@ export async function build(outDir = 'dist') {
         renderPodcast(podcastSections, locale),
       ),
       await writePage(outDir, outputPath(locale, 'music'), renderMusic(releases, locale)),
+      await writePage(outDir, feedOutputPath(locale), renderFeed(posts, locale)),
     );
+    for (const post of posts) {
+      written.push(
+        await writePage(outDir, outputPath(locale, 'blog', post), renderPost(post, locale)),
+      );
+    }
   }
 
   await cp('assets', join(outDir, 'assets'), { recursive: true });
