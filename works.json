@@ -24,6 +24,30 @@
     "detail": null
   },
   {
+    "id": "claude-remote-vm-dev",
+    "repo": "claude-remote-vm-dev",
+    "private": false,
+    "hero": true,
+    "track": "ai",
+    "year": 2026,
+    "stack": [
+      "Shell",
+      "tmux",
+      "systemd"
+    ],
+    "live": null,
+    "cover": null,
+    "title": {
+      "en": "Claude Remote VM Dev",
+      "ru": "Claude Remote VM Dev"
+    },
+    "summary": {
+      "en": "Runs Claude Code sessions on a VM inside the org perimeter so they keep working while the laptop is closed. Each session lives in its own tmux pane and Git worktree; reconnect later to review diffs or answer questions.",
+      "ru": "Запускает сессии Claude Code на VM внутри периметра организации, так что они продолжают работать при закрытом ноутбуке. Каждая сессия живёт в своём tmux-окне и Git worktree; можно переподключиться позже, чтобы посмотреть diff или ответить на вопрос."
+    },
+    "detail": null
+  },
+  {
     "id": "llm-hardware-calculator",
     "repo": "llm-hardware-calculator",
     "private": false,
