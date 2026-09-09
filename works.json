@@ -1048,5 +1048,29 @@
       "ru": "Двуязычное учебное приложение по пяти остеопатическим моделям: каждая объясняется, затем проверяется тестом, следующая не открывается до восьмидесяти процентов, а режим повторения возвращает ошибки, пока они не кончатся."
     },
     "detail": null
+  },
+  {
+    "id": "itffm",
+    "repo": "itffm",
+    "private": false,
+    "hero": false,
+    "track": "interactive",
+    "year": 2026,
+    "stack": [
+      "TypeScript",
+      "Three.js",
+      "OpenStreetMap"
+    ],
+    "live": "https://kryadov.github.io/itffm/",
+    "cover": null,
+    "title": {
+      "en": "itffm",
+      "ru": "itffm"
+    },
+    "summary": {
+      "en": "A first-person walk through a real wood, hunting mushrooms that build your own encyclopedia. Every species is generated from a YAML file, not modelled by hand, and grows only where its ecology says it should — the terrain and OpenStreetMap data decide.",
+      "ru": "Прогулка от первого лица по настоящему лесу за грибами, которые складываются в собственную энциклопедию. Каждый вид генерируется из YAML-файла, а не лепится вручную, и растёт только там, где положено по экологии — это решают рельеф и данные OpenStreetMap."
+    },
+    "detail": null
   }
 ]
