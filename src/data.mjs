@@ -84,11 +84,19 @@ export function validateWorks(works) {
   return errors;
 }
 
+// Newest year first. Array.prototype.sort is stable, so within a year the order
+// of works.json still decides — that is the knob for putting one work ahead of
+// its neighbours, and sorting here rather than by hand keeps a new entry from
+// landing wherever it happened to be appended.
+export function sortWorks(works) {
+  return [...works].sort((a, b) => b.year - a.year);
+}
+
 export async function loadWorks(path = 'works.json') {
   const works = JSON.parse(await readFile(path, 'utf8'));
   const errors = validateWorks(works);
   if (errors.length > 0) {
     throw new Error(`${path} is invalid:\n  ${errors.join('\n  ')}`);
   }
-  return works;
+  return sortWorks(works);
 }

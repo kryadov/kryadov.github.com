@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { TRACKS, LOCALES, validateWorks } from '../src/data.mjs';
+import { TRACKS, LOCALES, validateWorks, sortWorks } from '../src/data.mjs';
 
 const valid = {
   id: 'race-the-city',
@@ -56,4 +56,15 @@ test('requires both locales in every text field', () => {
   const errors = validateWorks([{ ...valid, summary: { en: 'only english', ru: '' } }]);
   assert.equal(errors.length, 1);
   assert.match(errors[0], /summary\.ru/);
+});
+
+test('sorts newest year first, keeping file order within a year', () => {
+  const works = [
+    { id: 'a', year: 2024 },
+    { id: 'b', year: 2026 },
+    { id: 'c', year: 2025 },
+    { id: 'd', year: 2026 },
+  ];
+  assert.deepEqual(sortWorks(works).map((w) => w.id), ['b', 'd', 'c', 'a']);
+  assert.deepEqual(works.map((w) => w.id), ['a', 'b', 'c', 'd']);
 });
