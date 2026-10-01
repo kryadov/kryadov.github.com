@@ -192,6 +192,30 @@
     "detail": null
   },
   {
+    "id": "openrouter-video-generator",
+    "repo": "openrouter_video_generator",
+    "private": false,
+    "hero": true,
+    "track": "ai",
+    "year": 2026,
+    "stack": [
+      "Python",
+      "ffmpeg",
+      "OpenRouter"
+    ],
+    "live": null,
+    "cover": null,
+    "title": {
+      "en": "Music Video Generator",
+      "ru": "Генератор музыкальных клипов"
+    },
+    "summary": {
+      "en": "Give it a song and it makes a 20–40 s vertical video for Shorts, Reels or TikTok. Cuts land on the beat, the excerpt is picked for the hook, and the footage comes from cloud video models on OpenRouter — compared side by side first, then refined shot by shot under a hard budget cap.",
+      "ru": "Отдаёшь песню — получаешь вертикальный ролик на 20–40 секунд для Shorts, Reels или TikTok. Склейки попадают в бит, отрывок выбирается по хуку, а видеоряд генерируют облачные модели через OpenRouter: сначала они сравниваются бок о бок, потом выбранная доводится по кадрам с жёстким лимитом бюджета."
+    },
+    "detail": null
+  },
+  {
     "id": "ai-for-business-tutorial",
     "repo": "ai-for-business-tutorial",
     "private": false,
