@@ -9,7 +9,7 @@ The code:
 ```html
 <script>
 for (var line=1; line<30; line++) {
-  for(var i=1;i<0;i++) {
+  for(var i=1;i<30;i++) {
     var s = (Math.floor((Math.random()*2)%2)) ? "╱" : "╲";
     document.write(s);
   }
