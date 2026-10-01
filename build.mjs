@@ -2,7 +2,7 @@ import { readFile, writeFile, mkdir, rm, cp } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { loadWorks, LOCALES } from './src/data.mjs';
-import { loadPosts } from './src/posts.mjs';
+import { loadPosts, latestPosts } from './src/posts.mjs';
 import { outputPath, feedOutputPath } from './src/render/layout.mjs';
 import { renderHome } from './src/render/home.mjs';
 import { renderBlog } from './src/render/blog.mjs';
@@ -36,7 +36,7 @@ export async function build(outDir = 'dist') {
   const written = [];
   for (const locale of LOCALES) {
     written.push(
-      await writePage(outDir, outputPath(locale, 'home'), renderHome(works, locale, posts.slice(0, 3))),
+      await writePage(outDir, outputPath(locale, 'home'), renderHome(works, locale, latestPosts(posts))),
       await writePage(outDir, outputPath(locale, 'blog'), renderBlog(posts, locale)),
       await writePage(outDir, outputPath(locale, 'lab'), renderLab(labItems, locale)),
       await writePage(

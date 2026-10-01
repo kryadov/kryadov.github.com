@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtemp, writeFile, mkdir } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { parseFileName, parsePost, truncate, loadPosts } from '../src/posts.mjs';
+import { parseFileName, parsePost, truncate, loadPosts, latestPosts } from '../src/posts.mjs';
 
 async function dirWith(files) {
   const dir = await mkdtemp(join(tmpdir(), 'posts-'));
@@ -234,4 +234,11 @@ test('the real posts directory loads and pairs up', async () => {
     assert.ok(post.en.title && post.ru.title, `${post.slug} is missing a title`);
     assert.ok(post.en.summary && post.ru.summary, `${post.slug} is missing a summary`);
   }
+});
+
+test('latestPosts keeps only the newest year, up to the limit', () => {
+  const posts = ['2026-09-07', '2026-08-16', '2020-04-02', '2019-07-08'].map((date) => ({ date }));
+  assert.deepEqual(latestPosts(posts).map((p) => p.date), ['2026-09-07', '2026-08-16']);
+  assert.equal(latestPosts(posts, 1).length, 1);
+  assert.deepEqual(latestPosts([]), []);
 });

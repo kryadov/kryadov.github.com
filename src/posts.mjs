@@ -188,3 +188,14 @@ export async function loadPosts(dir = 'posts') {
     a.date === b.date ? a.slug.localeCompare(b.slug) : b.date.localeCompare(a.date),
   );
 }
+
+// The home page shows only the newest year's posts, not simply the newest few:
+// the archive imported from LiveJournal goes back to 2013, and once this year's
+// posts run out the "latest" block must not fill up with 2020 notes. The year is
+// the newest post's, not the build date's, so a rebuild on 1 January does not
+// empty the block. `posts` is expected newest first, as loadPosts returns it.
+export function latestPosts(posts, limit = 3) {
+  if (posts.length === 0) return [];
+  const year = posts[0].date.slice(0, 4);
+  return posts.filter((post) => post.date.startsWith(year)).slice(0, limit);
+}
