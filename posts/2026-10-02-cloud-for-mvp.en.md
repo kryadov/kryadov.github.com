@@ -1,8 +1,8 @@
 ---
-summary: Where to run an MVP if you are the DevOps person — AWS, Google Cloud, Azure, Oracle, Hetzner, PaaS, Russian, Chinese, European and GPU clouds on one and the same service: what it costs, where it hurts and how you get out later.
+summary: Between clouds, an MVP's bill differs by less than $100 a month; the cost of leaving differs by a quarter of work. AWS, Google Cloud, Azure, Oracle, Hetzner, PaaS, Russian, Chinese, European and GPU clouds on one and the same service: what it costs, where it hurts and how you get out later.
 ---
 
-# Where to run an MVP: clouds through a DevOps lens, or why you choose the exit, not the bill
+# The cheapest cloud is the one you can leave: AWS, Hetzner or Render for your MVP
 
 ## TL;DR
 
@@ -11,7 +11,10 @@ summary: Where to run an MVP if you are the DevOps person — AWS, Google Cloud,
 - **Some time and a wish to save? Hetzner + Coolify.** About €12 a month for two servers and 20 TB of traffic in Europe. The price: the database, backups and upgrades are now yours.
 - **Among the hyperscalers, Google Cloud Run and Azure Container Apps suit an MVP best.** Scale-to-zero and a monthly free allowance mean you mostly pay for the database. AWS costs more at the start because of the load balancer, public IPv4 and the NAT Gateway, and App Runner has been closed to new customers since 30 April 2026.
 - **Oracle's free tier isn't what it was:** Ampere A1 has been cut to 2 OCPUs and 12 GB, and Oracle reclaims idle machines.
-- **Sometimes jurisdiction chooses for you:** Russian personal data (Federal Law 152-FZ) means Yandex Cloud, Cloud.ru or VK Cloud; users in mainland China mean a Chinese cloud, ICP filing and a local entity; European public sector, finance and healthcare mean sovereign clouds.
+- **Sometimes jurisdiction chooses for you:**
+  - **Users in mainland China** mean a mainland region of a Chinese cloud, ICP filing and a local entity or partner. By default that's Alibaba Cloud, the largest, with Qwen models. Tencent Cloud if the product lives in WeChat (mini programs, games). Huawei Cloud if the customers are government and state-owned companies.
+  - **Russian personal data** (Federal Law 152-FZ) means Yandex Cloud (the most mature), Cloud.ru (with GigaChat next door) or VK Cloud.
+  - **European public sector, finance and healthcare** mean sovereign clouds: OVHcloud, Scaleway, STACKIT or AWS European Sovereign Cloud.
 - **LLMs at the start: use an API.** GPU clouds matter once you run your own model: an H100 costs from $3.99 (Lambda) to ~$6.88 (AWS) per GPU-hour.
 - **Keep the door open:** containers, Postgres, the S3 API and Terraform. Then a move takes weeks, not a quarter.
 
@@ -197,6 +200,12 @@ These are two entirely different stories.
 
 If your users are in China, this is a separate project with its own lawyer, not a region picker in a console.
 
+**Which of the three.**
+
+- **Alibaba Cloud** is the default: China's largest cloud, the widest range of services, help with ICP filing, and its own Qwen models close at hand.
+- **Tencent Cloud** if the product lives in the WeChat ecosystem (mini programs, WeChat login, payments) or is a game: that is Tencent's home turf.
+- **Huawei Cloud** if the customers are government and state-owned companies, or if independence from American hardware matters: Huawei builds its AI infrastructure on its own Ascend accelerators.
+
 **Models.** Qwen through Alibaba Model Studio, DeepSeek, and ByteDance's Volcano Engine offer strong, cheap APIs — the one part of the Chinese cloud that interests nearly everyone.
 
 ### 6.3. Europe: sovereign clouds
@@ -299,7 +308,7 @@ And a practical detail: since 2024 AWS, Google and Azure — under pressure from
 ## 11. Decision tree
 
 - **Personal data of Russian citizens?** → Yandex Cloud, Cloud.ru or VK Cloud; choose among them by services and price.
-- **Users in mainland China?** → a Chinese cloud in a mainland region, ICP filing and a local entity or partner. That is a project with a lawyer.
+- **Users in mainland China?** → a mainland region of Alibaba Cloud (Tencent Cloud for WeChat products, Huawei Cloud for the public sector), ICP filing and a local entity or partner. That is a project with a lawyer.
 - **Customers in the European public sector, finance or healthcare?** → a sovereign cloud (OVHcloud, Scaleway, STACKIT) or AWS European Sovereign Cloud, depending on what their compliance will accept.
 - **No DevOps person on the team?** → a managed PaaS: Render, not Heroku. Watch the bandwidth.
 - **Some time to spare and a budget to protect?** → Hetzner + Coolify.
