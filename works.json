@@ -1,5 +1,29 @@
 [
   {
+    "id": "aws-bedrock-agentcore-demo",
+    "repo": "aws_bedrock_agentcore_demo",
+    "private": false,
+    "hero": true,
+    "track": "ai",
+    "year": 2026,
+    "stack": [
+      "Python",
+      "Amazon Bedrock",
+      "AgentCore"
+    ],
+    "live": null,
+    "cover": null,
+    "title": {
+      "en": "AWS Bedrock AgentCore Demo",
+      "ru": "Демо AWS Bedrock AgentCore"
+    },
+    "summary": {
+      "en": "An HR assistant for a made-up company that touches the whole AgentCore stack in one project: Runtime, short- and long-term Memory, a Knowledge Base, an MCP Gateway with a Lambda tool over Aurora, Guardrails and Evaluations. One script brings the environment up in AWS, another tears it down.",
+      "ru": "HR-ассистент для выдуманной компании, который в одном проекте задействует весь стек AgentCore: Runtime, краткосрочную и долгосрочную Memory, Knowledge Base, MCP Gateway с Lambda-инструментом поверх Aurora, Guardrails и Evaluations. Один скрипт поднимает окружение в AWS, другой его сносит."
+    },
+    "detail": null
+  },
+  {
     "id": "race-the-city",
     "repo": "race-the-city",
     "private": false,
