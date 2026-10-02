@@ -54,27 +54,25 @@ main {
   margin: 0 auto;
 }
 
+/* Centred, identity above the nav. The earlier layout put the identity on the
+   left and the nav on the right of a 1180px row; with the centred post column
+   below it, the two halves looked torn apart. Stacking them on one centre line
+   also removes the breakpoint juggling the side-by-side row needed. */
 .header {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding: 1.5rem 0 2rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.5rem 0 2.5rem;
+  text-align: center;
 }
-/* `flex: 1 1 0`, not `1 1 auto`. A flex container decides where to break lines
-   from the items' base sizes, before any shrinking happens — so an identity
-   whose base size is its full content width pushes the nav onto a second line,
-   where it lands hard against the left margin, no matter how shrinkable it is.
-   A zero base size takes the identity out of that calculation: it claims the
-   space the nav leaves over, and the tagline wraps under the name instead. */
 .header__identity {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem;
-  flex: 1 1 0;
-  min-width: 0;
+  justify-content: center;
+  gap: 0.5rem 0.75rem;
+  max-width: 100%;
 }
 /* The file is 320px so it stays sharp on a dense screen, but the width and
    height attributes say 40 — the size it is actually drawn at. That way a
@@ -94,7 +92,7 @@ main {
 /* Wrapping is not optional here. The nav carries three pages, three external
    links and the language toggle; on a 375px screen that is wider than the
    viewport, and without wrapping the tail simply leaves the page. */
-.nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; flex: 0 0 auto; }
+.nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.5rem 1rem; }
 .nav__link { color: var(--muted); text-decoration: none; }
 .nav__external { color: var(--muted); text-decoration: none; }
 .nav__link--current { color: var(--fg); font-weight: 600; }
@@ -245,8 +243,9 @@ img.card__cover { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: c
 /* The intro is one short paragraph on purpose: the hero grid has to stay in the
    first screen. */
 .intro {
-  margin: 0 0 2rem;
+  margin: 0 auto 2rem;
   max-width: 46rem;
+  text-align: center;
   font-size: 1.05rem;
   line-height: 1.6;
 }
@@ -335,6 +334,34 @@ img.card__cover { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: c
 
 .blog__empty {
   color: var(--muted);
+}
+
+/* The blog page is a reading list, so it keeps the prose column, centred like
+   a post — heading and list together, so they share a left edge. */
+.blog {
+  max-width: 68ch;
+  margin: 0 auto;
+}
+
+/* On the home page the latest posts sit above the card grid of works, and a
+   68ch list pinned to the left left most of the row empty. Same grid as the
+   hero cards, so the two sections line up. */
+.latest .blog__list {
+  max-width: none;
+  grid-template-columns: repeat(auto-fill, minmax(min(310px, 100%), 1fr));
+  gap: var(--gap);
+}
+
+.latest .blog__item {
+  align-content: start;
+  padding: 1.1rem 1.15rem 1.15rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.latest .blog__title {
+  font-size: 1.1rem;
 }
 
 .latest__all {
@@ -471,16 +498,6 @@ img.card__cover { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: c
   margin: 3rem 0 0;
   padding-top: 1.5rem;
   border-top: 1px solid var(--line);
-}
-
-/* The nav is about 500px of links. Below roughly 900px there is no honest way to
-   keep it beside the identity: squeezing the identity into the leftover turns it
-   into a narrow column with the avatar stranded on its own line. So give each of
-   them a full-width row instead — the same arrangement that works on a phone. */
-@media (max-width: 900px) {
-  .header { align-items: flex-start; }
-  .header__identity { flex: 1 1 100%; }
-  .nav { width: 100%; }
 }
 
 @media (max-width: 620px) {
