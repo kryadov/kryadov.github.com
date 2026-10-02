@@ -1,11 +1,31 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { renderMarkdown } from '../src/markdown.mjs';
+import { renderMarkdown, slugify } from '../src/markdown.mjs';
 
-test('renders headings without anchor ids', () => {
-  const html = renderMarkdown('## Why microservices');
-  assert.match(html, /<h2[^>]*>Why microservices<\/h2>/);
-  assert.ok(!html.includes('id="'), 'headings must carry no generated id');
+test('gives every heading an id derived from its text', () => {
+  assert.match(renderMarkdown('## Why microservices'), /<h2 id="why-microservices">Why microservices<\/h2>/);
+  assert.match(renderMarkdown('### 3.1. AWS: the widest choice'), /<h3 id="31-aws-the-widest-choice">/);
+});
+
+test('keeps cyrillic in heading ids', () => {
+  assert.match(renderMarkdown('## 6.1. Китай: Alibaba Cloud'), /<h2 id="61-китай-alibaba-cloud">/);
+});
+
+test('strips inline markup and html out of the id, not out of the heading', () => {
+  const html = renderMarkdown('## The **bold** `code` <a id="x"></a>part');
+  assert.match(html, /<h2 id="the-bold-code-part">/);
+  assert.match(html, /<strong>bold<\/strong>/);
+});
+
+test('numbers repeated headings within one document, and only within it', () => {
+  const html = renderMarkdown('## Notes\n\n## Notes\n\n## Notes');
+  assert.deepEqual([...html.matchAll(/id="([^"]+)"/g)].map((m) => m[1]), ['notes', 'notes-1', 'notes-2']);
+  assert.match(renderMarkdown('## Notes'), /id="notes"/);
+});
+
+test('slugify collapses punctuation and whitespace into single hyphens', () => {
+  assert.equal(slugify('  Hello,   World — again!  '), 'hello-world-again');
+  assert.equal(slugify('TL;DR'), 'tldr');
 });
 
 test('renders paragraphs, emphasis and links', () => {

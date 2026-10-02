@@ -26,29 +26,29 @@ The conclusion is unexpected: at the start the bills differ by less than $100 a 
 
 ## Contents
 
-- [1. What we are deploying](#service)
-- [2. What a DevOps person weighs at the start](#criteria)
-- [3. The hyperscalers](#hyperscalers)
-  - [3.1. AWS: the widest choice and the most expensive start](#aws)
-  - [3.2. Google Cloud: Cloud Run and scale-to-zero](#google-cloud)
-  - [3.3. Azure: Container Apps, credits and Azure OpenAI](#azure)
-  - [3.4. Oracle Cloud: the best free tier, and its catches](#oracle)
-- [4. Simple clouds: Hetzner and DigitalOcean](#simple-clouds)
-- [5. The PaaS layer](#paas)
-  - [5.1. Heroku and Render: paying not to think](#heroku-render)
-  - [5.2. Coolify (and Dokku, Kamal): a PaaS on your own VPS](#coolify)
-- [6. Regional clouds: when jurisdiction chooses for you](#regional)
-  - [6.1. China: Alibaba Cloud, Tencent Cloud, Huawei Cloud](#china)
-  - [6.2. Russia: Yandex Cloud, Cloud.ru, VK Cloud](#russia)
-  - [6.3. Europe: sovereign clouds](#europe)
-  - [6.4. The rest of the world](#rest-of-world)
-- [7. GPU clouds: when you need your own model](#gpu)
-- [8. Summary table: the monthly bill for one and the same MVP](#summary-table)
-- [9. What happens when you grow](#scaling)
-- [10. How not to get stuck](#lock-in)
-- [11. Decision tree](#decision-tree)
+- [1. What we are deploying](#1-what-we-are-deploying)
+- [2. What a DevOps person weighs at the start](#2-what-a-devops-person-weighs-at-the-start)
+- [3. The hyperscalers](#3-the-hyperscalers)
+  - [3.1. AWS: the widest choice and the most expensive start](#31-aws-the-widest-choice-and-the-most-expensive-start)
+  - [3.2. Google Cloud: Cloud Run and scale-to-zero](#32-google-cloud-cloud-run-and-scale-to-zero)
+  - [3.3. Azure: Container Apps, credits and Azure OpenAI](#33-azure-container-apps-credits-and-azure-openai)
+  - [3.4. Oracle Cloud: the best free tier, and its catches](#34-oracle-cloud-the-best-free-tier-and-its-catches)
+- [4. Simple clouds: Hetzner and DigitalOcean](#4-simple-clouds-hetzner-and-digitalocean)
+- [5. The PaaS layer](#5-the-paas-layer)
+  - [5.1. Heroku and Render: paying not to think](#51-heroku-and-render-paying-not-to-think)
+  - [5.2. Coolify (and Dokku, Kamal): a PaaS on your own VPS](#52-coolify-and-dokku-kamal-a-paas-on-your-own-vps)
+- [6. Regional clouds: when jurisdiction chooses for you](#6-regional-clouds-when-jurisdiction-chooses-for-you)
+  - [6.1. China: Alibaba Cloud, Tencent Cloud, Huawei Cloud](#61-china-alibaba-cloud-tencent-cloud-huawei-cloud)
+  - [6.2. Russia: Yandex Cloud, Cloud.ru, VK Cloud](#62-russia-yandex-cloud-cloudru-vk-cloud)
+  - [6.3. Europe: sovereign clouds](#63-europe-sovereign-clouds)
+  - [6.4. The rest of the world](#64-the-rest-of-the-world)
+- [7. GPU clouds: when you need your own model](#7-gpu-clouds-when-you-need-your-own-model)
+- [8. Summary table: the monthly bill for one and the same MVP](#8-summary-table-the-monthly-bill-for-one-and-the-same-mvp)
+- [9. What happens when you grow](#9-what-happens-when-you-grow)
+- [10. How not to get stuck](#10-how-not-to-get-stuck)
+- [11. Decision tree](#11-decision-tree)
 
-## <a id="service"></a>1. What we are deploying
+## 1. What we are deploying
 
 To keep the comparison fair, take one typical MVP and deploy it, in our heads, on every provider:
 
@@ -61,7 +61,7 @@ To keep the comparison fair, take one typical MVP and deploy it, in our heads, o
 
 The load is small: up to 10 requests per second at peak, close to zero at night, about 200 GB of egress a month. The team is two or three developers, with no dedicated DevOps person or one who does everything.
 
-## <a id="criteria"></a>2. What a DevOps person weighs at the start
+## 2. What a DevOps person weighs at the start
 
 Marketing tables compare the number of services. For an MVP, other things matter:
 
@@ -74,9 +74,9 @@ Marketing tables compare the number of services. For an MVP, other things matter
 
 The last point is the one that matters. The others decide the bill for the first six months; this one decides what the choice costs eighteen months from now.
 
-## <a id="hyperscalers"></a>3. The hyperscalers
+## 3. The hyperscalers
 
-### <a id="aws"></a>3.1. AWS: the widest choice and the most expensive start
+### 3.1. AWS: the widest choice and the most expensive start
 
 A year ago I would have suggested App Runner for a service like this. But [since 30 April 2026 App Runner has been closed to new customers](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html): existing users carry on, no new features are coming. In its place AWS recommends [ECS Express Mode](https://aws.amazon.com/about-aws/whats-new/2025/11/announcing-amazon-ecs-express-mode/), a mode of ECS on Fargate that creates the service, the load balancer and autoscaling for you. The mode itself is free; you pay for the resources underneath.
 
@@ -93,7 +93,7 @@ That comes to about $70 a month, or about $100 with a NAT Gateway. The [Free Tie
 
 **Where it hurts.** IAM is the most powerful permission model of all, and the hardest. You'll need to understand the network (VPC, subnets, NAT, security groups) from day one. On the other hand, the AWS Terraform provider is the gold standard, and growing from an MVP into anything at all requires no move.
 
-### <a id="google-cloud"></a>3.2. Google Cloud: Cloud Run and scale-to-zero
+### 3.2. Google Cloud: Cloud Run and scale-to-zero
 
 For an MVP, Cloud Run is the best thing the hyperscalers have. Hand it a container, get an HTTPS address. With no requests there are zero instances and zero bill.
 
@@ -106,7 +106,7 @@ That comes to about $10 for the database plus egress: at 200 GB, roughly another
 
 **Where it hurts.** Cold starts after idling: the first request waits for a container to come up unless you pay to keep a minimum instance warm. IAM is simpler than AWS's, but the project model and service accounts need attention too.
 
-### <a id="azure"></a>3.3. Azure: Container Apps, credits and Azure OpenAI
+### 3.3. Azure: Container Apps, credits and Azure OpenAI
 
 [Azure Container Apps](https://azure.microsoft.com/en-us/pricing/details/container-apps/) is a direct counterpart to Cloud Run: the same per-second billing, the same scale-to-zero and nearly the same free allowance, 180,000 vCPU-seconds and 360,000 GiB-seconds a month. An active vCPU costs the same $0.000024 a second.
 
@@ -117,7 +117,7 @@ That comes to about $25 a month, the lowest of the hyperscalers if the API fits 
 
 **Where Azure wins.** If your LLM features use OpenAI models, Azure OpenAI gives you them under an enterprise contract, in the region you need, with no extra vendor. For B2B customers on the Microsoft stack, that is an argument in itself. **Where it hurts.** Entra ID, subscriptions, resource groups and roles are a discipline of their own, and the portal is slower than the competition's.
 
-### <a id="oracle"></a>3.4. Oracle Cloud: the best free tier, and its catches
+### 3.4. Oracle Cloud: the best free tier, and its catches
 
 Oracle's [Always Free](https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm) is still the most generous, but not in the way older guides describe:
 
@@ -135,7 +135,7 @@ You'll have to run Postgres yourself on the same machine, and the whole MVP cost
 
 Oracle is great for a pet project. For an MVP that a business depends on, only with an upgrade to a paid account.
 
-## <a id="simple-clouds"></a>4. Simple clouds: Hetzner and DigitalOcean
+## 4. Simple clouds: Hetzner and DigitalOcean
 
 Bare virtual machines cost a fraction of the price, but everything beyond them is on you.
 
@@ -162,11 +162,11 @@ Two CX23s (one for the app, one for Postgres) come to about €12 a month plus p
 
 A 2 GB server, the database and Spaces storage come to about $32 a month, and traffic within the included allowance is free.
 
-## <a id="paas"></a>5. The PaaS layer
+## 5. The PaaS layer
 
 A PaaS isn't another cloud but a layer on top of one. You pay so you don't have to think about infrastructure. That is a decision about the cost of leaving too: the more the platform does for you, the more you'll have to do yourself when you move.
 
-### <a id="heroku-render"></a>5.1. Heroku and Render: paying not to think
+### 5.1. Heroku and Render: paying not to think
 
 **Heroku** invented the genre: `git push heroku main` and it works. But on 6 February 2026 Salesforce announced that [Heroku is moving to a "sustaining engineering" model](https://www.devclass.com/containers/2026/02/09/heroku-future-in-doubt-as-salesforce-freezes-features-to-focus-on-ai/4090238): security and stability only, no new features, no new enterprise contracts. Credit-card customers are unaffected for now.
 
@@ -189,7 +189,7 @@ Our MVP (two Basic dynos and Essential-0) is about $19 a month. Cheap, but I wou
 
 **Render's trap is bandwidth.** Hobby includes 5 GB and Pro 25 GB, then it's $0.15 per GB. Our 200 GB adds ~$29, and a $20 MVP turns into a ~$50 one. There are five regions (Oregon, Ohio, Virginia, Frankfurt, Singapore), and [you can't change the region of an existing service](https://render.com/docs/regions), only recreate it.
 
-### <a id="coolify"></a>5.2. Coolify (and Dokku, Kamal): a PaaS on your own VPS
+### 5.2. Coolify (and Dokku, Kamal): a PaaS on your own VPS
 
 [Coolify](https://coolify.io/pricing/) is an open-source PaaS you install on your own server. It gives you the same "push → deploy" experience: builds, TLS via Let's Encrypt, one-click databases and backups to S3. The self-hosted edition is free with no feature limits; the cloud edition, where Coolify manages your servers, is $5 a month for two servers.
 
@@ -197,9 +197,9 @@ A Hetzner CX33 (4 vCPUs, 8 GB) with Coolify and Postgres on it is about €9 a m
 
 Simpler alternatives: [Dokku](https://dokku.com), "Heroku on a single server", and [Kamal](https://kamal-deploy.org) from 37signals, container deploys over SSH with no dashboard.
 
-## <a id="regional"></a>6. Regional clouds: when jurisdiction chooses for you
+## 6. Regional clouds: when jurisdiction chooses for you
 
-### <a id="china"></a>6.1. China: Alibaba Cloud, Tencent Cloud, Huawei Cloud
+### 6.1. China: Alibaba Cloud, Tencent Cloud, Huawei Cloud
 
 These are two entirely different stories.
 
@@ -222,7 +222,7 @@ If your users are in China, this is a separate project with its own lawyer, not 
 
 **Models.** Qwen through Alibaba Model Studio, DeepSeek, and ByteDance's Volcano Engine offer strong, cheap APIs. That is the one part of the Chinese cloud that interests nearly everyone.
 
-### <a id="russia"></a>6.2. Russia: Yandex Cloud, Cloud.ru, VK Cloud
+### 6.2. Russia: Yandex Cloud, Cloud.ru, VK Cloud
 
 If you process personal data of Russian citizens, Federal Law 152-FZ requires it to be recorded and stored in databases located in Russia. The Western hyperscalers drop out here, both legally and because they can't be paid for from Russia.
 
@@ -236,7 +236,7 @@ About ₽3,500 a month in all. The catch is that it is essentially one region (r
 
 **Cloud.ru** (formerly SberCloud) has GigaChat next door, but its free VM [is not available to anyone who signed up after 30 June 2026](https://cloud.ru/docs/evolution/overview/topics/free-tier__virtual-machines). **VK Cloud** is the third option. If you need public-sector certification, compare them by their list of certificates, not by price.
 
-### <a id="europe"></a>6.3. Europe: sovereign clouds
+### 6.3. Europe: sovereign clouds
 
 Here the issue isn't a localisation law but the **US CLOUD Act**: data in a European region of AWS, Google or Microsoft is formally reachable by US authorities because the provider is an American company. For the public sector, finance and healthcare that is an argument; France has a dedicated certification, **SecNumCloud**.
 
@@ -245,7 +245,7 @@ Here the issue isn't a localisation law but the **US CLOUD Act**: data in a Euro
 
 For an MVP this is rarely decisive. But if your target customer is a European bank, better to know before you've grown into us-east-1.
 
-### <a id="rest-of-world"></a>6.4. The rest of the world
+### 6.4. The rest of the world
 
 Data residency requirements exist almost everywhere; the Chinese and Russian cases are just the strictest.
 
@@ -254,7 +254,7 @@ Data residency requirements exist almost everywhere; the Chinese and Russian cas
 - **The Middle East.** Saudi Arabia and the UAE require localisation, and the hyperscalers build regions there with local partners. Microsoft's Saudi Arabia East region, for example, opens in Q4 2026.
 - **India, Indonesia, Vietnam, Turkey.** Each has data localisation laws, usually met by the hyperscalers' local regions rather than separate clouds.
 
-## <a id="gpu"></a>7. GPU clouds: when you need your own model
+## 7. GPU clouds: when you need your own model
 
 An MVP almost never needs its own model. An API is cheaper while volume is small, and you don't pay for a GPU that sits idle 90% of the time. Your own model becomes necessary when:
 
@@ -273,7 +273,7 @@ Then the H100 prices as of October 2026 (on-demand, per GPU-hour, in 8-GPU machi
 
 One H100 around the clock is $2,900–5,000 a month, the price of dozens, if not hundreds, of MVPs. Cloud Run has L4 GPUs billed per second (about $0.67 an hour), a bridge between an API and your own cluster for small models and experiments. What self-hosting a specific model really costs, racks, power and people included, is what my [inference TCO calculator](https://kryadov.github.io/llm-hardware-calculator/) works out.
 
-## <a id="summary-table"></a>8. Summary table: the monthly bill for one and the same MVP
+## 8. Summary table: the monthly bill for one and the same MVP
 
 An estimate for the reference service from section 1: API and worker, the smallest managed Postgres (or your own on a VM where there's no managed one), ~200 GB of egress. No credits, no free trials.
 
@@ -294,7 +294,7 @@ An estimate for the reference service from section 1: API and worker, the smalle
 
 The gap between the cheapest and the most expensive option is under $100 a month, about an hour or two of an engineer's time. That is why choosing by this table is a mistake. Choose by the next one.
 
-## <a id="scaling"></a>9. What happens when you grow
+## 9. What happens when you grow
 
 An MVP that takes off may need, a year later, dozens of services, database replicas, several regions and GPUs. The question is whether you'll have to move to get them.
 
@@ -319,7 +319,7 @@ The conclusion from this table is the opposite of the previous one:
 - **Hetzner and Coolify** are the cheapest while you have one or two servers. After that you either build your own platform or move.
 - **A PaaS** is comfortable right up to the moment you need a GPU, an unusual network or a region it doesn't have.
 
-## <a id="lock-in"></a>10. How not to get stuck
+## 10. How not to get stuck
 
 A move is expensive not because of the data transfer but because of what you have to rewrite. The rules that keep the door open:
 
@@ -333,7 +333,7 @@ A move is expensive not because of the data transfer but because of what you hav
 
 And a practical detail: since 2024 AWS, Google and Azure, under pressure from the EU Data Act, waive egress fees when you leave for another provider entirely, on request to support. The traffic itself is no longer the main cost of leaving. Your architecture is.
 
-## <a id="decision-tree"></a>11. Decision tree
+## 11. Decision tree
 
 - **Users in mainland China?** → a mainland region of Alibaba Cloud (Tencent Cloud for WeChat products, Huawei Cloud for the public sector), ICP filing and a local entity or partner. That is a project with a lawyer.
 - **Personal data of Russian citizens?** → Yandex Cloud, Cloud.ru or VK Cloud; choose among them by services and price.
