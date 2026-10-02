@@ -1,5 +1,5 @@
 ---
-summary: Solaris 12 has vanished from Oracle's roadmap — it looks like there will be no twelfth version.
+summary: Solaris 12 has vanished from Oracle's roadmap: it looks like there will be no twelfth version.
 ---
 
 # Solaris 12 disappears from Oracle's roadmap

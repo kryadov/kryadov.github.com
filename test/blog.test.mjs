@@ -19,7 +19,7 @@ test('renders a complete page in the right locale', () => {
   const page = renderBlog(posts, 'ru');
   assert.match(page, /^<!doctype html>/);
   assert.match(page, /<html lang="ru">/);
-  assert.match(page, /<title>Блог — Константин Рядов<\/title>/);
+  assert.match(page, /<title>Блог · Константин Рядов<\/title>/);
 });
 
 test('keeps the order it was handed, newest first', () => {

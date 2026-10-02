@@ -25,8 +25,8 @@ test('the title is the h1, exactly once', () => {
 });
 
 test('the document title carries the post title and the name', () => {
-  assert.match(renderPost(post, 'en'), /<title>Why microservices — Konstantin Ryadov<\/title>/);
-  assert.match(renderPost(post, 'ru'), /<title>Почему микросервисы — Константин Рядов<\/title>/);
+  assert.match(renderPost(post, 'en'), /<title>Why microservices · Konstantin Ryadov<\/title>/);
+  assert.match(renderPost(post, 'ru'), /<title>Почему микросервисы · Константин Рядов<\/title>/);
 });
 
 test('the description is the summary', () => {
@@ -65,6 +65,6 @@ test('the blog is the current section while reading a post', () => {
 test('escapes a title that contains markup, in the heading and in the title tag', () => {
   const nasty = { ...post, en: { ...post.en, title: 'a <b> & "c"' } };
   const page = renderPost(nasty, 'en');
-  assert.match(page, /<title>a &lt;b&gt; &amp; &quot;c&quot; — Konstantin Ryadov<\/title>/);
+  assert.match(page, /<title>a &lt;b&gt; &amp; &quot;c&quot; · Konstantin Ryadov<\/title>/);
   assert.match(page, /<h1 class="post__title">a &lt;b&gt; &amp; &quot;c&quot;<\/h1>/);
 });

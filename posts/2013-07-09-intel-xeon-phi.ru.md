@@ -1,5 +1,5 @@
 ---
-summary: Что такое сопроцессор Intel Xeon Phi, как до него добраться (по SSH, как до отдельной машины) и что получает разработчик — компиляторы, библиотеки и #pragma offload.
+summary: Что такое сопроцессор Intel Xeon Phi, как до него добраться (по SSH, как до отдельной машины) и что получает разработчик: компиляторы, библиотеки и #pragma offload.
 ---
 
 # Сопроцессор Intel® Xeon Phi
@@ -9,13 +9,13 @@ summary: Что такое сопроцессор Intel Xeon Phi, как до н
 
 ![Intel Xeon Phi](/assets/blog/intel-xeon-phi/01.jpg)
 
-Со слов википедии Xeon Phi - ребрендинг имплементации технологии Intel MIC (англ. Intel Many Integrated Core Architecture) — архитектура многоядерной процессорной системы, разработанная Intel с использованием наработок архитектур Larrabee, Teraflops Research Chip, Intel Single-chip Cloud Computer.
+Со слов википедии Xeon Phi - ребрендинг имплементации технологии Intel MIC (англ. Intel Many Integrated Core Architecture), архитектура многоядерной процессорной системы, разработанная Intel с использованием наработок архитектур Larrabee, Teraflops Research Chip, Intel Single-chip Cloud Computer.
 
 В 2013 году вышло второе поколение - в максимальной конфигурации сопроцессоры Xeon Phi 7120P/7120X оперируют 61 ядром, обрабатывающим данные в 244 потока и работающим на частоте 1,23/1,33 ГГц (обычный режим/турбо).
 
 Предложение звучит особенно заманчиво для разработчиков многопоточных приложений и всяких там кластерных вычислений, учитывая, что Xeon Phi - "карточка" шины PCI-Express. Взял Xeon, добавил пару Phi-карт и сделал себе суперкомпьютер. Добавим к этому пару крупных компаний, выпускающих готовые решения, - [SuperMicro](http://www.supermicro.com/products/nfo/Xeon_Phi.cfm), [Dell](http://www.dell.com/learn/us/en/04/large-business/intel-xeon?c=us&l=en&s=bsd) - и можно, казалось бы даже, выйти в Production.
 
-![Intel Xeon Phi — карта PCIe](/assets/blog/intel-xeon-phi/02.jpg)
+![Intel Xeon Phi, карта PCIe](/assets/blog/intel-xeon-phi/02.jpg)
 
 Рассмотрим главный вопрос - что собственно достается разработчику? Читаем [Quick Start Guide](http://software.intel.com/en-us/articles/intel-xeon-phi-coprocessor-developers-quick-start-guide) с сайта Intel:
 

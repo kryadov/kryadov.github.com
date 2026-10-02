@@ -1,5 +1,5 @@
 ---
-summary: A couple of pictures on how the IBM Power line evolved — where it came from and where it is heading.
+summary: A couple of pictures on how the IBM Power line evolved: where it came from and where it is heading.
 ---
 
 # The evolution of IBM Power

@@ -1,12 +1,12 @@
 ---
-summary: Logstash на виртуалке стартует по две минуты при нулевой загрузке CPU — виновата нехватка энтропии для /dev/random, лечится демоном haveged.
+summary: Logstash на виртуалке стартует по две минуты при нулевой загрузке CPU: виновата нехватка энтропии для /dev/random, лечится демоном haveged.
 ---
 
 # ELK 5.X - долгий старт Logstash
 
 Если брать logstash из коробки и ставить на CentOS запущенный как VM, то время его запуска может затянуться до 1-2 минут.  
 Интересно, что загрузка CPU/IO при этом нулевая.  
-Оказалось, что [причиной тормозов](http://passbe.com/2016/12/21/logstash-slow-start-up-times-and-exhausting-entropy.html) является JRuby и /dev/random и одним из вариантов лечения может быть установка пакета **haveged** из [EPEL](https://www.8host.com/blog/ispolzovanie-prostogo-demona-entropii-haveged/) (можно подключить repo и установить через yum, а можно просто скачать и установить соотв. [RPM](https://archives.fedoraproject.org/pub/archive/epel/7/x86_64/Packages/h/)).
+Оказалось, что [причиной тормозов](https://web.archive.org/web/20170913073400/http://passbe.com/2016/12/21/logstash-slow-start-up-times-and-exhausting-entropy.html) является JRuby и /dev/random и одним из вариантов лечения может быть установка пакета **haveged** из [EPEL](https://www.8host.com/blog/ispolzovanie-prostogo-demona-entropii-haveged/) (можно подключить repo и установить через yum, а можно просто скачать и установить соотв. [RPM](https://archives.fedoraproject.org/pub/archive/epel/7/x86_64/Packages/h/)).
 
 Немного теории ([ссылка](https://www.8host.com/blog/ispolzovanie-prostogo-demona-entropii-haveged/)):  
 В Linux есть два общих устройства: /dev/random и /dev/urandom. Случайность создаётся инструментом /dev/random (он предназначен для блокирования) и ожидает соответствующего уровня энтропии для своего вывода. Если энтропия находится на достаточном уровне, /dev/urandom произведёт такой же уровень случайности; однако /dev/urandom продолжит генерировать случайные данные (поскольку является неблокирующим устройством) даже если пул энтропии иссякает. Это может привести к снижению качества случайностей и увеличивает шансы повтора предыдущих данных. Снижение уровня энтропии очень опасно для производственного сервера, особенно если этот сервер выполняет криптографические функции.

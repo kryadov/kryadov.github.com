@@ -1,5 +1,5 @@
 ---
-summary: How to build an HTML report from a template with Apache FreeMarker — configuration, data model, template — and convert it to PDF with Flying Saucer.
+summary: How to build an HTML report from a template with Apache FreeMarker (configuration, data model, template) and convert it to PDF with Flying Saucer.
 ---
 
 # How FreeMarker helps you build an HTML report from a template quickly (+ converting it to PDF)

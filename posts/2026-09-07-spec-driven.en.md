@@ -79,7 +79,7 @@ Two families of fix followed, and they went in opposite directions.
 
 The first moved the specification inside the program. Bertrand Meyer's Design by Contract, published in 1992, expresses a routine's preconditions and postconditions as a contract between caller and supplier, with blame assigned mechanically: break the precondition and the fault is the caller's. Meyer was explicit that documentation should not be a product maintained separately from the code.
 
-The second made prose itself precise. RFC 2119, in 1997, fixed the meaning of MUST, SHOULD and MAY so that two independent implementers would read a protocol the same way — and then warned, in its own closing section, that the keywords must be used with care and sparingly. Twenty years later RFC 8174 had to narrow it again: the words are normative only when capitalised.
+The second made prose itself precise. RFC 2119, in 1997, fixed the meaning of MUST, SHOULD and MAY so that two independent implementers would read a protocol the same way, and then warned, in its own closing section, that the keywords must be used with care and sparingly. Twenty years later RFC 8174 had to narrow it again: the words are normative only when capitalised.
 
 Both fixes worked. Neither made the whole specification executable. A contract covers an interface, not an intent. A normative keyword makes a sentence unambiguous, not a system.
 
@@ -89,7 +89,7 @@ The next attempt was to make the specification run.
 
 Kent Beck's test-driven development is usually summarised as test, then code. His own canonical description starts a step earlier: with a written list of the scenarios the change must satisfy, before a single test exists. The specification precedes the test, not just the code.
 
-Dan North renamed the vocabulary in 2006 for a specific reason — the word *test* was the thing stopping people from understanding the practice. Called *behaviour*, the same questions started answering themselves. Gojko Adzic later packaged the collaborative version as Specification by Example, aiming at documentation that stays alive because it executes.
+Dan North renamed the vocabulary in 2006 for a specific reason: the word *test* was the thing stopping people from understanding the practice. Called *behaviour*, the same questions started answering themselves. Gojko Adzic later packaged the collaborative version as Specification by Example, aiming at documentation that stays alive because it executes.
 
 Each move pushes the primary artefact one step further upstream:
 
@@ -129,7 +129,7 @@ Hold on to that one, because it is the mechanism the current tooling actually ru
 
 Now the modern part.
 
-Vibe coding — talking to a model until the output looks right — is a genuinely good way to work. It is fast, it is pleasant, and for a throwaway script or an exploratory change it is hard to beat.
+Vibe coding, talking to a model until the output looks right, is a genuinely good way to work. It is fast, it is pleasant, and for a throwaway script or an exploratory change it is hard to beat.
 
 ```
                     VIBE CODING
@@ -203,7 +203,7 @@ Spec-driven development puts the review stages back, and puts them before anythi
 
 The prompt describes behaviour and constraints rather than an implementation. It produces a requirements document, which is reviewed and either approved or edited. Approved requirements become a design, reviewed the same way. Only then does the agent write code.
 
-This is Amazon's mechanism — reject it cheaply, on paper — applied to a generator instead of a product committee. The gates are affordable precisely because nothing has been built yet.
+This is Amazon's mechanism (reject it cheaply, on paper) applied to a generator instead of a product committee. The gates are affordable precisely because nothing has been built yet.
 
 And here is the actual novelty, which is not that we started writing specifications.
 
@@ -215,7 +215,7 @@ Staleness stops being a documentation problem and becomes a build problem. That 
 
 That is the strongest case for it. An honest account has to include the bill.
 
-Spec-driven development does not remove ambiguity. It relocates it. Ambiguity in code is findable — a machine executes it and tells you. Ambiguity in prose is findable only by a careful reader, and a specification precise enough to eliminate it has become a program written in the least suitable language available.
+Spec-driven development does not remove ambiguity. It relocates it. Ambiguity in code is findable: a machine executes it and tells you. Ambiguity in prose is findable only by a careful reader, and a specification precise enough to eliminate it has become a program written in the least suitable language available.
 
 Martin Fowler worked through this in 2003 under a different name, *UML as programming language*, and reached the conclusion that raising the level of abstraction does not exempt you from the work of programming.
 
@@ -249,7 +249,7 @@ What that looks like in practice is smaller than the rhetoric:
 └────────────────────────────────┴────────────────────────────────┘
 ```
 
-Where the industry has actually landed is worth noticing. The three-document shape — requirements, design, tasks — is real and convergent, and EARS, the requirements notation one popular tool adopted, comes from Rolls-Royce in 2009 and has nothing to do with AI. But Thoughtworks still files spec-driven development under *Assess*, noting the definition is unsettled. The first academic attempt to define it, in 2026, opens by admitting there is no shared vocabulary yet. And the format the ecosystem genuinely standardised on is `AGENTS.md` — a file of instructions, not a specification.
+Where the industry has actually landed is worth noticing. The three-document shape (requirements, design, tasks) is real and convergent, and EARS, the requirements notation one popular tool adopted, comes from Rolls-Royce in 2009 and has nothing to do with AI. But Thoughtworks still files spec-driven development under *Assess*, noting the definition is unsettled. The first academic attempt to define it, in 2026, opens by admitting there is no shared vocabulary yet. And the format the ecosystem genuinely standardised on is `AGENTS.md`, a file of instructions, not a specification.
 
 ## Conclusion
 
@@ -281,38 +281,38 @@ So the most accurate way to tell the story is this:
 
 ## Further Reading
 
-- Winston W. Royce — Managing the Development of Large Software Systems (1970)  
+- Winston W. Royce, Managing the Development of Large Software Systems (1970)  
   https://web.archive.org/web/2018id_/http://www-scf.usc.edu/~csci201/lectures/Lecture11/royce1970.pdf
 
-- David L. Parnas and Paul C. Clements — A Rational Design Process: How and Why to Fake It (1986)  
+- David L. Parnas and Paul C. Clements, A Rational Design Process: How and Why to Fake It (1986)  
   https://users.ece.utexas.edu/~perry/education/SE-Intro/fakeit.pdf
 
-- Bertrand Meyer — Applying "Design by Contract" (1992)  
+- Bertrand Meyer, Applying "Design by Contract" (1992)  
   https://se.inf.ethz.ch/~meyer/publications/computer/contract.pdf
 
-- Scott Bradner — RFC 2119: Key Words for Use in RFCs to Indicate Requirement Levels  
+- Scott Bradner, RFC 2119: Key Words for Use in RFCs to Indicate Requirement Levels  
   https://www.rfc-editor.org/rfc/rfc2119.txt
 
-- Kent Beck — Canon TDD  
+- Kent Beck, Canon TDD  
   https://newsletter.kentbeck.com/p/canon-tdd
 
-- Dan North — Introducing BDD  
+- Dan North, Introducing BDD  
   https://dannorth.net/blog/introducing-bdd/
 
-- Werner Vogels — Working Backwards  
+- Werner Vogels, Working Backwards  
   https://www.allthingsdistributed.com/2006/11/working_backwards.html
 
-- Gojko Adzic — Specification by Example  
+- Gojko Adzic, Specification by Example  
   https://gojko.net/books/specification-by-example/
 
-- Martin Fowler — UmlAsProgrammingLanguage  
+- Martin Fowler, UmlAsProgrammingLanguage  
   https://martinfowler.com/bliki/UmlAsProgrammingLanguage.html
 
-- GitHub — Spec Kit: the spec-driven development methodology  
+- GitHub, Spec Kit: the spec-driven development methodology  
   https://github.com/github/spec-kit/blob/main/spec-driven.md
 
-- Alistair Mavin — EARS: Easy Approach to Requirements Syntax  
+- Alistair Mavin, EARS: Easy Approach to Requirements Syntax  
   https://alistairmavin.com/ears/
 
-- Thoughtworks Technology Radar — Spec-driven development  
+- Thoughtworks Technology Radar, Spec-driven development  
   https://www.thoughtworks.com/radar/techniques/spec-driven-development

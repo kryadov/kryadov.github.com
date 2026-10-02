@@ -1,5 +1,5 @@
 ---
-summary: A firewalld cheat sheet for RHEL/CentOS/OL 7 — what the zones are, and how to check the state and open a port with firewall-cmd.
+summary: A firewalld cheat sheet for RHEL/CentOS/OL 7: what the zones are, and how to check the state and open a port with firewall-cmd.
 ---
 
 # RHEL/CentOS/OL 7 cheat sheet: firewalld and firewall-cmd
@@ -14,7 +14,7 @@ Zones:
 - block: like drop, but incoming requests are rejected with an icmp-host-prohibited or icmp6-adm-prohibited message
 - public: a public network that cannot be trusted, though incoming connections are allowed case by case
 - external: external networks with NAT masquerading allowed, so the internal network stays closed but reachable
-- internal: the reverse of external — internal networks, where devices in the zone can be trusted
+- internal: the reverse of external: internal networks, where devices in the zone can be trusted
 - dmz: for devices in the DMZ (with no access to the rest of the network); only some incoming connections are allowed
 - work: a work network; most devices can be trusted
 - home: a home network; the surroundings can be trusted, only user-defined incoming connections are allowed

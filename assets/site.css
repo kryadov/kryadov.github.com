@@ -95,6 +95,18 @@ main {
 .nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.5rem 1rem; }
 .nav__link { color: var(--muted); text-decoration: none; }
 .nav__external { color: var(--muted); text-decoration: none; }
+/* Links that leave the site carry an arrow, so GitHub, Telegram and LinkedIn
+   do not read as pages of this one. Every footer link points off-site. The
+   "/ ''" part is the alternative text: a screen reader announces the link
+   name, not "north-east arrow". */
+.nav__external::after,
+.footer a::after {
+  content: "↗" / "";
+  margin-left: 0.2em;
+  font-size: 0.8em;
+  vertical-align: 0.1em;
+  opacity: 0.7;
+}
 .nav__link--current { color: var(--fg); font-weight: 600; }
 .nav__lang {
   border: 1px solid var(--line);
@@ -284,6 +296,7 @@ img.card__cover { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: c
 
 .footer {
   display: flex;
+  justify-content: center;
   gap: 1.25rem;
   flex-wrap: wrap;
   padding-top: 3rem;

@@ -1,5 +1,5 @@
 ---
-summary: What the Intel Xeon Phi coprocessor is, how you reach it (over SSH, as if it were a separate machine) and what a developer gets — compilers, libraries and #pragma offload.
+summary: What the Intel Xeon Phi coprocessor is, how you reach it (over SSH, as if it were a separate machine) and what a developer gets: compilers, libraries and #pragma offload.
 ---
 
 # The Intel® Xeon Phi coprocessor
@@ -9,11 +9,11 @@ So what kind of beast is it? Let's find out.
 
 ![Intel Xeon Phi](/assets/blog/intel-xeon-phi/01.jpg)
 
-According to Wikipedia, Xeon Phi is a rebranding of Intel MIC (Intel Many Integrated Core Architecture) — a many-core processor architecture Intel developed from its work on Larrabee, the Teraflops Research Chip and the Intel Single-chip Cloud Computer.
+According to Wikipedia, Xeon Phi is a rebranding of Intel MIC (Intel Many Integrated Core Architecture), a many-core processor architecture Intel developed from its work on Larrabee, the Teraflops Research Chip and the Intel Single-chip Cloud Computer.
 
 The second generation came out in 2013: in their top configuration the Xeon Phi 7120P/7120X coprocessors have 61 cores running 244 threads at 1.23/1.33 GHz (normal/turbo).
 
-The offer sounds especially tempting for developers of multithreaded applications and cluster computing of all sorts, given that a Xeon Phi is a PCI Express card. Take a Xeon, add a couple of Phi cards, and you have yourself a supercomputer. Add a couple of big vendors shipping ready-made systems — [SuperMicro](http://www.supermicro.com/products/nfo/Xeon_Phi.cfm), [Dell](http://www.dell.com/learn/us/en/04/large-business/intel-xeon?c=us&l=en&s=bsd) — and it would seem you could even go to production.
+The offer sounds especially tempting for developers of multithreaded applications and cluster computing of all sorts, given that a Xeon Phi is a PCI Express card. Take a Xeon, add a couple of Phi cards, and you have yourself a supercomputer. Add a couple of big vendors shipping ready-made systems, [SuperMicro](http://www.supermicro.com/products/nfo/Xeon_Phi.cfm), [Dell](http://www.dell.com/learn/us/en/04/large-business/intel-xeon?c=us&l=en&s=bsd), and it would seem you could even go to production.
 
 ![Intel Xeon Phi PCIe card](/assets/blog/intel-xeon-phi/02.jpg)
 
@@ -23,7 +23,7 @@ Now the main question: what does a developer actually get? Let's read the [Quick
 
 So:
 
-1. Take [RHEL 6](http://www.redhat.com/promo/Red_Hat_Enterprise_Linux6/) (kernel 2.6.32-131 or later) or [SLES 11](https://www.suse.com/promo/sle11sp3.html) (kernel 3.0.13-0.27 or later) — and it seems no other OS will do
+1. Take [RHEL 6](http://www.redhat.com/promo/Red_Hat_Enterprise_Linux6/) (kernel 2.6.32-131 or later) or [SLES 11](https://www.suse.com/promo/sle11sp3.html) (kernel 3.0.13-0.27 or later); it seems no other OS will do
 2. Install the [latest drivers from Intel](http://software.intel.com/en-us/mic-developer) and update the flash on the Phi itself
 3. Start the mpss service
 4. Buy, or download for free, the [Software Development Tools](http://software.intel.com/en-us/linux-tool-suites) components and install them
@@ -108,7 +108,7 @@ float reduction(float *data, int size) {
 ```
 
 Which raises the question: what speed-up should you expect?
-Purely logically, on that same Xeon Phi 7120P/7120X with its 61 cores — and, presumably, a set of pipelines in each core — the speed-up on addition should be no less than 61× (thank you, Captain Obvious!).
+Purely logically, on that same Xeon Phi 7120P/7120X with its 61 cores (and, presumably, a set of pipelines in each core), the speed-up on addition should be no less than 61× (thank you, Captain Obvious!).
 
 Besides "speeding up" array addition there is real multithreading support for number crunching and [much more](http://software.intel.com/sites/default/files/article/335818/intel-xeon-phi-coprocessor-quick-start-developers-guide.pdf), OpenMP included.
 It is also nice that you can write code that runs both with a Phi and without one.

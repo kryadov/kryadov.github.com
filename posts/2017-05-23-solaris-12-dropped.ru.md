@@ -1,5 +1,5 @@
 ---
-summary: Solaris 12 исчез из дорожной карты Oracle — похоже, двенадцатой версии не будет.
+summary: Solaris 12 исчез из дорожной карты Oracle: похоже, двенадцатой версии не будет.
 ---
 
 # Solaris 12 disappears from Oracle's roadmap

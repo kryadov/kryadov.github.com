@@ -142,7 +142,7 @@ Bare virtual machines cost a fraction of the price, but everything beyond them i
 **Hetzner.** Even after the [price increase of 15 June 2026](https://docs.hetzner.com/general/infrastructure-and-availability/price-adjustment/), it is the cheapest serious option:
 
 - **Prices after the increase:** a CX23 (2 vCPUs, 4 GB) went from €3.99 to €5.49 a month; the ARM CAX11, from €4.49 to €5.99. The CPX and CCX families went up 2–3×, so for a cheap MVP look only at CX and CAX now.
-- **Traffic:** in the European locations, 20 TB is included with a server.
+- **Traffic:** each server includes 20 TB in the European locations and 1 TB in the American ones.
 - **Six locations:** Falkenstein, Nuremberg, Helsinki, Ashburn, Hillsboro and Singapore.
 
 Two CX23s (one for the app, one for Postgres) come to about €12 a month plus public IPv4.

@@ -24,7 +24,7 @@ export function renderPost(post, locale) {
     post,
     // Not a t() key: every post has its own, and there is nothing to translate
     // but the name after the dash.
-    title: `${text.title} — ${t(locale, 'site.name')}`,
+    title: `${text.title} · ${t(locale, 'site.name')}`,
     description: text.summary,
     body,
   });

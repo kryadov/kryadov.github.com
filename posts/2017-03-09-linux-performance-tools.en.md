@@ -1,5 +1,5 @@
 ---
-summary: Brendan Gregg's cheat sheet — which Linux command-line tools to benchmark performance with.
+summary: Brendan Gregg's cheat sheet: which Linux command-line tools to benchmark performance with.
 ---
 
 # Linux performance tools

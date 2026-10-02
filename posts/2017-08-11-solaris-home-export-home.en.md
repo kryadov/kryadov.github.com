@@ -4,7 +4,7 @@ summary: Why Solaris keeps home directories in /export/home rather than /home, a
 
 # Oracle Solaris 10/11: /home and /export/home
 
-A note to self on Sun's idea of having every home directory — a machine's own and everyone else's — mounted on any given server. In effect it answers three "why does Solaris…" questions:
+A note to self on Sun's idea of having every home directory (a machine's own and everyone else's) mounted on any given server. In effect it answers three "why does Solaris…" questions:
 
 1. Why are home directories created in /export/home rather than /home, as on most other Unix and Linux systems?
 2. Why does /home sometimes contain symlinks to some of the home directories in /export/home?

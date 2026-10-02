@@ -1,5 +1,5 @@
 ---
-summary: Three pictures on how Solaris and SPARC evolved — where they came from and where Oracle is taking them.
+summary: Three pictures on how Solaris and SPARC evolved: where they came from and where Oracle is taking them.
 ---
 
 # The evolution of Solaris and SPARC

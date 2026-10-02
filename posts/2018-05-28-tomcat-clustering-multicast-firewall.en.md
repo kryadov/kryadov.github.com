@@ -34,11 +34,11 @@ It's simple:
 tomcat/bin/startup.bat
 ```
 
-5) Open "/" on both in a browser — you get null
+5) Open "/" on both in a browser: you get null
 
 6) Open /set.jsp on one of them
 
-7) Repeat step 5 — you get "blablabla" on both
+7) Repeat step 5: you get "blablabla" on both
 
 ...
 
@@ -60,7 +60,7 @@ tomcat/bin/startup.bat
 # service iptables restart
 ```
 
-10.2) RHEL / CentOS 7 — run
+10.2) RHEL / CentOS 7: run
 
 ```
 # firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -m pkttype --pkt-type multicast -j ACCEPT

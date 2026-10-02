@@ -1,5 +1,5 @@
 ---
-summary: Brendan Gregg's cheat sheet — which Linux command-line tools observe which part of the system.
+summary: Brendan Gregg's cheat sheet: which Linux command-line tools observe which part of the system.
 ---
 
 # Linux performance observability tools
