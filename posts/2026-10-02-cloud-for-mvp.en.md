@@ -335,14 +335,17 @@ And a practical detail: since 2024 AWS, Google and Azure, under pressure from th
 
 ## 11. Decision tree
 
+- **No special requirements on jurisdiction or the team?** That is the most common case:
+  - time is worth more than money → Cloud Run or Azure Container Apps, with a clear path to GKE or AKS;
+  - money is worth more than time → Hetzner;
+  - AWS → if the team already knows it or a big customer requires it.
+
+The following conditions override the choice above:
+
 - **Users in mainland China?** → a mainland region of Alibaba Cloud (Tencent Cloud for WeChat products, Huawei Cloud for the public sector), ICP filing and a local entity or partner. That is a project with a lawyer.
 - **Personal data of Russian citizens?** → Yandex Cloud, Cloud.ru or VK Cloud; choose among them by services and price.
 - **Customers in the European public sector, finance or healthcare?** → a sovereign cloud (OVHcloud, Scaleway, STACKIT) or AWS European Sovereign Cloud, depending on what their compliance will accept.
 - **No DevOps person on the team?** → a managed PaaS: Render, not Heroku. Watch the bandwidth.
 - **Some time to spare and a budget to protect?** → Hetzner + Coolify.
-- **Otherwise:**
-  - time is worth more than money → Cloud Run or Azure Container Apps, with a clear path to GKE or AKS;
-  - money is worth more than time → Hetzner;
-  - AWS → if the team already knows it or a big customer requires it.
 
 Whichever branch you take, follow section 10. Then the decision can be revisited.
