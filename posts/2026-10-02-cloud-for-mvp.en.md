@@ -1,5 +1,5 @@
 ---
-summary: Between clouds, an MVP's bill differs by less than $100 a month; the cost of leaving differs by a quarter of work. AWS, Google Cloud, Azure, Oracle, Hetzner, PaaS, Russian, Chinese, European and GPU clouds on one and the same service: what it costs, where it hurts and how you get out later.
+summary: Between clouds, an MVP's bill differs by less than $100 a month; the cost of leaving differs by a quarter of work. AWS, Google Cloud, Azure, Oracle, Hetzner, PaaS, Chinese, Russian, European and GPU clouds on one and the same service: what it costs, where it hurts and how you get out later.
 ---
 
 # The cheapest cloud is the one you can leave: AWS, Hetzner or Render for your MVP
@@ -38,8 +38,8 @@ The conclusion is unexpected: at the start the bills differ by less than $100 a 
   - [5.1. Heroku and Render: paying not to think](#heroku-render)
   - [5.2. Coolify (and Dokku, Kamal): a PaaS on your own VPS](#coolify)
 - [6. Regional clouds: when jurisdiction chooses for you](#regional)
-  - [6.1. Russia: Yandex Cloud, Cloud.ru, VK Cloud](#russia)
-  - [6.2. China: Alibaba Cloud, Tencent Cloud, Huawei Cloud](#china)
+  - [6.1. China: Alibaba Cloud, Tencent Cloud, Huawei Cloud](#china)
+  - [6.2. Russia: Yandex Cloud, Cloud.ru, VK Cloud](#russia)
   - [6.3. Europe: sovereign clouds](#europe)
   - [6.4. The rest of the world](#rest-of-world)
 - [7. GPU clouds: when you need your own model](#gpu)
@@ -199,21 +199,7 @@ Simpler alternatives: [Dokku](https://dokku.com), "Heroku on a single server", a
 
 ## <a id="regional"></a>6. Regional clouds: when jurisdiction chooses for you
 
-### <a id="russia"></a>6.1. Russia: Yandex Cloud, Cloud.ru, VK Cloud
-
-If you process personal data of Russian citizens, Federal Law 152-FZ requires it to be recorded and stored in databases located in Russia. The Western hyperscalers drop out here, both legally and because you can't pay them.
-
-**Yandex Cloud** is the most mature of the Russian clouds. Prices from its [documentation](https://github.com/yandex-cloud/docs), after the spring 2026 increase, VAT included:
-
-- **Serverless Containers**, the Cloud Run counterpart: ₽5.69 per vCPU-hour, ₽3.79 per GB-hour, ₽18.97 per million invocations. Free each month: 1 million invocations, 5 vCPU-hours and 10 GB-hours. That is much less than Google's, so an MVP with steady load will outgrow it.
-- **Managed PostgreSQL:** the smallest host, b2.medium (2 vCPUs with a guaranteed 50% share, 4 GB), costs about ₽3,000 a month plus storage.
-- **Egress:** the first 100 GB free, then ₽1.42 per GB.
-
-About ₽3,500 a month in all. The catch is that it is essentially one region (ru-central1).
-
-**Cloud.ru** (formerly SberCloud) has GigaChat next door, but its free VM [is not available to anyone who signed up after 30 June 2026](https://cloud.ru/docs/evolution/overview/topics/free-tier__virtual-machines). **VK Cloud** is the third option. If you need public-sector certification, compare them by their list of certificates, not by price.
-
-### <a id="china"></a>6.2. China: Alibaba Cloud, Tencent Cloud, Huawei Cloud
+### <a id="china"></a>6.1. China: Alibaba Cloud, Tencent Cloud, Huawei Cloud
 
 These are two entirely different stories.
 
@@ -236,6 +222,20 @@ If your users are in China, this is a separate project with its own lawyer, not 
 
 **Models.** Qwen through Alibaba Model Studio, DeepSeek, and ByteDance's Volcano Engine offer strong, cheap APIs. That is the one part of the Chinese cloud that interests nearly everyone.
 
+### <a id="russia"></a>6.2. Russia: Yandex Cloud, Cloud.ru, VK Cloud
+
+If you process personal data of Russian citizens, Federal Law 152-FZ requires it to be recorded and stored in databases located in Russia. The Western hyperscalers drop out here, both legally and because you can't pay them.
+
+**Yandex Cloud** is the most mature of the Russian clouds. Prices from its [documentation](https://github.com/yandex-cloud/docs), after the spring 2026 increase, VAT included:
+
+- **Serverless Containers**, the Cloud Run counterpart: ₽5.69 per vCPU-hour, ₽3.79 per GB-hour, ₽18.97 per million invocations. Free each month: 1 million invocations, 5 vCPU-hours and 10 GB-hours. That is much less than Google's, so an MVP with steady load will outgrow it.
+- **Managed PostgreSQL:** the smallest host, b2.medium (2 vCPUs with a guaranteed 50% share, 4 GB), costs about ₽3,000 a month plus storage.
+- **Egress:** the first 100 GB free, then ₽1.42 per GB.
+
+About ₽3,500 a month in all. The catch is that it is essentially one region (ru-central1).
+
+**Cloud.ru** (formerly SberCloud) has GigaChat next door, but its free VM [is not available to anyone who signed up after 30 June 2026](https://cloud.ru/docs/evolution/overview/topics/free-tier__virtual-machines). **VK Cloud** is the third option. If you need public-sector certification, compare them by their list of certificates, not by price.
+
 ### <a id="europe"></a>6.3. Europe: sovereign clouds
 
 Here the issue isn't a localisation law but the **US CLOUD Act**: data in a European region of AWS, Google or Microsoft is formally reachable by US authorities because the provider is an American company. For the public sector, finance and healthcare that is an argument; France has a dedicated certification, **SecNumCloud**.
@@ -247,7 +247,7 @@ For an MVP this is rarely decisive. But if your target customer is a European ba
 
 ### <a id="rest-of-world"></a>6.4. The rest of the world
 
-Data residency requirements exist almost everywhere; the Russian and Chinese cases are just the strictest.
+Data residency requirements exist almost everywhere; the Chinese and Russian cases are just the strictest.
 
 - **South Korea.** The public sector requires CSAP certification, with staff and data in Korea, which effectively closes it to foreign providers. In spring 2026 the government announced that authority over public-sector access would move to the NIS.
 - **Japan.** It has clouds of its own: Sakura Internet is among the government cloud providers.
@@ -288,8 +288,8 @@ An estimate for the reference service from section 1: API and worker, the smalle
 | Heroku | 2 × Basic + Essential-0 | ~$19 | the platform is frozen |
 | Render | 2 services + Postgres, Hobby | ~$50 | $0.15/GB beyond 5 GB of bandwidth |
 | Hetzner + Coolify | CX33, everything on one server | ~€9 + IPv4 | Coolify needs looking after too |
-| Yandex Cloud | Serverless Containers + Managed PG | ~₽3,500 (incl. VAT) | one region |
 | Alibaba / Tencent (intl.) | VPS + your own Postgres | from ~$5–10 | outside China, only for the price |
+| Yandex Cloud | Serverless Containers + Managed PG | ~₽3,500 (incl. VAT) | one region |
 | Scaleway | Serverless Containers + DB-DEV-S | ~€11–15 | dev-tier database without HA |
 
 The gap between the cheapest and the most expensive option is under $100 a month, less than one hour of an engineer's time. That is why choosing by this table is a mistake. Choose by the next one.
@@ -309,8 +309,8 @@ An MVP that takes off may need, a year later, dozens of services, database repli
 | Heroku | more dynos | no | up to Premium plans | US, EU | no |
 | Render | horizontal autoscaling on Pro | no | up to 128 CPUs and 1 TB RAM | 5 | no |
 | Coolify | more servers | no | your own | wherever your servers are | wherever your servers are |
-| Yandex Cloud | Serverless → Managed Kubernetes | yes | Managed PG HA | 1 (+ Kazakhstan) | yes |
 | Alibaba Cloud | SAS → ECS → ACK | ACK | ApsaraDB, PolarDB | 31 | yes |
+| Yandex Cloud | Serverless → Managed Kubernetes | yes | Managed PG HA | 1 (+ Kazakhstan) | yes |
 | Scaleway | Serverless → Kapsule | Kapsule | Managed PG HA (not DEV) | 3 | H100 |
 
 The conclusion from this table is the opposite of the previous one:
