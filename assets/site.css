@@ -415,6 +415,24 @@ img.card__cover { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: c
   font-size: 1.2rem;
 }
 
+/* The "#" after each heading appears on hover. On a touch screen there is no
+   hover, so it stays faintly visible instead of being unreachable. */
+.heading-anchor {
+  color: var(--muted);
+  font-weight: 400;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.post__body :is(h2, h3, h4, h5, h6):hover .heading-anchor {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .heading-anchor { opacity: 0.35; }
+}
+
 .post__body p,
 .post__body ul,
 .post__body ol {

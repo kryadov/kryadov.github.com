@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { renderMarkdown, slugify } from '../src/markdown.mjs';
 
 test('gives every heading an id derived from its text', () => {
-  assert.match(renderMarkdown('## Why microservices'), /<h2 id="why-microservices">Why microservices<\/h2>/);
+  assert.match(renderMarkdown('## Why microservices'), /<h2 id="why-microservices">Why microservices/);
   assert.match(renderMarkdown('### 3.1. AWS: the widest choice'), /<h3 id="31-aws-the-widest-choice">/);
 });
 
@@ -21,6 +21,14 @@ test('numbers repeated headings within one document, and only within it', () => 
   const html = renderMarkdown('## Notes\n\n## Notes\n\n## Notes');
   assert.deepEqual([...html.matchAll(/id="([^"]+)"/g)].map((m) => m[1]), ['notes', 'notes-1', 'notes-2']);
   assert.match(renderMarkdown('## Notes'), /id="notes"/);
+});
+
+test('each heading carries a # link to itself, kept out of the reading order', () => {
+  const html = renderMarkdown('## Why microservices');
+  assert.match(
+    html,
+    /<h2 id="why-microservices">Why microservices <a class="heading-anchor" href="#why-microservices" aria-hidden="true" tabindex="-1">#<\/a><\/h2>/,
+  );
 });
 
 test('slugify collapses punctuation and whitespace into single hyphens', () => {

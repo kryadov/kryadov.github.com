@@ -50,12 +50,19 @@ function uniqueId(text) {
   return seen === 0 ? base : `${base}-${seen}`;
 }
 
+// The trailing "#" is a link to the heading itself, shown on hover, so a reader
+// can copy the address of a section. It is aria-hidden and out of the tab order:
+// the heading already says what the section is, and a screen reader announcing
+// "number sign, link" after every heading would only be noise. This module does
+// not know the page's language, so it could not label the link properly anyway.
 const marked = new Marked({
   gfm: true,
   async: false,
   renderer: {
     heading({ tokens, depth, text }) {
-      return `<h${depth} id="${uniqueId(text)}">${this.parser.parseInline(tokens)}</h${depth}>\n`;
+      const id = uniqueId(text);
+      const anchor = `<a class="heading-anchor" href="#${id}" aria-hidden="true" tabindex="-1">#</a>`;
+      return `<h${depth} id="${id}">${this.parser.parseInline(tokens)} ${anchor}</h${depth}>\n`;
     },
   },
 });

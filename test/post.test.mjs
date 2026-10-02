@@ -39,7 +39,7 @@ test('the date is printed and machine readable', () => {
 
 test('the body arrives as html, not as escaped markdown', () => {
   const page = renderPost(post, 'en');
-  assert.match(page, /<h2[^>]*>A heading<\/h2>/);
+  assert.match(page, /<h2[^>]*>A heading\b/);
   assert.match(page, /<strong>bold<\/strong>/);
   assert.match(page, /<li>one<\/li>/);
   assert.ok(!page.includes('**bold**'), 'the markdown was escaped instead of rendered');
