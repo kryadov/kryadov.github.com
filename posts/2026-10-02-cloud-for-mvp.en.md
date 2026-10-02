@@ -12,8 +12,8 @@ The conclusion is unexpected: at the start the bills differ by less than $100 a 
 
 - **At the start, the bills differ by tens of dollars a month.** The choice becomes expensive later, when the cloud is hard to leave: egress, rewritten IAM, provider-specific services you have grown into.
 - **No DevOps person on the team? Take a managed PaaS, but not Heroku.** Since February 2026 Heroku has been in "sustaining engineering" mode: no new features. Render is the modern replacement, but watch the bandwidth: beyond the included amount it costs $0.15 per GB.
-- **Some time and a wish to save? Hetzner + Coolify.** About €12 a month for two servers and 20 TB of traffic in Europe. The price: the database, backups and upgrades are now yours.
-- **Among the hyperscalers, Google Cloud Run and Azure Container Apps suit an MVP best.** Scale-to-zero and a monthly free allowance mean you mostly pay for the database. AWS costs more at the start because of the load balancer, public IPv4 and the NAT Gateway, and App Runner has been closed to new customers since 30 April 2026.
+- **Some time and a wish to save? Hetzner + Coolify.** About €9 a month for a server with 20 TB of traffic in Europe. The price: the database, backups and upgrades are now yours.
+- **Among the hyperscalers, Google Cloud Run and Azure Container Apps suit an MVP best.** Scale-to-zero and a monthly free allowance mean you mostly pay for the database and egress. AWS costs more at the start because of the load balancer, public IPv4 and the NAT Gateway, and App Runner has been closed to new customers since 30 April 2026.
 - **Oracle's free tier isn't what it was:** Ampere A1 has been cut to 2 OCPUs and 12 GB, and Oracle reclaims idle machines.
 - **Sometimes jurisdiction chooses for you:**
   - **Users in mainland China** mean a mainland region of a Chinese cloud, ICP filing and a local entity or partner. By default that's Alibaba Cloud, the largest, with Qwen models. Tencent Cloud if the product lives in WeChat (mini programs, games). Huawei Cloud if the customers are government and state-owned companies.
@@ -67,7 +67,7 @@ Marketing tables compare the number of services. For an MVP, other things matter
 
 - **Time to first deploy.** How many steps from an empty account to a working HTTPS address. Minutes on a PaaS; a day on AWS from scratch if you do it properly.
 - **The idle bill.** Nobody uses an MVP most of the time. If the platform scales to zero, nights and weekends are free. If not, you pay for 730 hours a month.
-- **The minimum price of managed Postgres.** Usually the biggest line on an MVP's bill, bigger than compute.
+- **The minimum price of managed Postgres.** One of the biggest lines on an MVP's bill, often bigger than compute.
 - **Egress.** The main surprise on the bill. $0.087–0.12 per GB at the hyperscalers; terabytes included in the server price at Hetzner and DigitalOcean.
 - **Terraform and IaC.** Can you describe everything as code and bring up a second environment with one command?
 - **What you'll have to rewrite to leave.** IAM policies, triggers, proprietary queues and databases, provider-specific SDKs.
@@ -143,7 +143,7 @@ Bare virtual machines cost a fraction of the price, but everything beyond them i
 
 - **Prices after the increase:** a CX23 (2 vCPUs, 4 GB) went from €3.99 to €5.49 a month; the ARM CAX11, from €4.49 to €5.99. The CPX and CCX families went up 2–3×, so for a cheap MVP look only at CX and CAX now.
 - **Traffic:** in the European locations, 20 TB is included with a server.
-- **Locations:** six: Falkenstein, Nuremberg, Helsinki, Ashburn, Hillsboro and Singapore.
+- **Six locations:** Falkenstein, Nuremberg, Helsinki, Ashburn, Hillsboro and Singapore.
 
 Two CX23s (one for the app, one for Postgres) come to about €12 a month plus public IPv4.
 
@@ -193,7 +193,7 @@ Our MVP (two Basic dynos and Essential-0) is about $19 a month. Cheap, but I wou
 
 [Coolify](https://coolify.io/pricing/) is an open-source PaaS you install on your own server. It gives you the same "push → deploy" experience: builds, TLS via Let's Encrypt, one-click databases and backups to S3. The self-hosted edition is free with no feature limits; the cloud edition, where Coolify manages your servers, is $5 a month for two servers.
 
-A Hetzner CX33 (4 GB) with Coolify and Postgres on it is about €9 a month plus IPv4. That is nearly the price of the hardware for nearly the Render experience. The price: upgrades, backups and outages of Coolify itself are now your responsibility.
+A Hetzner CX33 (4 vCPUs, 8 GB) with Coolify and Postgres on it is about €9 a month plus IPv4. That is nearly the price of the hardware for nearly the Render experience. The price: upgrades, backups and outages of Coolify itself are now your responsibility.
 
 Simpler alternatives: [Dokku](https://dokku.com), "Heroku on a single server", and [Kamal](https://kamal-deploy.org) from 37signals, container deploys over SSH with no dashboard.
 
@@ -224,7 +224,7 @@ If your users are in China, this is a separate project with its own lawyer, not 
 
 ### <a id="russia"></a>6.2. Russia: Yandex Cloud, Cloud.ru, VK Cloud
 
-If you process personal data of Russian citizens, Federal Law 152-FZ requires it to be recorded and stored in databases located in Russia. The Western hyperscalers drop out here, both legally and because you can't pay them.
+If you process personal data of Russian citizens, Federal Law 152-FZ requires it to be recorded and stored in databases located in Russia. The Western hyperscalers drop out here, both legally and because they can't be paid for from Russia.
 
 **Yandex Cloud** is the most mature of the Russian clouds. Prices from its [documentation](https://github.com/yandex-cloud/docs), after the spring 2026 increase, VAT included:
 
@@ -292,7 +292,7 @@ An estimate for the reference service from section 1: API and worker, the smalle
 | Yandex Cloud | Serverless Containers + Managed PG | ~₽3,500 (incl. VAT) | one region |
 | Scaleway | Serverless Containers + DB-DEV-S | ~€11–15 | dev-tier database without HA |
 
-The gap between the cheapest and the most expensive option is under $100 a month, less than one hour of an engineer's time. That is why choosing by this table is a mistake. Choose by the next one.
+The gap between the cheapest and the most expensive option is under $100 a month, about an hour or two of an engineer's time. That is why choosing by this table is a mistake. Choose by the next one.
 
 ## <a id="scaling"></a>9. What happens when you grow
 
