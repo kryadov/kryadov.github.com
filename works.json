@@ -216,6 +216,30 @@
     "detail": null
   },
   {
+    "id": "agents-while-i-sleep",
+    "repo": "agents-while-i-sleep",
+    "private": false,
+    "hero": true,
+    "track": "teaching",
+    "year": 2026,
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "live": "https://kryadov.github.io/agents-while-i-sleep/",
+    "cover": null,
+    "title": {
+      "en": "Agents Work While I Sleep",
+      "ru": "Агенты работают, даже когда я сплю"
+    },
+    "summary": {
+      "en": "Slides for a 40-minute talk that climbs the AI-development ladder from L1 to L9 on three real projects: Race the City, claude-remote-vm-dev and itffm. Covers releases every 30 minutes, overnight sessions on a VM, and seven agent branches from one decision in 50 minutes. In English and Russian, with speaker notes.",
+      "ru": "Слайды 40-минутного доклада о подъёме по лестнице AI-разработки от L1 до L9 на трёх настоящих проектах: Race the City, claude-remote-vm-dev и itffm. Релиз каждые 30 минут, ночные сессии на VM и семь веток агентов за 50 минут из одного решения. На русском и английском, с заметками спикера."
+    },
+    "detail": null
+  },
+  {
     "id": "ai-for-business-tutorial",
     "repo": "ai-for-business-tutorial",
     "private": false,
