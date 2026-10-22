@@ -15,7 +15,7 @@ That protects you in a browser. It does not protect a Python script calling `req
 - **Dependabot cannot read a UTF-16 `requirements.txt`**, which is what `pip freeze > requirements.txt` produces in Windows PowerShell. Five of my repositories showed zero alerts while Trivy found 10 to 42 vulnerable packages in each.
 - **`node-version: 22` in GitHub Actions does not mean "the latest 22".** The runner served a cached 22.23.3 the day after 22.23.4 shipped. Add `check-latest: true`.
 - **A green pull request means what its checks run.** In a repository whose tests run only on push, a Dependabot PR is green on a security scan alone; I merged one, and the deploy broke.
-- **The result:** 33 repositories needed fixing; 23 are clean now, and the other 10 wait on a decision: a library with no fixed release, or a major upgrade I would not make blind.
+- **The result:** 33 repositories needed fixing; 24 are fixed, and the other 9 wait on a decision: a library with no fixed release, or a major upgrade I would not make blind.
 - **The tool is public:** [repo-guard](https://github.com/kryadov/repo-guard) checks every repository weekly and keeps the report private.
 
 ## 1. Why the browser is not enough
