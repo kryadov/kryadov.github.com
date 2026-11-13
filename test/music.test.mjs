@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { readFile, access } from 'node:fs/promises';
 import { renderMusic, ARTIST } from '../src/render/music.mjs';
 
 const releases = JSON.parse(await readFile('music.json', 'utf8'));
@@ -58,6 +58,21 @@ test('the artist is named once on the page itself, not on every tile', () => {
     const lead = main.slice(main.indexOf('music__lead'), main.indexOf('music__grid'));
     assert.ok(lead.includes(ARTIST), 'the artist should be named in the lead');
   }
+});
+
+test('every cover points at a local file that exists, and is rendered', async () => {
+  const page = renderMusic(releases, 'en');
+  for (const release of releases.filter((r) => r.cover)) {
+    assert.match(release.cover, /^\/assets\/music\/[A-Za-z0-9_]+\.jpg$/, `${release.id}: bad cover`);
+    await access(`.${release.cover}`);
+    assert.ok(page.includes(`src="${release.cover}?v=`), `${release.id}: cover not rendered`);
+  }
+});
+
+test('a release without a cover still renders its title', () => {
+  const page = renderMusic([{ id: 'x', title: 'plain', url: 'https://band.link/x' }], 'en');
+  assert.ok(!page.includes('music__cover'));
+  assert.match(page, /plain/);
 });
 
 test('markup in a title would be escaped', () => {

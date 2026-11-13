@@ -1,6 +1,7 @@
 import { html } from '../html.mjs';
 import { t } from '../i18n.mjs';
 import { layout } from './layout.mjs';
+import { assetUrl } from '../assets.mjs';
 
 // Every release resolves through one smart link, which fans out to whichever
 // streaming service the visitor uses. There is nothing to host here and nothing
@@ -16,7 +17,16 @@ export function renderMusic(releases, locale) {
         ${releases.map(
           (release) => html`
             <li class="music__item">
-              <a class="music__link" href="${release.url}">${release.title}</a>
+              <a class="music__link" href="${release.url}">
+                ${release.cover
+                  ? // alt is empty on purpose: the title right below is the link's
+                    // accessible name, and a cover described as its own title would
+                    // be read out twice.
+                    html`<img class="music__cover" src="${assetUrl(release.cover)}" alt=""
+                      width="500" height="500" loading="lazy" decoding="async">`
+                  : null}
+                <span class="music__title">${release.title}</span>
+              </a>
             </li>
           `,
         )}
