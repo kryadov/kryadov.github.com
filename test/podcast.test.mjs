@@ -66,7 +66,10 @@ test('every episode the podcast publishes is listed exactly once', () => {
     .map((e) => Number(e.url.match(/ep-(\d+)$/)[1]))
     .sort((a, b) => a - b);
   assert.equal(new Set(codes).size, codes.length, 'an episode is listed twice');
-  assert.deepEqual(codes, Array.from({ length: 45 }, (_, i) => i + 1));
+  // No gaps from the first episode to the latest. The count itself is not pinned:
+  // it grows with every release, and drift against the platform is what
+  // scripts/sync-podcast.mjs reports.
+  assert.deepEqual(codes, Array.from({ length: codes.at(-1) }, (_, i) => i + 1));
 });
 
 test('seasons are the three the podcast actually has', () => {
