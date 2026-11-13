@@ -1,102 +1,146 @@
 [
   {
+    "id": "DIaJo",
+    "title": "eprogwave",
+    "url": "https://band.link/DIaJo",
+    "cover": "/assets/music/DIaJo.jpg"
+  },
+  {
+    "id": "33EbW",
+    "title": "Hiprogwave",
+    "url": "https://band.link/33EbW",
+    "cover": "/assets/music/33EbW.jpg"
+  },
+  {
+    "id": "9VnNp",
+    "title": "mct",
+    "url": "https://band.link/9VnNp",
+    "cover": "/assets/music/9VnNp.jpg"
+  },
+  {
+    "id": "mXnQu",
+    "title": "dpn",
+    "url": "https://band.link/mXnQu",
+    "cover": "/assets/music/mXnQu.jpg"
+  },
+  {
     "id": "time_rift_",
     "title": "Time Rift (guitar edition)",
-    "url": "https://band.link/time_rift_"
+    "url": "https://band.link/time_rift_",
+    "cover": "/assets/music/time_rift_.jpg"
   },
   {
     "id": "membrane",
     "title": "membrane",
-    "url": "https://band.link/membrane"
+    "url": "https://band.link/membrane",
+    "cover": "/assets/music/membrane.jpg"
   },
   {
     "id": "d_c_w",
     "title": "dcw",
-    "url": "https://band.link/d_c_w"
+    "url": "https://band.link/d_c_w",
+    "cover": "/assets/music/d_c_w.jpg"
   },
   {
     "id": "erAnw",
     "title": "membrane2",
-    "url": "https://band.link/erAnw"
+    "url": "https://band.link/erAnw",
+    "cover": "/assets/music/erAnw.jpg"
   },
   {
     "id": "k2opW",
     "title": "Modesc",
-    "url": "https://band.link/k2opW"
+    "url": "https://band.link/k2opW",
+    "cover": "/assets/music/k2opW.jpg"
   },
   {
     "id": "Zj66R",
     "title": "Synth Classics",
-    "url": "https://band.link/Zj66R"
+    "url": "https://band.link/Zj66R",
+    "cover": "/assets/music/Zj66R.jpg"
   },
   {
     "id": "6SaVI",
     "title": "Funkwave (opening)",
-    "url": "https://band.link/6SaVI"
+    "url": "https://band.link/6SaVI",
+    "cover": "/assets/music/6SaVI.jpg"
   },
   {
     "id": "e4d_",
     "title": "e4d",
-    "url": "https://band.link/e4d_"
+    "url": "https://band.link/e4d_",
+    "cover": "/assets/music/e4d_.jpg"
   },
   {
     "id": "junior_forever",
     "title": "Junior Forever",
-    "url": "https://band.link/junior_forever"
+    "url": "https://band.link/junior_forever",
+    "cover": "/assets/music/junior_forever.jpg"
   },
   {
     "id": "coincidence_",
     "title": "coincidence",
-    "url": "https://band.link/coincidence_"
+    "url": "https://band.link/coincidence_",
+    "cover": "/assets/music/coincidence_.jpg"
   },
   {
     "id": "BnkkL",
     "title": "back to the origins",
-    "url": "https://band.link/BnkkL"
+    "url": "https://band.link/BnkkL",
+    "cover": "/assets/music/BnkkL.jpg"
   },
   {
     "id": "aftersynth",
     "title": "Aftersynth",
-    "url": "https://band.link/aftersynth"
+    "url": "https://band.link/aftersynth",
+    "cover": "/assets/music/aftersynth.jpg"
   },
   {
     "id": "IqT9O",
     "title": "cybershokesurf (ambient)",
-    "url": "https://band.link/IqT9O"
+    "url": "https://band.link/IqT9O",
+    "cover": "/assets/music/IqT9O.jpg"
   },
   {
     "id": "25vyM",
     "title": "Time Rift (Retrospective)",
-    "url": "https://band.link/25vyM"
+    "url": "https://band.link/25vyM",
+    "cover": "/assets/music/25vyM.jpg"
   },
   {
     "id": "loprogwave",
     "title": "Loprogwave",
-    "url": "https://band.link/loprogwave"
+    "url": "https://band.link/loprogwave",
+    "cover": "/assets/music/loprogwave.jpg"
   },
   {
     "id": "time_rift",
     "title": "Time Rift (Volume 5)",
-    "url": "https://band.link/time_rift"
+    "url": "https://band.link/time_rift",
+    "cover": "/assets/music/time_rift.jpg"
   },
   {
     "id": "time_rift_volume_4",
     "title": "Time Rift (Volume 4)",
-    "url": "https://band.link/time_rift_volume_4"
+    "url": "https://band.link/time_rift_volume_4",
+    "cover": "/assets/music/time_rift_volume_4.jpg"
   },
   {
     "id": "time_rift_volume_2",
     "title": "Time Rift (Volume 2)",
-    "url": "https://band.link/time_rift_volume_2"
+    "url": "https://band.link/time_rift_volume_2",
+    "cover": "/assets/music/time_rift_volume_2.jpg"
   },
   {
     "id": "time_rift_volume_3",
     "title": "Time Rift (Volume 3)",
-    "url": "https://band.link/time_rift_volume_3"
+    "url": "https://band.link/time_rift_volume_3",
+    "cover": "/assets/music/time_rift_volume_3.jpg"
   },
   {
     "id": "DfZi1",
     "title": "Time Rift, Vol. 1",
-    "url": "https://band.link/DfZi1"
+    "url": "https://band.link/DfZi1",
+    "cover": "/assets/music/DfZi1.jpg"
   }
 ]
